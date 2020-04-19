@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    = render template: 'layouts/_header.html.slim'
+
+  .container-field
+   header
+    .row
+     .col-xs-2
+       = link_to "/" do
+        = image_tag 'rogo.png' , class: "menu"
+     .col-xs-2
+      nav.globalMenuSp
+
+      .navToggle
+          span
+          span
+          span
+          span menu
+   br
+   body
+     p.notice = notice
+     p.alert = alert
+     = yield

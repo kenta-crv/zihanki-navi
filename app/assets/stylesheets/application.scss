@@ -1,0 +1,399 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ $main_color: orange;
+ $sub_color: #fff;
+ $asort_color: red;
+
+ body {
+   font-family: "ヒラギノ角ゴ Pro W3";
+   width:100%;
+ }
+
+ /*フォントの指定はなし*/
+ a {
+   text-decoration: none;
+ }
+ * {
+   box-sizing: border-box;
+ }
+
+.main-wrapper {/*親div*/
+  position: relative;/*相対配置*/
+  }
+
+.main-wrapper .search2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width:80%;
+  line-height:5vw;
+  margin-top:30px;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  /*文字の装飾は省略*/
+  }
+
+  .form-height {margin:10px;}
+  .main-wrapper img {width: 100%;}
+
+  .submit{
+  	display:block;
+  	width:100px;
+  	height:42px;
+  	color:#fff;
+  	line-height:40px;
+  	text-align:center;
+  	background-color:$main_color;
+  	border:1px solid #c66;
+  }
+
+
+.store_index {
+  line-height:3.3vw;
+  a {
+    text-decoration: none;
+    color:black;
+  }
+  .store {
+    font-weight:bold;
+    font-size:24px;
+  }
+  .genre {margin:5px;}
+}
+
+                                          /*ヘッダーの始まり*/
+
+
+ /*ヘッダーのベース設定*/
+ header {
+   width: 100%;
+   font-size:15px;
+   text-align:center;
+   height:75px;
+   margin-bottom: -62px;
+   background-color: #fff;
+   padding-left:30px;
+   padding-right:30px;
+   a {
+     padding: 0 50px;
+     height:45px;
+     color: white;
+     transition-duration:2.0s;
+     }
+ }
+
+ .menu {
+   padding-top: 10px;
+   max-height: 85px;
+   height: auto;
+   margin-left: -50px;
+ }
+
+
+ /*ディテール*/
+ .error {
+     font-size:12px;
+     font-weight: bold;
+     color: tomato;
+ }
+ .command {
+    font-size:10px;
+ }
+
+
+
+
+ /*見出し*/
+ 	.headline {
+ 		padding: 0.6em 0.6em;/*文字の上下 左右の余白*/
+ 		color: $main_color;/*文字色*/
+ 		background: #fff;/*背景色*/
+ 		border-left: solid 5px #666;/*左線*/
+ 		border-bottom: solid 3px #d7d7d7;/*下線*/
+ 		text-align:left;
+ 		padding-left:30px;
+ 		margin:30px auto;
+ 		width:95%;
+ 		font-size:21px;
+ 		font-weight:bold;
+ 	    }
+ 	.center {
+ 	    text-align:center;
+      margin:0 autos;
+ 	}
+
+
+
+ /*ハンバーガーナビ*/
+ nav.globalMenuSp {
+     position: fixed;
+     z-index: 2;
+     top: 0;
+     left: 0;
+     background: #fff;
+     color: #666;
+     text-align: center;
+     transform: translateY(-100%);
+     transition: all 0.3s;
+     width: 100%;
+ }
+
+ nav.globalMenuSp ul {
+     background: $sub_color;
+     margin: 0 auto;
+     padding: 0;
+     width: 100%;
+ }
+
+ nav.globalMenuSp ul li {
+     font-size: 1.1em;
+     list-style-type: none;
+     padding: 0;
+     width: 100%;
+     border-bottom: 1px dotted #333;
+ }
+
+ /* 最後はラインを描かない */
+ nav.globalMenuSp ul li:last-child {
+     padding-bottom: 0;
+     border-bottom: none;
+ }
+
+ nav.globalMenuSp ul li a {
+     display: block;
+     color: #444;
+     padding: 1em 0;
+ }
+
+ /* このクラスを、jQueryで付与・削除する */
+ nav.globalMenuSp.active {
+     transform: translateY(0%);
+ }
+
+
+ .navToggle {
+     display: block;
+     position: fixed;    /* bodyに対しての絶対位置指定 */
+     right: 30px;
+     top: 20px;
+     width: 42px;
+     height: 51px;
+     cursor: pointer;
+     z-index: 3;
+     background: orange;
+     text-align: center;
+ }
+
+ .navToggle span {
+     display: block;
+     position: absolute;    /* .navToggleに対して */
+     width: 30px;
+     border-bottom: solid 3px #eee;
+     -webkit-transition: .35s ease-in-out;
+     -moz-transition: .35s ease-in-out;
+     transition: .35s ease-in-out;
+     left: 6px;
+ }
+
+ .navToggle span:nth-child(1) {
+     top: 9px;
+ }
+
+ .navToggle span:nth-child(2) {
+     top: 18px;
+ }
+
+ .navToggle span:nth-child(3) {
+     top: 27px;
+ }
+
+ .navToggle span:nth-child(4) {
+     border: none;
+     color: #eee;
+     font-size: 9px;
+     font-weight: bold;
+     top: 34px;
+ }
+
+ /* 最初のspanをマイナス45度に */
+ .navToggle.active span:nth-child(1) {
+     top: 18px;
+     left: 6px;
+     -webkit-transform: rotate(-45deg);
+     -moz-transform: rotate(-45deg);
+     transform: rotate(-45deg);
+ }
+
+ /* 2番目と3番目のspanを45度に */
+ .navToggle.active span:nth-child(2),
+ .navToggle.active span:nth-child(3) {
+     top: 18px;
+     -webkit-transform: rotate(45deg);
+     -moz-transform: rotate(45deg);
+     transform: rotate(45deg);
+ }
+
+
+
+ .cp_ipselect {
+ 	overflow: hidden;
+ 	width: 90%;
+ 	margin:1.7rem auto;
+ 	text-align: center;
+ }
+ .cp_ipselect select {
+ 	width: 100%;
+ 	padding-right: 1em;
+ 	cursor: pointer;
+ 	text-indent: 0.01px;
+ 	text-overflow: ellipsis;
+ 	border: none;
+ 	outline: none;
+ 	background: transparent;
+ 	background-image: none;
+ 	box-shadow: none;
+ 	-webkit-appearance: none;
+ 	appearance: none;
+ }
+ .cp_ipselect select::-ms-expand {
+     display: none;
+ }
+ .cp_ipselect.cp_sl05 {
+ 	position: relative;
+ 	border-radius: 2px;
+   border-radius: 50px;
+ 	background: orange;
+ }
+ .cp_ipselect.cp_sl05::before {
+ 	position: absolute;
+ 	top: 0.8em;
+ 	right: 0.8em;
+ 	width: 0;
+ 	height: 0;
+ 	padding: 0;
+ 	content: '';
+ 	border-left: 6px solid transparent;
+ 	border-right: 6px solid transparent;
+ 	border-top: 6px solid #ffffff;
+ 	pointer-events: none;
+ }
+ .cp_ipselect.cp_sl05 select {
+ 	padding: 8px 38px 8px 8px;
+ 	color: #ffffff;
+ }
+
+
+                                             /*テーブルに関する情報*/
+/*テーブル共通*/
+table.company {
+   width: 90%;
+   margin: 0 auto;
+   border-collapse: separate;
+   border-spacing: 0px 15px;
+   font-size: 1.5vw;
+
+   th, td { padding: 10px; }
+
+   th {
+      background: $main_color;
+      vertical-align: middle;
+      text-align: left;
+      overflow: visible;
+      position: relative;
+      color: #fff;
+      font-weight: normal;
+      font-size: 1.7vw;
+
+      :after {
+         left: 100%;
+         top: 50%;
+         border: solid transparent;
+         content: " ";
+         height: 0;
+         width: 0;
+         position: absolute;
+         pointer-events: none;
+         border-color: rgba(136, 183, 213, 0);
+         border-left-color: $main_color;
+         border-width: 10px;
+         margin-top: -10px;
+         }
+      }
+   td {
+      background: #f4f4f4;
+      }
+}
+
+
+ /*hr*/
+ .line {
+     height:5px;
+     background: $main_color;
+     background-image: -webkit-linear-gradient(left, #eee, $main_color, #eee);
+     background-image: -moz-linear-gradient(left, #eee, $main_color, #eee);
+     background-image: -ms-linear-gradient(left, #eee, $main_color, #eee);
+     background-image: -o-linear-gradient(left, #eee, $main_color, #eee);
+     width:90%;
+ }
+
+
+
+
+ /*posts index*/
+     .post-index-image {
+ 	    width:200px;
+         }
+ 		.post-space {
+ 			margin-bottom:10px;
+ 				}
+     .post-base {
+       	a, a:visited {color : #000;}
+ 	    padding-left:20px;
+ 	    .post-title {
+ 	        font-size:2rem;
+ 	        color:black;
+ 	        width:95%;
+ 	        font-weight:bold;
+ 	        }
+ 	    .post-description {
+ 	      	margin-top:10px;
+ 	        font-size:1rem;
+ 	    	  color:gray;
+ 	    	  font-weight:bold;
+ 	      	width:95%;
+ 	        }
+      }
+
+
+  .label {
+    background: red;
+  }
+
+  .label-blue {
+    background: blue;
+  }
+
+  input {
+    width:90%;
+  }
+  textarea {
+    width:90%;
+    line-height: 1.5em;
+  }
