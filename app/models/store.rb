@@ -11,15 +11,14 @@ class Store < ApplicationRecord
   mount_uploader :image_10, ImagesUploader
 
   def self.import(file)
-      CSV.foreach(file.path, headers:true) do |row|
-       store = find_by(id: row["id"]) || new
-       store.attributes = row.to_hash.slice(*updatable_attributes)
-       next if self.where(tel: store.tel).count > 0
-       store.save!
-      end
+    CSV.foreach(file.path, headers: true) do |row|
+      store = find_by(id: row["id"]) || new
+      store.attributes = row.to_hash.slice(*updatable_attributes)
+      store.save!
+    end
   end
 
   def self.updatable_attributes
-    ["store","evaluation","tel","address","genre","payment","genre","payment","price_lunch","price_dinner","hour","holiday","budget","price","difficulty","bookking","remarks"]
+    ["store","url","evaluation","tel","address","genre","payment","genre","payment","price_lunch","price_dinner","hour","holiday","budget","price","difficulty","bookking","remarks","takeout"]
   end
 end

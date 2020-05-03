@@ -18,7 +18,7 @@
 br
 br
 - @stores.each do |store|
-  .row
+   .row
     .col-xs-1
     .col-xs-3
       = image_tag store.image_1.to_s, width:"100%"
@@ -33,13 +33,13 @@ br
     -if admin_signed_in?
       = link_to "編集", edit_store_path(store)
       = link_to "削除", store_path(store) ,method: :delete,  data: { confirm: '本当に削除しますか？'}
-  hr
+    hr
 = paginate(@stores)
 
 = if admin_signed_in?
- h2.headline  インポート
- = form_tag import_stores_path, multipart: true do
- table.company
+h2.headline  インポート
+= form_tag import_stores_path, multipart: true do
+  table.company
       tbody
         tr
           th[colspan="3"]
@@ -49,3 +49,5 @@ br
             = file_field_tag :file
           th
             = submit_tag "インポート",  class: 'btn btn-default'
+br
+br

@@ -4,6 +4,10 @@ class StoresController < ApplicationController
     @q = Store.ransack(params[:q])
     @stores = @q.result
     @stores = @stores.page(params[:page]).per(20).order(created_at: :desc)
+    respond_to do |format|
+     format.html
+     format.csv{ send_data @stores.generate_csv, filename: "stores-#{Time.zone.now.strftime('%Y%m%d%S')}.csv" }
+    end
   end
 
   def show
@@ -44,8 +48,8 @@ class StoresController < ApplicationController
   end
 
   def import
-    Crm.import(params[:file])
-    redirect_to crms_url, notice:"リストを追加しました"
+    Store.import(params[:file])
+    redirect_to root_url, notice:"リストを追加しました"
   end
 
   private
@@ -53,6 +57,7 @@ class StoresController < ApplicationController
         params.require(:store).permit(
           :store, #店舗名
           :evaluation,
+          :url,
           :tel, #電話番号
           :address, #住所
           :genre, #ジャンル
@@ -68,6 +73,7 @@ class StoresController < ApplicationController
           :difficulty, #難易度
           :bookking, #予約方法
           :remarks, #備考
+          :takeout,
           :image_1,
           :image_2,
           :image_3,

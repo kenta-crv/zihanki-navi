@@ -21,6 +21,12 @@
         td
           strong.label 必須
         td.arrow_box
+          | URL
+        td = number_field :store, :url
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
           | 電話番号
         td = phone_field :store, :tel
       tr
@@ -71,6 +77,18 @@
         td.arrow_box
           | 予約方法
         td = text_area :store, :bookking
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | 備考
+        td = number_field :store, :remarks
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | テイクアウト
+        td = number_field :store, :takeout
       tr
         td
           strong.label 必須

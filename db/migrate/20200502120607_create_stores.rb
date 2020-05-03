@@ -3,6 +3,7 @@ class CreateStores < ActiveRecord::Migration[5.2]
     create_table :stores do |t|
       t.string :store #店舗名
       t.string :evaluation
+      t.string :url #URL
       t.string :tel #電話番号
       t.string :address #住所
       t.string :genre #ジャンル
@@ -18,6 +19,7 @@ class CreateStores < ActiveRecord::Migration[5.2]
       t.string :difficulty #難易度
       t.string :bookking #予約方法
       t.string :remarks #備考
+      t.string :takeout
       t.string :image_1
       t.string :image_2
       t.string :image_3
