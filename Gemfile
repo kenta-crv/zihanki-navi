@@ -83,3 +83,4 @@ gem "wysiwyg-rails"
 gem "font-awesome-rails"
 
 gem 'ransack'
+gem 'sitemap_generator'
