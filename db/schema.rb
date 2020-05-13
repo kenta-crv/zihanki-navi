@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 2020_05_02_120607) do
     t.string "price"
     t.string "difficulty"
     t.string "bookking"
+    t.string "sit"
+    t.string "open"
     t.string "remarks"
     t.string "takeout"
     t.string "image_1"

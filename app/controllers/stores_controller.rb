@@ -72,6 +72,8 @@ class StoresController < ApplicationController
           :price, #料金
           :difficulty, #難易度
           :bookking, #予約方法
+          :sit,
+          :open,
           :remarks, #備考
           :takeout,
           :image_1,

@@ -19,6 +19,6 @@ class Store < ApplicationRecord
   end
 
   def self.updatable_attributes
-    ["store","url","evaluation","tel","address","genre","payment","genre","payment","price_lunch","price_dinner","hour","holiday","budget","price","difficulty","bookking","remarks","takeout"]
+    ["store","url","evaluation","tel","address","genre","payment","genre","payment","price_lunch","price_dinner","hour","holiday","budget","price","difficulty","bookking","remarks","takeout","sit","open"]
   end
 end

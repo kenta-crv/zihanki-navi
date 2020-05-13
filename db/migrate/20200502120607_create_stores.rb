@@ -18,6 +18,8 @@ class CreateStores < ActiveRecord::Migration[5.2]
       t.string :price #料金
       t.string :difficulty #難易度
       t.string :bookking #予約方法
+      t.string :sit
+      t.string :open
       t.string :remarks #備考
       t.string :takeout
       t.string :image_1
