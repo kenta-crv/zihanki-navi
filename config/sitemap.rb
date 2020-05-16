@@ -6,8 +6,6 @@ SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
 SitemapGenerator::Sitemap.create do
 
 add "/" , changefreq: 'daily', priority: 1.0
-
-add "/stores" , changefreq: 'daily', priority: 1.0
   # Put links creation logic here.
   #
   # The root path '/' and sitemap index file are added automatically for you.
@@ -21,13 +19,13 @@ add "/stores" , changefreq: 'daily', priority: 1.0
   #
   # Examples:
   #
-  # Add '/articles'
-  #
-  #   add articles_path, :priority => 0.7, :changefreq => 'daily'
-  #
-  # Add all articles:
-  #
-  #   Article.find_each do |article|
-  #     add article_path(article), :lastmod => article.updated_at
-  #   end
+   Add '/stores'
+
+     add stores_path, :priority => 0.7, :changefreq => 'daily'
+
+   Add all stores:
+
+     store.find_each do |store|
+       add store_path(store), :lastmod => store.updated_at
+     end
 end

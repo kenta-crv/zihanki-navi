@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
     devise_for :admins
+    root to: 'top#index' #トップランディングページ
+    get 'lp' => 'top#lp'
+    get 'recruit' => 'top#recruit'
+    get 'company' => 'top#company'
 
-    root to: 'stores#index'
-    resources :stores do
+    resources :pages
+    resources :lists do
       collection do
         post :import
       end
     end
 
-    get 'contact' => 'contact#index'
-    post 'confirm' =>'contact#confirm'
-    post 'thanks' => 'contact#thanks'
-
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+    get '/contact' => 'contact#index'
+    post '/confirm' => 'contact#confirm'
+    post '/thanks' => 'contact#thanks'
 end

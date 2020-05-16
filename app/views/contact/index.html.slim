@@ -1,0 +1,155 @@
+= form_for(@contact, url: { action: :confirm }) do |f|
+  - if @contact.errors.any?
+    strong 入力内容にエラーがあります
+    ul
+      - @contact.errors.each do |attr, msg|
+        li= msg
+
+  =image_tag 'contact.gif', width: '100%'
+
+  .tops-wrapper
+    h1.headline-first
+      span> お問い合わせ
+      | フォーム
+    br
+    table.company
+      colgroup
+        col width="10%"
+        col width="20%"
+        col width="70%"
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | 会社名
+        td
+          = f.text_field :company
+          br
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | 担当者名
+        td
+          = f.text_field :name
+          br
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | 電話番号
+        td
+          = f.text_field :tel
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | メールアドレス
+        td
+          = f.email_field :email
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | 住所
+        td
+          = f.text_field :address
+      tr
+        td
+          strong.label.label-blue 任意
+        td.arrow_box
+          | URL
+        td
+          = f.text_field :url
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | 人材を募集する都道府県
+        td
+          = f.text_field :prefecture
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | 人材を募集する仕事内容
+        td
+          = f.text_field :business
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | 必要人数
+        td
+          = f.number_field :people
+          | 人
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | 派遣期間
+        td
+          = f.select(:introduction,[\
+             ["選択する","選択する"],\
+             ["良い人材がいればすぐ","良い人材がいればすぐ"],\
+             ["1ヶ月以内","1ヶ月以内"],\
+             ["3ヶ月以内","3ヶ月以内"],\
+             ["6ヶ月以内","6ヶ月以内"],
+          ])
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | 導入時期
+        td
+          = f.number_field :period
+          | ヶ月
+      tr
+        td
+          strong.label.label-blue 任意
+        td.arrow_box
+          | 連絡方法
+        td= f.select(:communication, [ \
+            ["どちらでも可","どちらでも可"],      \
+            ["電話希望","電話希望"],      \
+            ["メール希望","メール希望"],      \
+            ])
+      tr
+        td
+          strong.label.label-blue 任意
+        td.arrow_box
+          | 外国人派遣は可能ですか？
+        td.center
+         .row
+          .col-sm-6
+           = f.radio_button(:country, "はい")
+           = f.label "はい"
+          .col-sm-6
+           = f.radio_button(:country, "いいえ")
+           = f.label "いいえ"
+      tr
+        td
+          strong.label.label-blue 任意
+        td.arrow_box
+          | 最大比較社数（5~7社がオススメ）
+        td
+         = f.select(:estimate,[\
+           ["5社","5社"],\
+           ["6社","6社"],\
+           ["7社","7社"],\
+           ["4社","4社"],\
+           ["3社","3社"],\
+           ["8社","8社"],\
+           ["9社","9社"],\
+           ["10社","10社"],\
+         ])
+      tr
+        td
+          strong.label.label-blue 任意
+        td.arrow_box
+          | 追記事項
+        td
+          = f.text_area :remarks
+      tr
+        td colspan="3"
+          = f.submit "確認"

@@ -1,0 +1,68 @@
+- set_meta_tags  title: '一括比較見積もりなら｜Comicomi'
+- set_meta_tags  keyword: '一括見積もり, 比較'
+- set_meta_tags  description: ''
+br
+br
+br
+.center
+ /= image_tag @list.image.url, width: "50%"
+br
+table.company
+  colgroup
+    col width="20%"
+    col width="30%"
+    col width="20%"
+    col width="30%"
+    tbody
+      tr
+        td.arrow_box
+          | 会社名
+        td = @list.company
+      tr
+        td.arrow_box
+          | 代表者名
+        td = @list.name
+      tr
+        td.arrow_box
+          | 電話番号
+        td = @list.tel
+      tr
+        td.arrow_box
+          | 住所
+        td = @list.address
+      tr
+        td.arrow_box
+          | メールアドレス
+        td = @list.mail
+      tr
+        td.arrow_box
+          | URL
+        td = @list.url
+      tr
+        td.arrow_box
+          | URL2
+        td = @list.url_2
+      tr
+        td.arrow_box
+          | タイトル
+        td = @list.title
+      tr
+        td.arrow_box
+          | 資本金
+        td = @list.caption
+      tr
+        td.arrow_box
+          | 従業員数
+        td = @list.people
+      tr
+        td.arrow_box
+          | 事業
+        td = @list.industry
+      tr
+        td.arrow_box
+          | その他
+        td =@list.other
+      tr
+        td.arrow_box
+          | その他2
+        td =@list.other2

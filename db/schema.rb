@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_02_120607) do
+ActiveRecord::Schema.define(version: 2020_05_16_080201) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,6 +22,45 @@ ActiveRecord::Schema.define(version: 2020_05_02_120607) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "company"
+    t.string "name"
+    t.string "tel"
+    t.string "address"
+    t.string "email"
+    t.string "url"
+    t.string "prefecture"
+    t.string "business"
+    t.string "people"
+    t.string "introduction"
+    t.string "period"
+    t.string "communication"
+    t.string "country"
+    t.string "estimate"
+    t.string "remarks"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.string "company"
+    t.string "name"
+    t.string "tel"
+    t.string "address"
+    t.string "mail"
+    t.string "url"
+    t.string "url_2"
+    t.string "title"
+    t.string "industry"
+    t.string "other"
+    t.string "other2"
+    t.string "caption"
+    t.string "people"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "stores", force: :cascade do |t|
