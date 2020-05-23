@@ -85,9 +85,9 @@
           | 人
       tr
         td
-          strong.label 必須
+          strong.label.label-blue 任意
         td.arrow_box
-          | 派遣期間
+          | 派遣期間（派遣希望の場合のみ）
         td
           = f.select(:introduction,[\
              ["選択する","選択する"],\
@@ -98,12 +98,12 @@
           ])
       tr
         td
-          strong.label 必須
+          strong.label.label-blue 任意
         td.arrow_box
-          | 導入時期
+          | 採用時期
         td
           = f.number_field :period
-          | ヶ月
+          | ヶ月以内
       tr
         td
           strong.label.label-blue 任意
@@ -114,19 +114,6 @@
             ["電話希望","電話希望"],      \
             ["メール希望","メール希望"],      \
             ])
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 外国人派遣は可能ですか？
-        td.center
-         .row
-          .col-sm-6
-           = f.radio_button(:country, "はい")
-           = f.label "はい"
-          .col-sm-6
-           = f.radio_button(:country, "いいえ")
-           = f.label "いいえ"
       tr
         td
           strong.label.label-blue 任意

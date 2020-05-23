@@ -9,7 +9,6 @@ validates :email, {presence: true} #メールアドレス
 validates :prefecture, {presence: true} #県
 validates :business, {presence: true} #業種
 validates :people, {presence: true} #必要人数
-validates :introduction, {presence: true} #導入時期
 validates :period, {presence: true} #期間
 
 @@SubsidyLists = [

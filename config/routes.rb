@@ -2,7 +2,8 @@ Rails.application.routes.draw do
     devise_for :admins
     root to: 'top#index' #トップランディングページ
     get 'lp' => 'top#lp'
-    get 'recruit' => 'top#recruit'
+    get 'recruitment' => 'top#recruitment'
+    get 'temporary' => 'top#temporary'
     get 'company' => 'top#company'
 
     resources :pages

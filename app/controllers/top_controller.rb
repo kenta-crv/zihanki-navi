@@ -5,9 +5,13 @@ class TopController < ApplicationController
   def lp
   end
 
-  def recruit
+  def recruitment
   end
-  
+
+  def temporary
+  end
+
   def company
   end
+
 end

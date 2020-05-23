@@ -87,7 +87,7 @@ br
           |　人
       tr
         td
-          strong.label 必須
+          strong.label.label-blue 任意
         td.arrow_box
           | 派遣期間
         td
@@ -95,13 +95,13 @@ br
           = @contact.introduction
       tr
         td
-          strong.label 必須
+          strong.label.label-blue 任意
         td.arrow_box
-          | 導入時期
+          | 採用時期
         td
           = f.hidden_field :period
           = @contact.period
-          | ヶ月
+          | ヶ月以内
       tr
         td
           strong.label.label-blue 任意
@@ -110,14 +110,6 @@ br
         td
           = f.hidden_field :communication
           = @contact.communication
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 外国人派遣は可能ですか？
-        td
-          = f.hidden_field :country
-          = @contact.country
       tr
         td
           strong.label.label-blue 任意
