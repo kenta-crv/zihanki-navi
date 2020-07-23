@@ -1,28 +1,16 @@
 class Contact < ApplicationRecord
 
-validates :company, {presence: true} #会社名
-validates :company, {presence: true} #会社名
-validates :name, {presence: true}  #代表者名
+validates :first_name, {presence: true}  #苗字
+validates :last_name, {presence: true}  #名前
+validates :first_kana, {presence: true}  #ミョウジ
+validates :last_kana, {presence: true}  #ナマエ
 validates :tel, {presence: true} #電話番号
-validates :address, {presence: true} #住所
 validates :email, {presence: true} #メールアドレス
-validates :prefecture, {presence: true} #県
-validates :business, {presence: true} #業種
-validates :people, {presence: true} #必要人数
-validates :period, {presence: true} #期間
+validates :prefecture, {presence: true} #都道府県
+validates :city, {presence: true} #市区町村
+validates :town, {presence: true} #URL
+validates :build, {presence: true} #建物
+validates :area, {presence: true} #面積
+validates :introduction, {presence: true} #解体時期
 
-@@SubsidyLists = [
-  ["キャリアアップ助成金","キャリアアップ助成金"],
-  ["人材開発支援等助成金","人材開発支援等助成金"],
-  ["トライアル雇用助成金","トライアル雇用助成金"],
-  ["人材確保支援等助成金","人材確保支援等助成金"],
-  ["両立支援等助成金","両立支援等助成金"],
-  ["小規模事業者持続化補助金","小規模事業者持続化補助金"],
-  ["ものづくり補助金","ものづくり補助金"],
-  ["IT導入支援補助金","IT導入支援補助金"]
-]
-
-def self.SubsidyLists
-  @@SubsidyLists
-end
 end

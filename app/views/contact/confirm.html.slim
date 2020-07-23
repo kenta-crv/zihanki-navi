@@ -16,18 +16,22 @@ br
         td
           strong.label 必須
         td.arrow_box
-          | 会社名
+          | 氏名
         td
-          = f.hidden_field :company
-          = @contact.company
+          = f.hidden_field :first_name
+          = @contact.first_name
+          = f.hidden_field :last_name
+          = @contact.last_name
       tr
         td
           strong.label 必須
         td.arrow_box
-          | 担当者名
+          | シメイ
         td
-          = f.hidden_field :name
-          = @contact.name
+         = f.hidden_field :first_kana
+         = @contact.first_kana
+         = f.hidden_field :last_kana
+         = @contact.last_kana
       tr
         td
           strong.label 必須
@@ -48,76 +52,53 @@ br
         td
           strong.label 必須
         td.arrow_box
-          | 住所
-        td
-          = f.hidden_field :address
-          = @contact.address
-      tr
-        td
-          strong.label.blue 任意
-        td.arrow_box
-          | URL
-        td
-          = f.hidden_field :url
-          = @contact.url
-      tr
-        td
-          strong.label 必須
-        td.arrow_box
-          | 人材を募集する都道府県
+          | 都道府県
         td
           = f.hidden_field :prefecture
           = @contact.prefecture
+          | 県
       tr
         td
           strong.label 必須
         td.arrow_box
-          | 人材を募集する仕事内容
+          | 市町村
         td
-          = f.hidden_field :business
-          = @contact.business
+          = f.hidden_field :city
+          = @contact.city
       tr
         td
           strong.label 必須
         td.arrow_box
-          | 必要人数
+          | 番地以降
         td
-          = f.hidden_field :people
-          = @contact.people
-          |　人
+          = f.hidden_field :town
+          = @contact.town
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | 建物
+        td
+          = f.hidden_field :build
+          = @contact.build
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | 総延床面積
+        td
+          = f.hidden_field :area
+          = @contact.area
+          | 坪
       tr
         td
           strong.label.label-blue 任意
         td.arrow_box
-          | 派遣期間
+          | 解体予定時期
         td
           = f.hidden_field :introduction
           = @contact.introduction
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 採用時期
-        td
-          = f.hidden_field :period
-          = @contact.period
           | ヶ月以内
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 連絡方法
-        td
-          = f.hidden_field :communication
-          = @contact.communication
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 最大比較者数
-        td
-          = f.hidden_field :estimate
-          = @contact.estimate
       tr
         td
           strong.label.label-blue 任意
@@ -128,4 +109,4 @@ br
           = @contact.remarks
       tr
         td colspan="3"
-          = f.submit "確認"
+          = f.submit "送信"

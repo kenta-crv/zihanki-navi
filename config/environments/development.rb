@@ -5,7 +5,7 @@ Rails.application.configure do
 
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-  address: 'info@comicomi.cc',
+  address: 'smtp3.gmoserver.jp',
   domain: 'comicomi.cc',
   port: 587,
   user_name: 'info@comicomi.cc',

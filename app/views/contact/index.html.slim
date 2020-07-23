@@ -21,17 +21,19 @@
         td
           strong.label 必須
         td.arrow_box
-          | 会社名
+          | 氏名
         td
-          = f.text_field :company
+          = f.text_field :first_name, class:"harf"
+          = f.text_field :last_name, class:"harf"
           br
       tr
         td
           strong.label 必須
         td.arrow_box
-          | 担当者名
+          | シメイ
         td
-          = f.text_field :name
+          = f.text_field :first_kana, class:"harf"
+          = f.text_field :last_kana, class:"harf"
           br
       tr
         td
@@ -51,85 +53,59 @@
         td
           strong.label 必須
         td.arrow_box
-          | 住所
-        td
-          = f.text_field :address
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | URL
-        td
-          = f.text_field :url
-      tr
-        td
-          strong.label 必須
-        td.arrow_box
-          | 人材を募集する都道府県
+          | 都道府県
         td
           = f.text_field :prefecture
+          |県
       tr
         td
           strong.label 必須
         td.arrow_box
-          | 人材を募集する仕事内容
+          | 市区町村
         td
-          = f.text_field :business
+          = f.text_field :city
       tr
         td
           strong.label 必須
         td.arrow_box
-          | 必要人数
+          | 番地以降
         td
-          = f.number_field :people
-          | 人
+          = f.text_field :town
       tr
         td
-          strong.label.label-blue 任意
+          strong.label 必須
         td.arrow_box
-          | 派遣期間（派遣希望の場合のみ）
+          | 建物
         td
-          = f.select(:introduction,[\
-             ["選択する","選択する"],\
-             ["良い人材がいればすぐ","良い人材がいればすぐ"],\
-             ["1ヶ月以内","1ヶ月以内"],\
-             ["3ヶ月以内","3ヶ月以内"],\
-             ["6ヶ月以内","6ヶ月以内"],
+         = f.select(:build,[\
+           ["木造","木造"],\
+           ["鉄骨造","鉄骨造"],\
+           ["鉄筋コンクリート（RC）","鉄筋コンクリート（RC）"],\
+           ["鉄骨鉄筋コンクリート（SRC）","鉄骨鉄筋コンクリート（SRC）"],
+           ["軽量鉄骨造","軽量鉄骨造"],
+           ["その他","その他"],
           ])
       tr
         td
-          strong.label.label-blue 任意
+          strong.label 必須
         td.arrow_box
-          | 採用時期
+          | 総延床面積
         td
-          = f.number_field :period
-          | ヶ月以内
+          = f.number_field :area
+          | 坪
       tr
         td
-          strong.label.label-blue 任意
+          strong.label 必須
         td.arrow_box
-          | 連絡方法
-        td= f.select(:communication, [ \
-            ["どちらでも可","どちらでも可"],      \
-            ["電話希望","電話希望"],      \
-            ["メール希望","メール希望"],      \
-            ])
-      tr
+          | 解体予定時期
         td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 最大比較社数（5~7社がオススメ）
-        td
-         = f.select(:estimate,[\
-           ["5社","5社"],\
-           ["6社","6社"],\
-           ["7社","7社"],\
-           ["4社","4社"],\
-           ["3社","3社"],\
-           ["8社","8社"],\
-           ["9社","9社"],\
-           ["10社","10社"],\
-         ])
+          = f.select(:introduction,[\
+             ["選択する","選択する"],\
+             ["1ヶ月以内","1ヶ月以内"],\
+             ["3ヶ月以内","3ヶ月以内"],\
+             ["6ヶ月以内","6ヶ月以内"],
+             ["未定","未定"],
+          ])
       tr
         td
           strong.label.label-blue 任意

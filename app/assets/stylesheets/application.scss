@@ -14,8 +14,9 @@
  *= require_self
  */
 
- $main_color: #4287F8;
+ $main_color: #1DB100;
  $sub_color: #1481c8;
+ $asort_color: #017100;
 
 body {
   width:100%;
@@ -79,7 +80,7 @@ main {
           font-size:4.0vw;
           font-weight:bold;
           margin-top:30px;
-          color:#327BEE;
+          color:$asort_color;
           text-shadow: 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff, 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff;
       }
       .face-2 {
@@ -89,7 +90,7 @@ main {
       .face-3 {
           font-size:7.0vw;
           font-weight:bold;
-          color:#327BEE;
+          color:$asort_color;
           text-shadow: 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff, 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff;
       }
       .face-4 {
@@ -129,14 +130,14 @@ main {
        font-size:4.0vw;
        font-weight:bold;
        line-height:7vw;
-       color:#327BEE;
+       color:$asort_color;
        text-shadow: 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff, 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff;
    }
    /*イエローライン*/
    .push {
        text-align:center;
        font-size:4.5vw;
-       color:orange;
+       color:#F27200;
        font-weight:bold;
        width:100%;
        text-shadow: 3px 3px 3px #fff, -3px 3px 3px #fff, 3px -3px 3px #fff, -3px -3px 3px #fff, 3px 3px 3px #fff, -3px 3px 3px #fff, 3px -3px 3px #fff, -3px -3px 3px #fff;
@@ -175,7 +176,7 @@ main {
     line-height:5.0vw;
     font-weight:bold;
     width:100%;
-    text-shadow: 3px 3px 3px #fff, -3px 3px 3px #fff, 3px -3px 3px #fff, -3px -3px 3px #fff, 3px 3px 3px #fff, -3px 3px 3px #fff, 3px -3px 3px #fff, -3px -3px 3px #fff;
+    text-shadow: 3px 3px 3px yellow, -3px 3px 3px #fff, 3px -3px 3px #fff, -3px -3px 3px #fff, 3px 3px 3px #fff, -3px 3px 3px #fff, 3px -3px 3px #fff, -3px -3px 3px #fff;
 }
 .under {
      background: linear-gradient(transparent 60%, #FFFF66 60%);
@@ -277,7 +278,7 @@ dd {
     content: "";
     height: 60px;
     display: block;
-    border-left: 4px dotted #e5e5e5;
+    border-left: 4px dotted $main_color;
     position: absolute;
     top: -40px;
     left: -webkit-calc(10% + 30px - 2px);
@@ -293,7 +294,7 @@ dd {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    border: 2px solid rgb(107,144,219);
+    border: 2px solid $main_color;
     border-radius: 10px;
     position: relative;
 }
@@ -309,7 +310,7 @@ dd {
 }
 .flow > li:not(:last-child) dl::before {
     border-width: 22px;
-    border-top-color: rgb(107,144,219);
+    border-top-color: $main_color;
 }
 .flow > li:not(:last-child) dl::after {
     border-width: 20px;
@@ -318,7 +319,7 @@ dd {
 .flow > li dl dt {
     font-size: 20px;
     font-weight: 600;
-    color: rgb(107,144,219);
+    color: $main_color;
     -ms-flex-preferred-size: 20%;
     flex-basis: 25%;
     margin-right: 2vw;
@@ -327,17 +328,17 @@ dd {
 .flow > li dl dt .icon {
     font-size: 12px;
     color: #fff;
-    background: rgb(107,144,219);
-    background: -moz-linear-gradient(left, rgba(107,144,219,1) 0%, rgba(102,213,233,1) 100%);
-    background: -webkit-linear-gradient(left, rgba(107,144,219,1) 0%,rgba(102,213,233,1) 100%);
-    background: linear-gradient(to right, rgba(107,144,219,1) 0%,rgba(102,213,233,1) 100%);
+    background: $asort_color;
+    background: -moz-linear-gradient(left, $asort_color 0%, $main_color 100%);
+    background: -webkit-linear-gradient(left, $asort_color 0%,$main_color 100%);
+    background: linear-gradient(to right, $asort_color 0%,$main_color 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6b90db', endColorstr='#66d5e9',GradientType=1 );
     padding: 5px 10px;
     margin-bottom: 10px;
     display: block;
     border-radius: 20px;
     position: relative;
-    z-index: 100;
+    z-index: 9;
 }
 
 
@@ -824,7 +825,7 @@ ul.cp_list li:after {
       position: absolute;
       font-family: "Font Awesome 5 Free",'Quicksand','Avenir','Arial',sans-serif;
       content: '\f00c Check';
-      background: #0365C0;
+      background: $asort_color;
       color: #fff;
       left: 0px;
       bottom: 100%;
@@ -854,4 +855,8 @@ ul.cp_list li:after {
     font-size:15px;
     color:#333;
   }
+}
+
+.harf {
+  width:50%;
 }

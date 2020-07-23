@@ -25,20 +25,18 @@ ActiveRecord::Schema.define(version: 2020_05_16_080201) do
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string "company"
-    t.string "name"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "first_kana"
+    t.string "last_kana"
     t.string "tel"
-    t.string "address"
     t.string "email"
-    t.string "url"
     t.string "prefecture"
-    t.string "business"
-    t.string "people"
+    t.string "city"
+    t.string "town"
+    t.string "build"
+    t.string "area"
     t.string "introduction"
-    t.string "period"
-    t.string "communication"
-    t.string "country"
-    t.string "estimate"
     t.string "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

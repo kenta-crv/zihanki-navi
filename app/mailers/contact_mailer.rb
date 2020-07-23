@@ -1,9 +1,9 @@
 class ContactMailer < ActionMailer::Base
-  default from: "info@ri-plus.jp"
+  default from: "info@comicomi.cc"
   def received_email(contact)
     @contact = contact
-    mail to: "info@ri-plus.jp"
-    mail(subject: 'コミコミよりお問い合わせがありました') do |format|
+    mail to: "info@comicomi.cc"
+    mail(subject: '解体比較見積りよりお問い合わせがありました') do |format|
       format.text
     end
   end
@@ -11,7 +11,7 @@ class ContactMailer < ActionMailer::Base
   def send_email(contact)
     @contact = contact
     mail to: contact.email
-    mail(subject: 'コミコミにお問い合わせ頂きありがとうございます') do |format|
+    mail(subject: '解体比較見積りにお問い合わせ頂きありがとうございます') do |format|
       format.text
     end
   end
