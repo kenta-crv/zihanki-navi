@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 2020_05_16_080201) do
     t.string "prefecture"
     t.string "city"
     t.string "town"
-    t.string "build"
-    t.string "area"
-    t.string "introduction"
+    t.string "worries"
+    t.string "importance"
+    t.string "period"
     t.string "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

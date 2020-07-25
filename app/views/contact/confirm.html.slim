@@ -77,33 +77,32 @@ br
         td
           strong.label 必須
         td.arrow_box
-          | 建物
+          | 悩んでいる点
         td
-          = f.hidden_field :build
-          = @contact.build
+          = f.hidden_field :worries
+          = @contact.worries
       tr
         td
           strong.label 必須
         td.arrow_box
-          | 総延床面積
+          | 重視する点
         td
-          = f.hidden_field :area
-          = @contact.area
+          = f.hidden_field :importance
+          = @contact.importance
           | 坪
       tr
         td
-          strong.label.label-blue 任意
+          strong.label 必須
         td.arrow_box
-          | 解体予定時期
+          | 導入時期
         td
-          = f.hidden_field :introduction
-          = @contact.introduction
-          | ヶ月以内
+          = f.hidden_field :period
+          = @contact.period
       tr
         td
-          strong.label.label-blue 任意
+          strong.label 必須
         td.arrow_box
-          | 追記事項
+          | 相談本文
         td
           = f.hidden_field :remarks
           = @contact.remarks

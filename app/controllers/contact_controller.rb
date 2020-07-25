@@ -31,9 +31,9 @@ class ContactController < ApplicationController
       :prefecture,
       :city,
       :town,
-      :build,
-      :area,
-      :introduction,
+      :worries,
+      :importance,
+      :period,
       :remarks
     )
   end

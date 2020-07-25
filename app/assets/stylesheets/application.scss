@@ -14,9 +14,9 @@
  *= require_self
  */
 
- $main_color: #1DB100;
- $sub_color: #1481c8;
- $asort_color: #017100;
+ $main_color: #772E13;
+ $sub_color: #F27200;
+ $asort_color: orange;
 
 body {
   width:100%;
@@ -80,7 +80,7 @@ main {
           font-size:4.0vw;
           font-weight:bold;
           margin-top:30px;
-          color:$asort_color;
+          color: $sub_color;
           text-shadow: 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff, 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff;
       }
       .face-2 {
@@ -90,7 +90,7 @@ main {
       .face-3 {
           font-size:7.0vw;
           font-weight:bold;
-          color:$asort_color;
+          color:$sub_color;
           text-shadow: 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff, 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff;
       }
       .face-4 {
@@ -130,14 +130,14 @@ main {
        font-size:4.0vw;
        font-weight:bold;
        line-height:7vw;
-       color:$asort_color;
+       color:$sub_color;
        text-shadow: 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff, 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff;
    }
    /*イエローライン*/
    .push {
        text-align:center;
        font-size:4.5vw;
-       color:#F27200;
+       color:$asort_color;
        font-weight:bold;
        width:100%;
        text-shadow: 3px 3px 3px #fff, -3px 3px 3px #fff, 3px -3px 3px #fff, -3px -3px 3px #fff, 3px 3px 3px #fff, -3px 3px 3px #fff, 3px -3px 3px #fff, -3px -3px 3px #fff;
