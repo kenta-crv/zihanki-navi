@@ -31,12 +31,12 @@ header {
   position: fixed;
   z-index:10;
   list-style-type: none;
-  height: 70px;
+  height: 60px;
   margin-top:-10px;
   line-height:middle;
   background: $main_color;
   img {
-    width:180px;
+    width:150px;
     margin-top:5px;
     margin-left:10px;
   }
@@ -80,7 +80,7 @@ main {
           font-size:4.0vw;
           font-weight:bold;
           margin-top:30px;
-          color: $sub_color;
+          color:$asort_color;
           text-shadow: 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff, 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff;
       }
       .face-2 {
@@ -90,7 +90,7 @@ main {
       .face-3 {
           font-size:7.0vw;
           font-weight:bold;
-          color:$sub_color;
+          color:$asort_color;
           text-shadow: 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff, 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff;
       }
       .face-4 {
@@ -130,14 +130,14 @@ main {
        font-size:4.0vw;
        font-weight:bold;
        line-height:7vw;
-       color:$sub_color;
+       color:$asort_color;
        text-shadow: 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff, 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff;
    }
    /*イエローライン*/
    .push {
        text-align:center;
        font-size:4.5vw;
-       color:$asort_color;
+       color:#F27200;
        font-weight:bold;
        width:100%;
        text-shadow: 3px 3px 3px #fff, -3px 3px 3px #fff, 3px -3px 3px #fff, -3px -3px 3px #fff, 3px 3px 3px #fff, -3px 3px 3px #fff, 3px -3px 3px #fff, -3px -3px 3px #fff;
@@ -162,16 +162,18 @@ main {
              }
       }
 
+
+
 /*中央寄せ*/
 .center {
   text-align:center;
   margin:0 auto;
 }
 
-/*イエローライン*/
 .push {
     text-align:center;
     font-size:6.0vw;
+    margin:0px;
     color:orange;
     line-height:5.0vw;
     font-weight:bold;
@@ -181,6 +183,7 @@ main {
 .under {
      background: linear-gradient(transparent 60%, #FFFF66 60%);
 }
+
 
 
 .surprise {
