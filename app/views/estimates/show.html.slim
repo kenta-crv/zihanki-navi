@@ -1,0 +1,67 @@
+- set_meta_tags noindex: true
+
+
+
+= link_to "https://shiokuritai.com"+estimate_path(@estimate), estimate_path(@estimate)
+br
+br
+.center
+.tops-wrapper
+br
+ h2.headline  基本情報
+ table.company.copy-control
+  colgroup
+    col width="20%"
+    col width="30%"
+    col width="20%"
+    col width="30%"
+    tbody
+      tr
+        th.arrow_box
+          | 相談者
+        td
+           = @estimate.first_name
+           = @estimate.last_name
+      tr
+        th.arrow_box
+          | ソウダンシャ
+        td
+           = @estimate.first_kana
+           = @estimate.last_kana
+      tr
+        th.arrow_box
+          | 電話番号
+        td
+           = @estimate.tel
+      tr
+        th.arrow_box
+          | メールアドレス
+        td
+           = @estimate.email
+      tr
+        th.arrow_box
+          | 住所
+        td
+           = @estimate.prefecture
+           = @estimate.city
+           = @estimate.town
+      tr
+        th.arrow_box
+          | 悩み
+        td
+           = @estimate.worries
+      tr
+        th.arrow_box
+          | 重要な点
+        td
+           = @estimate.importance
+      tr
+        th.arrow_box
+          | 期日
+        td
+           = @estimate.period
+      tr
+        th.arrow_box
+          | 相談本文
+        td
+           = @estimate.remarks

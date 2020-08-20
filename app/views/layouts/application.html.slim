@@ -2,12 +2,55 @@ doctype html
 html
   head
       = render template: 'layouts/_head.html.slim'
+
   header
-      .row.header
-        .col-xs-4
-            =link_to "/" do
-              =image_tag "rogo.png",height: "100%", class:"left"
-        .col-xs-8
+      .row
+        .col-xs-3
+           = link_to "/"
+            =image_tag "rogo.png", width: "100%", class:"header-image"
+        h1.col-xs-8.center
+          .white
+            br
+            | 国内最大級の弁護士一括比較見積もりなら『士送隊』
+        .col-xs-x1
+                .navToggle
+                  span
+                  span
+                  span
+                  span menu
+      .row.navi
+        .col-xs-12.center.hidden-xs
+          ul#dropmenu
+           li
+             = link_to  'トップページ', '/' , class: "col-md"
+           li
+             = link_to  '弁護士サーチ', '/lists' , :class=>"col-md"
+           li
+             = link_to  '記事一覧', '/posts' , :class=>"col-md"
+           li
+             = link_to  'よくある質問', '/faq' , :class=>"col-md"
+           li
+             = link_to  '会社概要', '/company' , :class=>"col-md"
+           li
+             = link_to  '問い合わせ', '/contact' , :class=>"col-md"
+
+
+        nav.globalMenuSp
+           ul
+            li
+              = link_to  'トップページ', '/' , class: "col-md"
+            li
+              = link_to  '弁護士サーチ', '/lists' , :class=>"col-md"
+            li
+              = link_to  '記事一覧', '/posts' , :class=>"col-md"
+            li
+              = link_to  'よくある質問', '/faq' , :class=>"col-md"
+            li
+              = link_to  '会社概要', '/company' , :class=>"col-md"
+            li
+              = link_to  '問い合わせ', '/contact' , :class=>"col-md"
+
+
   body
     p.notice
       = notice

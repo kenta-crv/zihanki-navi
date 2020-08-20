@@ -8,7 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '414b6956600f75c4f88c164d905e83af72d546d78dad58f76cdb4f10e7e712fb6d38f81b6d21af081fb263f860136c06d6992398366610a60c4cf244206874fc'
+  # config.secret_key = 'cb323cb84bb50926bf8393962186c7f3927bf3fc574a1fde4a69042a18ef1bae2a113692bec3f2771d1894459235357d7d6d087729f196ed3ab8256d36ab6e3b'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -18,10 +18,13 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'info@shiokuritai.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
+  config.mailer = 'Users::Mailer'
+  config.mailer = 'Admins::Mailer'
+  config.mailer = 'Members::Mailer'
 
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
@@ -114,7 +117,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'c1a9c49bdb08a6e548289466684a89862d0412ad09672d732d54625019273a6f4394683666b7c68a688395d55b13794486b6366d514d3e4edf15b5fdec7f2854'
+  # config.pepper = 'd286c4609b3ecd0d3852e90d73aadebfa725a99159855d67a2e696b318695f96313fb861c0ca1e031dd9372ea60f50972f91ae315939d43178145c79ad1d066e'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -139,7 +142,7 @@ Devise.setup do |config|
   # their account can't be confirmed with the token any more.
   # Default is nil, meaning there is no restriction on how long a user can take
   # before confirming their account.
-  # config.confirm_within = 3.days
+   config.confirm_within = 1.days
 
   # If true, requires any email changes to be confirmed (exactly the same way as
   # initial account confirmation) to be applied. Requires additional unconfirmed_email

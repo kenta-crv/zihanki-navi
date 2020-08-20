@@ -1,44 +1,64 @@
-- set_meta_tags noindex: true
-/#トップ
 br
-.main-wrapper
-  = image_tag "contact.gif", width:"100%"
-  .search2
-   .row
-    = search_form_for @q do |f|
-     .col-sm-2
-     = f.search_field :company_cont, type: "text", placeholder: "会社名", class:"form-height col-sm-3"
-     = f.search_field :address_cont, type: "text", placeholder: "住所", class:"form-height col-sm-3"
-     = f.submit "検索", class:"btn btn-primary form-height col-sm-2"
-     .col-sm-2
+br
+h2.headline
 
-br
-br
-- @lists.each do |list|
-   .row
+   | リスト検索
+= search_form_for @q do |f|
+ table.company[width="90%"]
+   col[width="20%"]
+   col[width="30%"]
+   col[width="20%"]
+   col[width="30%"]
+   tbody
+     tr
+       th[colspan="4"]
+         | 検索
+     tr
+       th
+         | 事務所名
+       td
+         = f.search_field :company_cont, type: "text"
+       th
+         | 都道府県
+       td
+         = f.search_field :prefecture_cont, type: "text"
+     tr.center
+       td[colspan="4"]
+         = f.submit '検索', class:"btn btn-danger"
+
+.row
+  br
+  br
+  - @lists.each do |list|
+   .row.store_index
     .col-xs-1
     .col-xs-3
-      = image_tag list.image.to_s, width:"100%"
-    .col-xs-7.store_index
       = link_to list.company, list_path(list), class:"store"
-      br
-      = link_to list.tel, list_path(list), class:"tel"
-      br
-      = link_to list.address, list_path(list), class:"address"
-      br
-      = link_to list.industry, list_path(list), class:"genre btn btn-default"
-      = link_to "編集", edit_list_path(list)
-      = link_to "削除", list_path(list) ,method: :delete,  data: { confirm: '本当に削除しますか？'}
-      br
-      br
+    .col-xs-3
+      -if list.tel_front.present?
+       = list.tel_front
+       = list.tel_middle
+       = list.tel_back
+    .col-xs-4
+      -if list.prefecture.present?
+       = list.prefecture
+       = list.city
+       = list.town
+       = list.town_number
+       = list.building
+      - if admin_signed_in?
+       = link_to "編集", edit_list_path(list)
+       = link_to "削除", list_path(list) ,method: :delete,  data: { confirm: '本当に削除しますか？'}
+    .col-xs-1
     hr.line
+  br
     br
-.center
- = paginate(@lists)
+    .center
+     = paginate(@lists)
 
-/h2.headline  インポート
-= form_tag import_lists_path, multipart: true do
-  table.company
+  h2.headline  インポート
+  = form_tag import_lists_path, multipart: true do
+   table.company
       tbody
         tr
           th[colspan="3"]
@@ -46,7 +66,9 @@ br
         tr
           td
             = file_field_tag :file
-          th
-            = submit_tag "インポート",  class: 'btn btn-default'
-br
-br
+          td
+            = submit_tag "インポート",  class: 'btn btn-danger'
+          td
+            = link_to 'エクスポート', lists_path(format: :csv), class: 'btn btn-danger'
+  br
+  br

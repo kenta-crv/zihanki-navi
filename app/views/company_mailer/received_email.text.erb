@@ -1,0 +1,11 @@
+<%= @company.company %>が弁護士一括比較見積り『士送隊』へ登録しました。
+
+--------------------------
+会社名: <%= @company.company %>
+お名前: <%= @company.first_name %><%= @company.last_name %>
+電話番号: <%= @company.tel_front %>-<%= @company.tel_middle %>-<%= @company.tel_back %>
+メールアドレス: <%= @company.mail %>
+住所: <%= @company.postnumber %> <%= @company.prefecture %><%= @company.city %><%= @company.town %><%= @company.town_number %><%= @company.building %>
+URL: <%= @company.url %>
+従業員数: <%= @company.people %>
+--------------------------

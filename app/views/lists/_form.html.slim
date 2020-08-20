@@ -16,19 +16,55 @@
           strong.label 必須
         td.arrow_box
           | 代表者名
-        td = text_field :list, :name
+        td
+          = text_field :list, :first_name, class:"name"
+          = text_field :list, :last_name, class:"name"
       tr
         td
           strong.label 必須
         td.arrow_box
           | 電話番号
-        td = phone_field :list, :tel
+        td
+          = number_field :list, :tel_front, class:"tel"
+          |-
+          = number_field :list, :tel_middle, class:"tel"
+          |-
+          = number_field :list, :tel_back, class:"tel"
+      tr
+        td
+          strong.label.label-blue 任意
+        td.arrow_box
+          | FAX番号
+        td
+          = number_field :list, :fax_front, class:"tel"
+          |-
+          = number_field :list, :fax_middle, class:"tel"
+          |-
+          = number_field :list, :fax_back, class:"tel"
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | 郵便番号
+        td = text_field :list, :postnumber
       tr
         td
           strong.label 必須
         td.arrow_box
           | 住所
-        td = text_field :list, :address
+        td
+          |（県）
+          = text_field :list, :prefecture, class: "address"
+          |（市）
+          = text_field :list, :city, class: "address"
+          br
+          |（町）
+          = text_field :list, :town, class: "address"
+          |（番地）
+          = text_field :list, :town_number, class: "address"
+          br
+          |（ビル名）
+          = text_field :list, :building, class: "address"
       tr
         td
           strong.label 必須
@@ -45,51 +81,84 @@
         td
           strong.label.label-blue 任意
         td.arrow_box
-          | URL2
-        td = url_field :list, :url_2
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | タイトル
-        td = text_field :list, :title
-      tr
-        td
-          strong.label 必須
-        td.arrow_box
-          | 業種
-        td = text_field :list, :industry
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | other
-        td = text_field :list, :other
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | other2
-        td = text_field :list, :other2
+          | 強み
+        td = text_field :list, :usp
       tr
         td
           strong.label.label-blue 任意
         td.arrow_box
           | 資本金
-        td = text_field :list, :caption
-        | 万円
+        td = number_field :list, :caption
+           | 万円
       tr
         td
           strong.label.label-blue 任意
         td.arrow_box
           | 従業員数
         td = number_field :list, :people
-        | 人
+           | 人
+      tr
+        td
+          strong.label.label-blue 任意
+        td.arrow_box
+          | 営業時間
+        td = text_field :list, :business_hour
+      tr
+        td
+          strong.label.label-blue 任意
+        td.arrow_box
+          | 休日
+        td = text_field :list, :holiday
+      tr
+        td
+          strong.label.label-blue 任意
+        td.arrow_box
+          | 料金
+        td = text_field :list, :price
+      tr
+        td
+          strong.label.label-blue 任意
+        td.arrow_box
+          | アクセス
+        td = text_field :list, :access
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | ロゴ画像
+        td = f.file_field :rogo
       tr
         td
           strong.label 必須
         td.arrow_box
           | メイン画像
         td = f.file_field :image
+      tr
+        td
+          strong.label.label-blue 任意
+        td.arrow_box
+          | 設立日
+        td = date_field :list, :foundation
+      tr
+        td
+          strong.label.label-blue 任意
+        td.arrow_box
+          | 問い合わせURL
+        td = url_field :list, :contact_url
+      tr
+        td
+          strong.label.label-blue 任意
+        td.arrow_box
+          | 事業所数
+        td = number_field :list, :number_of_business
+           | 拠点
+      tr
+        td
+          strong.label.label-blue 任意
+        td.arrow_box
+          | 店舗数
+        td = number_field :list, :number_of_business
+           | 店舗
+
       tr
         td[colspan="3"] = f.submit '投稿する'

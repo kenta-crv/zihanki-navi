@@ -54,19 +54,39 @@ private
  def list_params
   params.require(:list).permit(
     :company, #会社名
-    :name, #代表者名
-    :tel, #電話番号
-    :address, #住所
+    :first_name, #代表者
+    :last_name, #
+    :tel_front,
+    :tel_middle,
+    :tel_back,
+    :fax_front,
+    :fax_middle,
+    :fax_back,
+    :postnumber, #郵便番号
+    :prefecture,
+    :city,
+    :town,
+    :town_number,
+    :building,
     :mail, #URL
     :url, #URL
-    :url_2, #URL2
-    :title, #タイトル
-    :industry, #職種
-    :other,
-    :other2,
+    :usp, #強み
     :caption, #資本金
     :people, #従業員数
-    :image
+    :image,
+
+    :foundation, #設立日
+    :contact_url, #問い合わせ　
+    :number_of_business, #事業所数 →　n
+    :number_of_store, #店舗数
+
+    :explanation, #解説
+
+    :access, #アクセス
+    :holiday, #休日
+    :business_hour, #営業時間
+    :price #価格
+
     )
   end
 end

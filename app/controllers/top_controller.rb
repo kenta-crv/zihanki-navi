@@ -2,16 +2,15 @@ class TopController < ApplicationController
   def index
   end
 
-  def lp
+  def guide
   end
 
-  def recruitment
+  def special
   end
 
-  def temporary
+  def faq
   end
 
-  def company
+  def co
   end
-
 end

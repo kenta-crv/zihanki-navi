@@ -10,6 +10,21 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require froala_editor.min.css
+ *= require froala_style.min.css
+ *= require font-awesome
+ *= require plugins/char_counter.min.css
+ *= require plugins/code_view.min.css
+ *= require plugins/colors.min.css
+ *= require plugins/emoticons.min.css
+ *= require plugins/file.min.css
+ *= require plugins/fullscreen.min.css
+ *= require plugins/image_manager.min.css
+ *= require plugins/image.min.css
+ *= require plugins/line_breaker.min.css
+ *= require plugins/quick_insert.min.css
+ *= require plugins/table.min.css
+ *= require plugins/video.min.css
  *= require_tree .
  *= require_self
  */
@@ -26,31 +41,113 @@ body {
 
                                 /*ヘッダーのベース設定*/
 header {
-  width: 100%;
-  background-color:white;
-  position: fixed;
-  z-index:10;
-  list-style-type: none;
-  height: 60px;
-  margin-top:-10px;
-  line-height:middle;
-  background: $main_color;
-  img {
-    width:150px;
-    margin-top:5px;
-    margin-left:10px;
+width:100%;
+background-color:white;
+position: sticky;
+top: 0;
+z-index:10;
+  .header-image {
+    max-width:250px;
+    height: 100%;
   }
-  p {
+  .navi {
+    background-color:$main_color;
     line-height:middle;
-    padding-top:20px;
-    font-size:1.5rem;
+    height:40px;
+    a {
+      text-decoration: none;
+      color:white;
+      text-shadow: 1px 1px 1px #000;
+      margin-top:auto;
+      margin-top:8px;
+      a:hover {
+        background-color: rgba(255,255,255,0.1);
+      }
+    }
+
+  }
+  .white {
     color: white;
+    font-size:15px;
     font-weight:bold;
   }
-}
+    #dropmenu{
+     list-style-type: none;
+     width: 100%;
+     height: 40px;
+     margin: 0 auto;
+     background: $main_color;
+    }
+    #dropmenu li{
+     position: relative;
+     width: 15%;
+     float: left;
+     text-align: center;
+    }
+    #dropmenu li a{
+     display: block;
+     margin: 0;
+     padding: 10px 0px 15px;
+     color: #fff;
+     font-size: 100%;
+     text-shadow: 1px 1px 1px #000;
+     line-height: 1;
+     text-decoration: none;
+    }
+    #dropmenu li ul{
+     list-style: none;
+     position: absolute;
+     top: 100%;
+     left: 0;
+     margin: 0;
+     padding: 0;
+     border-radius: 0 0 3px 3px;
+    }
+    #dropmenu li:last-child ul{
+     left: -100%;
+     width: 100%
+    }
+    #dropmenu li ul li{
+     overflow: hidden;
+     width: 300%;
+     height: 0;
+     color: #fff;
+     -moz-transition: .2s;
+     -webkit-transition: .2s;
+     -o-transition: .2s;
+     -ms-transition: .2s;
+     transition: .2s;
+    }
+    #dropmenu li ul li a{
+     padding: 13px 15px;
+     background: $main_color;
+     text-align: left;
+     font-size: 12px;
+     font-weight: normal;
+    }
+    #dropmenu li:hover > a{
+    background-color:$sub_color;
+     color: #fff;
+    }
 
+    #dropmenu li:hover ul li{
+     overflow: visible;
+     height: 38px;
+     border-top: 1px solid #fff;
+     border-bottom: 1px solid #fff;
+    }
+    #dropmenu li:hover ul li:first-child{
+     border-top: 0;
+    }
+    #dropmenu li:hover ul li:last-child{
+     border-bottom: 0;
+    }
+    #dropmenu li:hover ul li:last-child a{
+     border-radius: 0 0 3px 3px;
+    }
+}
 main {
-  margin-top:-20px;
+  margin-top:-80px;
 }
 
 
@@ -386,6 +483,9 @@ table.company {
       background: #f4f4f4;
 
       }
+      .lp-small {
+        font-size:12px;
+      }
 }
 
 
@@ -427,6 +527,10 @@ table.company {
     font-weight:bold;
  }
 
+ .name {width:45%;}
+ .tel {width:29%;}
+ .address {width:30%;}
+
 
 .tops-wrapper {
 	margin:50px 10px;
@@ -437,7 +541,7 @@ table.company {
 		padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
 		color: #494949;/*文字色*/
 		background: #f4f4f4;/*背景色*/
-		border-left: solid 5px #7db4e6;/*左線*/
+		border-left: solid 5px $main_color;/*左線*/
 		border-bottom: solid 3px #d7d7d7;/*下線*/
 		text-align:left;
 		padding-left:30px;
@@ -600,6 +704,13 @@ background-color:$sub_color;
      font-size:16px;
      line-height:2.0;
    }
+   strong{
+     font-size: 3rem;
+     color: $main_color;
+     font-weight: bold;
+     line-height: 5.5rem;
+   }
+
 }
 
 
@@ -862,4 +973,211 @@ ul.cp_list li:after {
 
 .harf {
   width:50%;
+}
+
+
+
+nav.globalMenuSp {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background: $main_color;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    text-align: center;
+    transform: translateY(-100%);
+    transition: all 0.6s;
+    width: 100%;
+}
+
+nav.globalMenuSp ul {
+    background: $main_color;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+}
+
+nav.globalMenuSp ul li {
+    font-size: 1.0em;
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    border-bottom: 1px dotted #fff;
+}
+
+/* 最後はラインを描かない */
+nav.globalMenuSp ul li:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+nav.globalMenuSp ul li a {
+    display: block;
+    color: #fff;
+    line-height:3em;
+}
+
+/* このクラスを、jQueryで付与・削除する */
+nav.globalMenuSp.active {
+    transform: translateY(0%);
+}
+
+
+.navToggle {
+    display: block;
+    position: fixed;    /* bodyに対しての絶対位置指定 */
+    right: 13px;
+    top: 12px;
+    width: 42px;
+    height: 51px;
+    cursor: pointer;
+    z-index: 3;
+    background: $sub_color;
+    text-align: center;
+}
+
+.navToggle span {
+    display: block;
+    position: absolute;    /* .navToggleに対して */
+    width: 30px;
+    border-bottom: solid 3px #eee;
+    -webkit-transition: .35s ease-in-out;
+    -moz-transition: .35s ease-in-out;
+    transition: .35s ease-in-out;
+    left: 6px;
+}
+
+.navToggle span:nth-child(1) {
+    top: 9px;
+}
+
+.navToggle span:nth-child(2) {
+    top: 18px;
+}
+
+.navToggle span:nth-child(3) {
+    top: 27px;
+}
+
+.navToggle span:nth-child(4) {
+    border: none;
+    color: #eee;
+    font-size: 9px;
+    font-weight: bold;
+    top: 34px;
+}
+
+/* 最初のspanをマイナス45度に */
+.navToggle.active span:nth-child(1) {
+    top: 18px;
+    left: 6px;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+/* 2番目と3番目のspanを45度に */
+.navToggle.active span:nth-child(2),
+.navToggle.active span:nth-child(3) {
+    top: 18px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+
+.cp_qa *, .cp_qa *:after, .cp_qa *:before {
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.cp_qa .cp_actab {
+	position: relative;
+  padding-left:15%;
+	overflow: hidden;
+	width: 90%;
+	margin: 0 0 1em 0;
+	color: $main_color;
+}
+.cp_qa .cp_actab input {
+	position: absolute;
+	opacity: 0;
+}
+/* 質問 */
+.cp_qa .cp_actab label {
+	font-weight: bold;
+	line-height: 1.6em;
+	position: relative;
+	display: block;
+	margin: 0 0 0 0;
+	padding: 1em 2em 1em 2.5em;
+	cursor: pointer;
+	text-indent: 1em;
+	border-radius: 0.5em;
+	background: rgba(27,37,56,0.1);
+}
+.cp_qa .cp_actab label::before {
+	font-family: serif;
+	font-size: 1.5em;
+	margin-left: -2em;
+	padding-right: 0.5em;
+	content: 'Q';
+}
+.cp_qa .cp_actab label:hover {
+	transition: all 0.3s;
+	color: #00838f;
+}
+/* --質問の＋アイコン */
+.cp_qa .cp_actab label::after {
+	font-size: 1.7em;
+	font-weight: bold;
+	line-height: 2em;
+	position: absolute;
+	top: 0;
+	right: 0;
+	content: 'b';
+	display: inline-block;
+	width: 2em;
+	height: 2em;
+	-webkit-transition: transform 0.4s;
+	        transition: transform 0.4s;
+}
+/* 答え */
+.cp_qa .cp_actab .cp_actab-content {
+	position: relative;
+	overflow: hidden;
+	max-height: 0;
+	padding: 0 0 0 2.5em;
+	-webkit-transition: max-height 0.2s;
+	        transition: max-height 0.2s;
+	border-radius: 0 0 0.5em 0.5em;
+}
+.cp_qa .cp_actab .cp_actab-content::before {
+	font-family: serif;
+	font-size: 1.5em;
+	position: absolute;
+	margin: 0.4em 0 0 -1em;
+	padding: 0;
+}
+.cp_qa .cp_actab .cp_actab-content p {
+	margin: 1em 1em 1em 0;
+}
+/* 質問を開いた時の仕様 */
+/* --答えの高さ */
+.cp_qa .cp_actab input:checked ~ .cp_actab-content {
+	max-height: 40em;
+	border: 10px solid rgba(27,37,56,0.1);
+}
+/* 質問をクリックした時のアイコンの動き */
+.cp_qa .cp_actab input:checked ~ label {
+	color: #00838f;
+	border-radius: 0.5em 0.5em 0 0;
+}
+/* 質問をクリックした時の+の動き */
+.cp_qa .cp_actab input[type=checkbox]:checked + label::after {
+	-webkit-transform: rotateZ(45deg);
+	transform: rotateZ(45deg);
+	-webkit-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
 }

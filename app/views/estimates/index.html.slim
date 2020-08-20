@@ -1,0 +1,21 @@
+- set_meta_tags noindex: true
+
+.row
+  br
+  br
+  table.company
+   tr
+     th 悩み
+     th 重要な点
+     th 期間
+     th 相談内容
+   - @estimates.each do |estimate|
+    tr
+     td = link_to estimate.worries, estimate_path(estimate), class:"store"
+     td = link_to estimate.importance
+     td = link_to estimate.period
+     td = link_to estimate.remarks
+  br
+    hr.line
+    br
+    = paginate(@estimates)

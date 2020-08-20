@@ -1,0 +1,110 @@
+- set_meta_tags  title: "#{@company.company}｜業界No1精度の企業リストなら｜TCARE｜#{@company.prefecture}"
+- set_meta_tags  keyword:  "#{@company.company} #{@company.tel_front}-#{@company.tel_middle}-#{@company.tel_back}"
+- set_meta_tags  description: ''
+br
+br
+.center
+  /= image_tag @company.image.url, width: "50%"
+.tops-wrapper
+br
+ h2.headline  基本情報
+ table.company.copy-control
+  colgroup
+    col width="20%"
+    col width="30%"
+    col width="20%"
+    col width="30%"
+    tbody
+      tr
+        td.arrow_box
+          | 会社名
+        td = @company.company
+        td.arrow_box
+          | 代表者名
+        td
+            = @company.first_name
+            = @company.last_name
+      tr
+        td.arrow_box
+          | 電話番号
+        td
+             = @company.tel_front
+             = @company.tel_middle
+             = @company.tel_back
+              label[for="check-auto-call" style="display:inline-block;margin-left:2em;margin-bottom:0;"]
+                |  <input type="checkbox" id="check-auto-call"
+                = @is_auto_call ? ' checked' : ''
+                |  />自動発信の場合、必ずチェックして下さい。//, checked
+                .call-font
+                = @customer.tel
+                = select_tag(:token, options_for_select(Smartphone.where(delete_flag: false).order(:id).all.collect{ |o| [ o.device_name, o.token ] }), :include_blank => '（選択してください）')
+                |  <button id="button-call" data-number="
+                = @customer.tel
+                | ">発信
+        td.arrow_box
+          | FAX番号
+        td
+             = @company.fax_front
+             = @company.fax_middle
+             = @company.fax_back
+        tr
+        td.arrow_box
+          | 郵便番号
+        td = @company.postnumber
+        td.arrow_box
+          | 住所
+        td
+         -if @company.prefecture.present?
+          = @company.prefecture
+          = @company.city
+          = @company.town
+          = @company.town_number
+          = @company.building
+         -else
+          = @company.address
+      tr
+        td.arrow_box
+          | メールアドレス
+        td
+            = @company.mail
+        td.arrow_box
+          | URL
+        td = @company.url
+      tr
+        td.arrow_box
+          | 資本金
+        td = @company.caption
+        td.arrow_box
+          | 従業員数
+        td = @company.people
+      tr
+        td.arrow_box
+          | 営業時間
+        td = @company.business_hour
+        td.arrow_box
+          | 休日
+        td = @company.holiday
+      tr
+        td.arrow_box
+          | 料金
+        td = @company.price
+      tr
+        td.arrow_box
+          | アクセス
+        td = @company.access
+      tr
+        td.arrow_box
+          | 事業所数
+        td = @company.number_of_business
+        td.arrow_box
+          | 店舗名
+        td = @company.number_of_store
+
+
+ h2.headline 企業概要
+ table.company
+    tbody
+      tr
+        td = @company.explanation
+
+br

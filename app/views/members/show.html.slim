@@ -1,0 +1,62 @@
+br
+br
+h2.headline
+  | アカウント情報
+
+table.company
+  colgroup
+    col[width="40%"]
+    col[width="60%"]
+    |  　
+    tr
+      th
+        | メールアドレス
+      td.center
+        = @user.email
+    tr
+      th
+        | 会社名
+      td.center
+    tr
+      th
+        | 代表者
+      td.center
+    tr
+      th
+        | 担当者
+      td.center
+    tr
+      th
+        | 電話番号
+      td.center
+    tr
+      th
+        | 郵便番号
+      td.center
+    tr
+      th
+        | 都道府県
+      td.center
+    tr
+      th
+        | 市町村
+      td.center
+    tr
+      th
+        | 市町村以降
+      td.center
+    tr
+      th
+        | ビル名
+      td.center
+    tr
+      th
+        | 会社URL
+      td.center
+br
+.center
+ = link_to "アカウント情報編集", edit_user_registration_path, class:"btn btn-success"
+
+ = link_to "プラン登録", users_payment_path, class:"btn btn-success"
+br
+br
