@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
-before_action :authenticate_user!, except: :index
+before_action :authenticate_member!, except: :index
+before_action :authenticate_admin!, only: :index
 
   def index
     @q = Company.ransack(params[:q])
@@ -8,7 +9,9 @@ before_action :authenticate_user!, except: :index
   end
 
   def new
+    #@company = @member.companies.build
     @company = Company.new
+    #@company.member.build
   end
 
   def confirm
@@ -39,7 +42,7 @@ before_action :authenticate_user!, except: :index
  def update
     @company = Company.find(params[:id])
      if @company.update(company_params)
-        redirect_to companies_path
+        redirect_to "/members/#{current_member.id}"
     else
         render 'edit'
     end

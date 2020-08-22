@@ -18,10 +18,24 @@ h2.headline
          | 事務所名
        td
          = f.search_field :company_cont, type: "text"
+     tr
        th
-         | 都道府県
-       td
-         = f.search_field :prefecture_cont, type: "text"
+         | 住所
+       td.
+         = f.select(:prefecture_cont,[\
+           ["選択してください","選択してください"],\
+           ["東京都","東京都"],\
+          ])
+         = f.select(:city_cont,[\
+            ["選択してください","選択してください"],\
+            ["目黒区","目黒区"],\
+           ])
+         = f.select(:town_cont,[\
+            ["選択してください","選択してください"],\
+            ["上目黒","上目黒"],\
+            ["中目黒","中目黒"],\
+            ["東山","東山"],\
+           ])
      tr.center
        td[colspan="4"]
          = f.submit '検索', class:"btn btn-danger"

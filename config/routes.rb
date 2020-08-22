@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     registrations: 'admins/registrations',
     sessions: 'admins/sessions'
   }
+  resources :admins, only: [:show]
   #使用者アカウント
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -50,6 +51,8 @@ Rails.application.routes.draw do
       post :thanks
     end
   end
+  #メッセージ
+  get 'messages/sample' => 'messages#sample'
   #問い合わせフォーム
   get '/contact' => 'contact#index'
   post '/confirm' => 'contact#confirm'

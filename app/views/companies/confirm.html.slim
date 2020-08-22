@@ -199,5 +199,7 @@
           = @company.number_of_store
            | 店舗
 
-      tr
-        td[colspan="3"] = f.submit '投稿する'
+      tr.center
+        td[colspan="3"]
+          = f.submit '戻る', name: 'back', class:"name"
+          = f.submit '登録する', class:"name"

@@ -1,23 +1,27 @@
 # frozen_string_literal: true
-
-class Members::RegistrationsController < Devise::RegistrationsController
+class Members::RegistrationsController < Devise::RegistrationsController #deviseの該当クラスを継承させる
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  # GET /resource/sign_up
-  # def new
-  #   super
-  # end
 
-  # POST /resource
+  def after_sign_up_path_for(resource)
+    "/members/#{current_member.id}"
+  end
+
   def create
-    super do                                             # 他はdeviseの機能をそのまま流用する
-      resource.update(confirmed_at: Time .now.utc)       # Welcomeメールを送信した上で、skip_confirmation!と同一処理を行い自動で認証クローズさせる
-      #↓と同じ意味になります。
-      # resource.skip_confirmation!
-      # resource.save
+    super do
+      resource.update(confirmed_at: Time .now.utc)
     end
   end
+
+  private
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up)
+    devise_parameter_sanitizer.permit(:account_update)#追記
+  end
+
+  # POST /resource
 
   # GET /resource/edit
   # def edit

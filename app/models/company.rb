@@ -1,5 +1,5 @@
 class Company < ApplicationRecord
-  belogns_to :user
+  #belongs_to :member
   has_many :estimates
 
  validates :company, {presence: true}#会社名

@@ -2,6 +2,8 @@
 
 .tops-wrapper
 br
-headline
- h2 ご登録頂きありがとうございました。
- p　今後案件が発生した都度メールにてご案内を差し上げます。
+ h2.headline
+   | ご登録頂きありがとうございました。
+ p.center　
+   | 今後案件が発生した都度メールにてご案内を差し上げます。
+   = link_to "マイページへ戻る", "/members/#{current_member.id}", class: "btn btn-danger"
