@@ -2,9 +2,9 @@ br
 br
 .top-wrapper.center
   h2.headline
-      | 参画会員企業新規登録
+      | 参画会員新規登録
   p.center
-    | 下記より会員登録へお進み下さい。
+    | 参画を希望される弁護士様は、以下より会員登録を行なって下さい。
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = devise_error_messages!
     table.company
@@ -39,7 +39,7 @@ br
         td
           = f.password_field :password_confirmation, autocomplete: "off"
       tr
-        td[colspan="2"]
-          = f.submit "同意して登録"
+        td.center[colspan="2"]
+          =f.submit "同意して登録", class:"btn btn-danger"
   .center
     = render "members/shared/links"

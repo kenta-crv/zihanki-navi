@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_22_050932) do
+ActiveRecord::Schema.define(version: 2020_08_22_134347) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -47,23 +47,22 @@ ActiveRecord::Schema.define(version: 2020_08_22_050932) do
     t.string "mail"
     t.string "url"
     t.string "usp"
-    t.string "caption"
     t.string "people"
     t.string "image"
     t.string "foundation"
-    t.string "contact_url"
-    t.string "number_of_business"
-    t.string "number_of_store"
-    t.string "explanation"
+    t.string "handing_business"
     t.string "access"
     t.string "holiday"
     t.string "business_hour"
     t.string "price"
+    t.string "explanation"
     t.integer "admin_id"
     t.integer "user_id"
+    t.integer "member_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["admin_id"], name: "index_companies_on_admin_id"
+    t.index ["member_id"], name: "index_companies_on_member_id"
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
@@ -157,7 +156,6 @@ ActiveRecord::Schema.define(version: 2020_08_22_050932) do
   end
 
   create_table "members", force: :cascade do |t|
-    t.string "user_name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

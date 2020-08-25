@@ -6,14 +6,14 @@ class Members::RegistrationsController < Devise::RegistrationsController #devise
 
 
   def after_sign_up_path_for(resource)
-    "/members/#{current_member.id}"
+    "/companies/new"
   end
 
-  def create
-    super do
-      resource.update(confirmed_at: Time .now.utc)
-    end
-  end
+  #def create
+  #  super do
+  #    resource.update(confirmed_at: Time .now.utc)
+  #  end
+  #end
 
   private
   def configure_permitted_parameters

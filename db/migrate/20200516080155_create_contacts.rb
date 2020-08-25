@@ -7,10 +7,9 @@ class CreateContacts < ActiveRecord::Migration[5.2]
       t.string :last_kana  #ナマエ
       t.string :tel #電話番号
       t.string :email #メールアドレス
-      t.string :prefecture #都道府県
-      t.string :city #市区町村
-      t.string :town #URL
-      t.string :worries #悩みbuild
+      t.string :address #都道府県
+      t.string :url #URL
+      t.string : #悩みbuild
       t.string :importance #面積area
       t.string :period #時期introduction
       t.string :remarks #相談内容

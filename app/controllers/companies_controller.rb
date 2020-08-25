@@ -10,12 +10,27 @@ before_action :authenticate_admin!, only: :index
 
   def new
     #@company = @member.companies.build
-    @company = Company.new
-    #@company.member.build
+    @company = Company.new    #@company.member.build
   end
+
+  def edit
+    @company = Company.find(params[:id])
+    @company.member_id = current_member.id
+  end
+
+ def update
+    @company = Company.find(params[:id])
+    @company.member_id = current_member.id
+    if @company.update(company_params)
+        redirect_to "/members/#{current_member.id}"
+    else
+        render 'edit'
+    end
+ end
 
   def confirm
     @company = Company.new(company_params)
+    @company.member_id = current_member.id
     render :new if @company.invalid?
   end
 
@@ -27,26 +42,20 @@ before_action :authenticate_admin!, only: :index
 
   def create
     @company = Company.new(company_params)
-    render :new and return if params[:back] || !@company.save
-    redirect_to thanks_companies_path
+    @company.member_id = current_member.id
+    if params[:back]
+      render new_company_path
+    elsif @company.save
+      render thanks_companies_path
+    else
+      render new_company_path
+    end
   end
 
   def show
     @company = Company.find(params[:id])
   end
 
-  def edit
-    @company = Company.find(params[:id])
-  end
-
- def update
-    @company = Company.find(params[:id])
-     if @company.update(company_params)
-        redirect_to "/members/#{current_member.id}"
-    else
-        render 'edit'
-    end
- end
 
  def destroy
     @company = Company.find(params[:id])
@@ -83,14 +92,9 @@ private
     :mail, #URL
     :url, #URL
     :usp, #強み
-    :caption, #資本金
     :people, #従業員数
     :image,
-
     :foundation, #設立日
-    :contact_url, #問い合わせ　
-    :number_of_business, #事業所数 →　n
-    :number_of_store, #店舗数
 
     :explanation, #解説
 
@@ -98,7 +102,6 @@ private
     :holiday, #休日
     :business_hour, #営業時間
     :price #価格
-
-    )
+    ).merge(member_id: @member_id)
   end
 end

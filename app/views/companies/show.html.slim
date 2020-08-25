@@ -1,10 +1,9 @@
 - set_meta_tags  title: "#{@company.company}｜業界No1精度の企業リストなら｜TCARE｜#{@company.prefecture}"
 - set_meta_tags  keyword:  "#{@company.company} #{@company.tel_front}-#{@company.tel_middle}-#{@company.tel_back}"
 - set_meta_tags  description: ''
-br
-br
+
 .center
-  /= image_tag @company.image.url, width: "50%"
+/  = image_tag @company.image.url, width: "50%"
 .tops-wrapper
 br
  h2.headline  基本情報
@@ -72,19 +71,15 @@ br
         td = @company.url
       tr
         td.arrow_box
-          | 資本金
-        td = @company.caption
-        td.arrow_box
           | 従業員数
         td = @company.people
-      tr
         td.arrow_box
           | 営業時間
         td = @company.business_hour
+      tr
         td.arrow_box
           | 休日
         td = @company.holiday
-      tr
         td.arrow_box
           | 料金
         td = @company.price
@@ -92,13 +87,6 @@ br
         td.arrow_box
           | アクセス
         td = @company.access
-      tr
-        td.arrow_box
-          | 事業所数
-        td = @company.number_of_business
-        td.arrow_box
-          | 店舗名
-        td = @company.number_of_store
 
 
  h2.headline 企業概要

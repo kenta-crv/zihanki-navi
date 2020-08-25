@@ -1,7 +1,6 @@
 class Company < ApplicationRecord
-  #belongs_to :member
-  has_many :estimates
-
+ belongs_to :member
+ has_many :estimates
  validates :company, {presence: true}#会社名
  validates :first_name, {presence: true}#代表者
  validates :last_name, {presence: true}#

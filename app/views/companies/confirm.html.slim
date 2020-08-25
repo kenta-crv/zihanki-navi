@@ -1,4 +1,7 @@
-=  form_for @company, url: thanks_companies_path(@company) do |f|
+.tops-wrapper
+br
+  h2.headline  確認画面
+=  form_for @company  do |f|
   table.company
    colgroup
      col width="10%"
@@ -98,107 +101,6 @@
         td
           = f.hidden_field :url
           = @company.url
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 強み
-        td
-          = f.hidden_field :usp
-          = @company.usp
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 資本金
-        td
-          = f.hidden_field :caption
-          = @company.caption
-           | 万円
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 従業員数
-        td
-          = f.hidden_field :people
-          = @company.people
-           | 人
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 営業時間
-        td
-          = f.hidden_field :business_hour
-          = @company.business_hour
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 休日
-        td
-          = f.hidden_field :holiday
-          = @company.holiday
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 料金
-        td
-          = f.hidden_field :price
-          = @company.price
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | アクセス
-        td
-          = f.hidden_field :access
-          = @company.access
-      tr
-        td
-          strong.label 必須
-        td.arrow_box
-          | メイン画像
-        td
-          = f.hidden_field :image
-          = @company.image
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 設立日
-        td
-          = f.hidden_field :foundation
-          = @company.foundation
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 問い合わせURL
-        td
-          = f.hidden_field :contact_url
-          = @company.contact_url
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 事業所数
-        td
-          = f.hidden_field :number_of_business
-          = @company.number_of_business
-           | 拠点
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 店舗数
-        td
-          = f.hidden_field :number_of_store
-          = @company.number_of_store
-           | 店舗
-
       tr.center
         td[colspan="3"]
           = f.submit '戻る', name: 'back', class:"name"

@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       post :thanks
     end
   end
+
   #記事一覧
   resources :posts
   #LPページ

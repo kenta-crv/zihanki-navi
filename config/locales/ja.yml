@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    models:
+      company: 事務所
+    attributes:
+      company:
+        company: 弁護士事務所名
+        first_name: 代表者名（苗字）
+        last_name: 代表者名（名前）
+        tel_front: 電話番号
+        tel_middle: 電話番号
+        tel_back: 電話番号
+        fax_front: FAX番号
+        fax_middle: FAX番号
+        fax_back: FAX番号
+        postnumber: 郵便番号
+        prefecture: 都道府県
+        city: 市区町村
+        town: 町名
+        town_number: 丁目以降
+        building: ビル名
+        mail: メールアドレス
+        url: URL

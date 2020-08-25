@@ -28,6 +28,7 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
 
  $main_color: #772E13;
  $sub_color: #F27200;
@@ -80,7 +81,7 @@ z-index:10;
     }
     #dropmenu li{
      position: relative;
-     width: 15%;
+     width: 13.5%;
      float: left;
      text-align: center;
     }
@@ -1180,4 +1181,7 @@ nav.globalMenuSp.active {
 	transform: rotateZ(45deg);
 	-webkit-transform-origin: 50% 50%;
 	transform-origin: 50% 50%;
+}
+.field_with_errors {
+  @extend .has-error;
 }

@@ -1,4 +1,11 @@
-=  form_for @company, url: confirm_companies_path(@company) do |f|
+= form_for @company do |f|
+  - if @company.errors.any?
+   .alert.alert-warning.center
+     ul
+       - @company.errors.full_messages.each do |message|
+        li
+          = message
+
   table.company
    colgroup
      col width="10%"
@@ -87,13 +94,6 @@
         td
           strong.label.label-blue 任意
         td.arrow_box
-          | 資本金
-        td = number_field :company, :caption
-           | 万円
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
           | 従業員数
         td = number_field :company, :people
            | 人
@@ -133,26 +133,7 @@
         td.arrow_box
           | 設立日
         td = date_field :company, :foundation
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 問い合わせURL
-        td = url_field :company, :contact_url
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 事業所数
-        td = number_field :company, :number_of_business
-           | 拠点
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 店舗数
-        td = number_field :company, :number_of_store
-           | 店舗
+
 
       tr.center
         td[colspan="3"] = f.submit '確認画面へ'

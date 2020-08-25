@@ -3,4 +3,89 @@
 .tops-wrapper
 br
   h2.headline  企業情報登録
-  == render 'form'
+  =  form_for @company, url: confirm_companies_path(@company) do |f|
+    table.company.form-group
+     colgroup
+       col width="10%"
+       col width="20%"
+       col width="70%"
+       tbody
+        tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | 会社名
+          td = text_field :company, :company
+        tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | 代表者名
+          td
+            = text_field :company, :first_name, class:"name"
+            = text_field :company, :last_name, class:"name"
+        tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | 電話番号
+          td
+            = number_field :company, :tel_front, class:"tel"
+            |-
+            = number_field :company, :tel_middle, class:"tel"
+            |-
+            = number_field :company, :tel_back, class:"tel"
+        tr
+          td
+            strong.label.label-blue 任意
+          td.arrow_box
+            | FAX番号
+          td
+            = number_field :company, :fax_front, class:"tel"
+            |-
+            = number_field :company, :fax_middle, class:"tel"
+            |-
+            = number_field :company, :fax_back, class:"tel"
+        tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | 郵便番号（ハイフンなし）
+          td = number_field :company, :postnumber
+        tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | 住所
+          td
+            |（県）
+            = text_field :company, :prefecture, class: "address"
+            |（市）
+            = text_field :company, :city, class: "address"
+            br
+            |（町）
+            = text_field :company, :town, class: "address"
+            |（番地）
+            = text_field :company, :town_number, class: "address"
+            br
+            |（ビル名）
+            = text_field :company, :building, class: "address"
+        tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | メールアドレス
+          td = email_field :company, :mail
+        tr
+          td
+            strong.label.label-blue 任意
+          td.arrow_box
+            | URL
+          td = url_field :company, :url
+        tr.center
+          td[colspan="3"] = f.submit '確認画面へ'
+
+  p.center
+   | ※1 現在ご登録頂く参画企業様は2020年9月15日よりご利用を開始頂けます。
+   br
+   | ※2 企業登録を行なっても、決済を行わない限り料金は一切発生致しません。

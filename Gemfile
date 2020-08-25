@@ -85,8 +85,12 @@ gem "font-awesome-rails"
 gem 'ransack'
 gem 'sitemap_generator'
 
+gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 
 gem 'jp_prefecture'
 gem 'jquery-rails'
+gem 'bootstrap-sass'
+
+gem 'pry-rails'
