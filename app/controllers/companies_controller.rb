@@ -15,7 +15,7 @@ before_action :authenticate_admin!, only: :index
 
   def edit
     @company = Company.find(params[:id])
-    @company.member_id = current_member.id
+    #@company.member_id = current_member.id
   end
 
  def update
@@ -102,6 +102,6 @@ private
     :holiday, #休日
     :business_hour, #営業時間
     :price #価格
-    ).merge(member_id: @member_id)
+  )#.merge(member_id: @member_id)
   end
 end
