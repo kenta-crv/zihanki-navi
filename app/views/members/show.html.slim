@@ -16,75 +16,18 @@ br
         th
           | 企業情報編集
         td
-          = link_to "企業情報編集フォーム", edit_company_path(member_id: @member_id), class:"btn btn-danger"
+          | 9月25日よりご利用頂けます。
       tr
         th
           | 決済画面
         td
           /= link_to "決済画面", "/companies/pay", class:"btn btn-danger"
-          | 9月15日よりご利用頂けます。
+          | 9月25日よりご利用頂けます。
       tr
         th
           | 残りポイント
         td
-          | 9月15日よりご利用頂けます。
+          | 9月25日よりご利用頂けます。
 
     br
     = link_to "アカウント情報編集", edit_member_registration_path, class:"btn btn-danger"
-
-
-    .tops-wrapper
-    br
-     h2.headline  基本情報
-     table.company.copy-control
-      colgroup
-        col width="20%"
-        col width="30%"
-        col width="20%"
-        col width="30%"
-        tbody
-          tr
-            td.arrow_box
-              | 会社名
-            td = @company.company
-          tr
-            td.arrow_box
-              | 代表者名
-            td
-                = @company.first_name
-                = @company.last_name
-          tr
-            td.arrow_box
-              | 電話番号
-            td
-                 = @company.tel_front
-                 = @company.tel_middle
-                 = @company.tel_back
-          tr
-            td.arrow_box
-              | FAX番号
-            td
-                 = @company.fax_front
-                 = @company.fax_middle
-                 = @company.fax_back
-          tr
-            td.arrow_box
-              | 郵便番号
-            td = @company.postnumber
-          tr
-            td.arrow_box
-              | 住所
-            td
-             -if @company.prefecture.present?
-              = @company.prefecture
-              = @company.city
-              = @company.town
-              = @company.town_number
-              = @company.building
-             -else
-              = @company.address
-          tr
-            td.arrow_box
-              | メールアドレス
-            td
-                = @company.mail

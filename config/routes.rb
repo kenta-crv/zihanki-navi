@@ -16,6 +16,19 @@ Rails.application.routes.draw do
     registrations: 'members/registrations',
     sessions: 'members/sessions'
   }
+  #devise_scope :member do
+  #   get 'members/thanks' => 'members/registrations#thanks'
+   #end
+   # devise_scopeで設定しないと、request.env[“devise.mapping”]でroutesの設定がされない
+   #def devise_scope(scope)
+    # constraint = lambda do |request|
+    #   request.env["devise.mapping"] = Devise.mappings[scope]
+    #   true
+     #end
+     #constraints(constraint) do
+    #   yield
+    # end
+   #end
   resources :members, only: [:show]
 
   root to: 'top#index' #トップページ
@@ -58,4 +71,6 @@ Rails.application.routes.draw do
   get '/contact' => 'contact#index'
   post '/confirm' => 'contact#confirm'
   post '/thanks' => 'contact#thanks'
+
+  get '*path', controller: 'application', action: 'render_404'
 end

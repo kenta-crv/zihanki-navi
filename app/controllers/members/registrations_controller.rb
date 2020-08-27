@@ -9,6 +9,12 @@ class Members::RegistrationsController < Devise::RegistrationsController #devise
     "/companies/new"
   end
 
+  #def thanks
+  #end
+
+  #def after_inactive_sign_up_path_for(resource) # 以下コメントアウトを外してよしなに追加
+  #  members_thanks_path
+  #end
   #def create
   #  super do
   #    resource.update(confirmed_at: Time .now.utc)

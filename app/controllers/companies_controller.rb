@@ -8,9 +8,24 @@ before_action :authenticate_admin!, only: :index
     @companies = @companies.page(params[:page]).per(20).order(created_at: :desc)
   end
 
+  def show
+    @company = Company.find(params[:id])
+  end
+
   def new
-    #@company = @member.companies.build
-    @company = Company.new    #@company.member.build
+    @company = Company.new(member_id: current_member.id)
+  end
+
+  def create
+    @company = Company.new(company_params)
+    @company.member_id = current_member.id
+    if params[:back]
+      render new_company_path
+    elsif @company.save
+      render thanks_companies_path
+    else
+      render new_company_path
+    end
   end
 
   def edit
@@ -39,23 +54,6 @@ before_action :authenticate_admin!, only: :index
     CompanyMailer.received_email(@company).deliver
     CompanyMailer.send_email(@company).deliver
   end
-
-  def create
-    @company = Company.new(company_params)
-    @company.member_id = current_member.id
-    if params[:back]
-      render new_company_path
-    elsif @company.save
-      render thanks_companies_path
-    else
-      render new_company_path
-    end
-  end
-
-  def show
-    @company = Company.find(params[:id])
-  end
-
 
  def destroy
     @company = Company.find(params[:id])

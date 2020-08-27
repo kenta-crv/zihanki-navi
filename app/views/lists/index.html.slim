@@ -17,25 +17,12 @@ h2.headline
        th
          | 事務所名
        td
-         = f.search_field :company_cont, type: "text"
+         = f.search_field :company_cont, type: "text", placeholder: "事務所名"
      tr
        th
-         | 住所
+         | 都道府県
        td.
-         = f.select(:prefecture_cont,[\
-           ["選択してください","選択してください"],\
-           ["東京都","東京都"],\
-          ])
-         = f.select(:city_cont,[\
-            ["選択してください","選択してください"],\
-            ["目黒区","目黒区"],\
-           ])
-         = f.select(:town_cont,[\
-            ["選択してください","選択してください"],\
-            ["上目黒","上目黒"],\
-            ["中目黒","中目黒"],\
-            ["東山","東山"],\
-           ])
+         = f.search_field :prefecture_cont, type: "text", placeholder: "都道府県"
      tr.center
        td[colspan="4"]
          = f.submit '検索', class:"btn btn-danger"
@@ -49,7 +36,7 @@ h2.headline
     .col-xs-3
       = link_to list.company, list_path(list), class:"store"
     .col-xs-3
-      -if list.tel_front.present?
+      -if list.tel.present?
        = list.tel
     .col-xs-4
       -if list.prefecture.present?
@@ -68,6 +55,7 @@ h2.headline
     .center
      = paginate(@lists)
 
+- if admin_signed_in?
   h2.headline  インポート
   = form_tag import_lists_path, multipart: true do
    table.company
