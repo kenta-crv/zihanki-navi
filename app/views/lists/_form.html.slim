@@ -17,30 +17,21 @@
         td.arrow_box
           | 代表者名
         td
-          = text_field :list, :first_name, class:"name"
-          = text_field :list, :last_name, class:"name"
+          = text_field :list, :name, class:"name"
       tr
         td
           strong.label 必須
         td.arrow_box
           | 電話番号
         td
-          = number_field :list, :tel_front, class:"tel"
-          |-
-          = number_field :list, :tel_middle, class:"tel"
-          |-
-          = number_field :list, :tel_back, class:"tel"
+          = text_field :list, :tel
       tr
         td
           strong.label.label-blue 任意
         td.arrow_box
           | FAX番号
         td
-          = number_field :list, :fax_front, class:"tel"
-          |-
-          = number_field :list, :fax_middle, class:"tel"
-          |-
-          = number_field :list, :fax_back, class:"tel"
+          = text_field :list, :fax
       tr
         td
           strong.label 必須
@@ -61,7 +52,7 @@
           |（町）
           = text_field :list, :town, class: "address"
           |（番地）
-          = text_field :list, :town_number, class: "address"
+          = text_field :list, :chome, class: "address"
           br
           |（ビル名）
           = text_field :list, :building, class: "address"

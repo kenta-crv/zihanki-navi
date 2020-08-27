@@ -9,29 +9,25 @@ br
       | フォーム
     table.company
       colgroup
-        col width="10%"
-        col width="20%"
-        col width="70%"
+        col width="10%" /
+        col width="20%" /
+        col width="70%" /
       tr
         td
           strong.label 必須
         td.arrow_box
-          | 氏名
+          | 会社名
         td
-          = f.hidden_field :first_name
-          = @contact.first_name
-          = f.hidden_field :last_name
-          = @contact.last_name
+          = f.hidden_field :company
+          = @contact.company
       tr
         td
           strong.label 必須
         td.arrow_box
-          | シメイ
+          | 担当者名
         td
-         = f.hidden_field :first_kana
-         = @contact.first_kana
-         = f.hidden_field :last_kana
-         = @contact.last_kana
+          = f.hidden_field :name
+          = @contact.name
       tr
         td
           strong.label 必須
@@ -52,60 +48,26 @@ br
         td
           strong.label 必須
         td.arrow_box
-          | 都道府県
+          | 住所
         td
-          = f.hidden_field :prefecture
-          = @contact.prefecture
-          | 県
+          = f.hidden_field :address
+          = @contact.address
       tr
         td
           strong.label 必須
         td.arrow_box
-          | 市町村
+          | 件名
         td
-          = f.hidden_field :city
-          = @contact.city
+          = f.hidden_field :subject
+          = @contact.subject
       tr
         td
           strong.label 必須
         td.arrow_box
-          | 番地以降
+          | 本文
         td
-          = f.hidden_field :town
-          = @contact.town
-      tr
-        td
-          strong.label 必須
-        td.arrow_box
-          | 悩んでいる点
-        td
-          = f.hidden_field :worries
-          = @contact.worries
-      tr
-        td
-          strong.label 必須
-        td.arrow_box
-          | 重視する点
-        td
-          = f.hidden_field :importance
-          = @contact.importance
-          | 坪
-      tr
-        td
-          strong.label 必須
-        td.arrow_box
-          | 導入時期
-        td
-          = f.hidden_field :period
-          = @contact.period
-      tr
-        td
-          strong.label 必須
-        td.arrow_box
-          | 相談本文
-        td
-          = f.hidden_field :remarks
-          = @contact.remarks
+          = f.hidden_field :message
+          = @contact.message
       tr
         td colspan="3"
-          = f.submit "送信"
+          = f.submit "確認"

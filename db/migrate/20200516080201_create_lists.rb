@@ -2,19 +2,14 @@ class CreateLists < ActiveRecord::Migration[5.2]
   def change
     create_table :lists do |t|
       t.string :company #会社名
-      t.string :first_name #代表者
-      t.string :last_name #
-      t.string :tel_front
-      t.string :tel_middle
-      t.string :tel_back
-      t.string :fax_front
-      t.string :fax_middle
-      t.string :fax_back
+      t.string :name
+      t.string :tel
+      t.string :fax
       t.string :postnumber #郵便番号
       t.string :prefecture
       t.string :city
       t.string :town
-      t.string :town_number
+      t.string :chome
       t.string :building
       t.string :mail #URL
       t.string :url #URL

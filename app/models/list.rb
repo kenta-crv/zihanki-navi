@@ -11,19 +11,14 @@ class List < ApplicationRecord
 
   def self.updatable_attributes
     ["company", #会社名
-    "first_name", #代表者
-    "last_name",
-    "tel_front",
-    "tel_middle",
-    "tel_back",
-    "fax_front",
-    "fax_middle",
-    "fax_back",
+    "name",
+    "tel",
+    "fax",
     "postnumber", #郵便番号
     "prefecture",
     "city",
     "town",
-    "town_number",
+    "chome",
     "building",
     "mail", #URL
     "url", #URL

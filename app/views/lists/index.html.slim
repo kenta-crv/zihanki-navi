@@ -50,15 +50,13 @@ h2.headline
       = link_to list.company, list_path(list), class:"store"
     .col-xs-3
       -if list.tel_front.present?
-       = list.tel_front
-       = list.tel_middle
-       = list.tel_back
+       = list.tel
     .col-xs-4
       -if list.prefecture.present?
        = list.prefecture
        = list.city
        = list.town
-       = list.town_number
+       = list.chome
        = list.building
       - if admin_signed_in?
        = link_to "編集", edit_list_path(list)

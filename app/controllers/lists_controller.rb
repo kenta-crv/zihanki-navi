@@ -54,8 +54,7 @@ private
  def list_params
   params.require(:list).permit(
     :company, #会社名
-    :first_name, #代表者
-    :last_name, #
+    :name, #
     :tel_front,
     :tel_middle,
     :tel_back,

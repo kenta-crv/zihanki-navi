@@ -67,19 +67,13 @@ ActiveRecord::Schema.define(version: 2020_08_22_134347) do
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "first_kana"
-    t.string "last_kana"
+    t.string "company"
+    t.string "name"
     t.string "tel"
+    t.string "address"
     t.string "email"
-    t.string "prefecture"
-    t.string "city"
-    t.string "town"
-    t.string "worries"
-    t.string "importance"
-    t.string "period"
-    t.string "remarks"
+    t.string "subject"
+    t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -111,19 +105,14 @@ ActiveRecord::Schema.define(version: 2020_08_22_134347) do
 
   create_table "lists", force: :cascade do |t|
     t.string "company"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "tel_front"
-    t.string "tel_middle"
-    t.string "tel_back"
-    t.string "fax_front"
-    t.string "fax_middle"
-    t.string "fax_back"
+    t.string "name"
+    t.string "tel"
+    t.string "fax"
     t.string "postnumber"
     t.string "prefecture"
     t.string "city"
     t.string "town"
-    t.string "town_number"
+    t.string "chome"
     t.string "building"
     t.string "mail"
     t.string "url"

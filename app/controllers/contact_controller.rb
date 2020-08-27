@@ -22,19 +22,13 @@ class ContactController < ApplicationController
   private
   def contact_params
     params.require(:contact).permit(
-      :first_name,
-      :last_name,
-      :first_kana,
-      :last_kana,
-      :tel,
-      :email,
-      :prefecture,
-      :city,
-      :town,
-      :worries,
-      :importance,
-      :period,
-      :remarks
+    :company,
+    :name,
+    :tel,
+    :address,
+    :email,
+    :subject,
+    :message
     )
   end
 end
