@@ -27,9 +27,9 @@ br
         td
           - if @minimum_password_length
             em
-              | (
+              | 
               = @minimum_password_length
-              |  characters minimum)
+              |  文字以上で入力して下さい。
           = f.password_field :password, autocomplete: "off"
       tr
         th.arrow_box

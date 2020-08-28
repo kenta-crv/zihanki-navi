@@ -2,7 +2,7 @@ br
 br
 .top-wrapper.center
   h2.headline
-      | 参画会員企業新規登録
+      | 参画会員ログイン
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     table.company
       colgroup
@@ -24,7 +24,7 @@ br
         td
           = f.password_field :password, autocomplete: "off"
       tr
-        td[colspan="2"]
+        td.center[colspan="2"]
           - if devise_mapping.rememberable?
             = f.check_box :remember_me
             = f.label :remember_me

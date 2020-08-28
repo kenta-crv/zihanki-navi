@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   #メンバーアカウント
   devise_for :members, controllers: {
     registrations: 'members/registrations',
-    sessions: 'members/sessions'
+    sessions: 'members/sessions',
+    confirmations: 'members/confirmations',
+    passwords: 'members/passwords',
   }
   #devise_scope :member do
   #   get 'members/thanks' => 'members/registrations#thanks'
