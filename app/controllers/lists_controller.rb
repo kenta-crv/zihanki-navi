@@ -1,4 +1,5 @@
 class ListsController < ApplicationController
+before_action :authenticate_worker!, only: [:new, :edit]
   def index
     @q = List.ransack(params[:q])
     @lists = @q.result
@@ -85,7 +86,6 @@ private
     :holiday, #休日
     :business_hour, #営業時間
     :price #価格
-
-    )
+    )&.merge(worker: current_worker)
   end
 end

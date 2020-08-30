@@ -4,7 +4,7 @@ br
   h2.headline
       | 参画会員新規登録
   p.center
-    | 参画を希望される弁護士様は、以下より会員登録を行なって下さい。
+    | 参画を希望される人材紹介会社様は、以下より会員登録を行なって下さい。
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = devise_error_messages!
     table.company
@@ -27,7 +27,7 @@ br
         td
           - if @minimum_password_length
             em
-              | 
+              |
               = @minimum_password_length
               |  文字以上で入力して下さい。
           = f.password_field :password, autocomplete: "off"
