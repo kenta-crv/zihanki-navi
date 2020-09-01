@@ -15,19 +15,17 @@
         td
           strong.label 必須
         td.arrow_box
-          | 氏名
+          | 会社名
         td
-          = f.text_field :first_name, class:"harf"
-          = f.text_field :last_name, class:"harf"
+          = f.text_field :company
           br
       tr
         td
           strong.label 必須
         td.arrow_box
-          | シメイ
+          | 担当者名
         td
-          = f.text_field :first_kana, class:"harf"
-          = f.text_field :last_kana, class:"harf"
+          = f.text_field :name
           br
       tr
         td
@@ -47,35 +45,53 @@
         td
           strong.label 必須
         td.arrow_box
-          | 都道府県
+          | 住所
+        td
+          = f.text_field :address
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | 従業員数
+        td
+          = f.number_field :employment
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | 募集職種
+        td
+          = f.text_field :business
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | 募集エリア
         td
           = f.text_field :prefecture
       tr
         td
           strong.label 必須
         td.arrow_box
-          | 市区町村
+          | 募集人数
         td
-          = f.text_field :city
+          = f.number_field :people
+          | 人
       tr
         td
           strong.label 必須
         td.arrow_box
-          | 番地以降
+          | 募集している人材
         td
-          = f.text_field :town
-      tr
-        td
-          strong.label 必須
-        td.arrow_box
-          | 悩んでいる点
-        td
-         = f.select(:worries,[\
+         = f.select(:recruitment,[\
            ["選択してください","選択してください"],\
-           ["離婚トラブル","離婚トラブル"],\
-           ["養育費トラブル","養育費トラブル"],\
-           ["財産分与トラブル","財産分与トラブル"],
-           ["慰謝料請求トラブル","慰謝料請求トラブル"],
+           ["未経験可","未経験可"],\
+           ["経験者のみ","経験者のみ"],\
+           ["管理職クラス","管理職クラス"],
+           ["専門職","専門職"],
+           ["外国人","外国人"],
+           ["時脳実習生","技能実習生"],
+           ["良い人材が居れば問わない","良い人材が居れば問わない"],\
            ["その他","その他"],
           ])
       tr
@@ -86,10 +102,11 @@
         td
           = f.select(:importance,[\
             ["選択してください","選択してください"],\
-            ["親身な対応","親身な対応"],\
+            ["若手人材","若手人材"],\
             ["費用面","費用面"],\
-            ["実績がある","実績がある"],
-            ["解決出来る見通し","解決出来る見通し"],
+            ["紹介実績がある","紹介実績がある"],
+            ["即戦力","即戦力"],
+            ["給与が安い","給与が安い"],
             ["その他","その他"],
            ])
       tr
@@ -107,9 +124,9 @@
           ])
       tr
         td
-          strong.label 必須
+          strong.label.label-blue 任意
         td.arrow_box
-          | 相談本文
+          | その他条件等
         td
           = f.text_area :remarks
       tr

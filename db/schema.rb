@@ -79,25 +79,20 @@ ActiveRecord::Schema.define(version: 2020_08_28_162312) do
   end
 
   create_table "estimates", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "first_kana"
-    t.string "last_kana"
+    t.string "company"
+    t.string "name"
     t.string "tel"
     t.string "email"
+    t.string "address"
     t.string "prefecture"
-    t.string "city"
-    t.string "town"
-    t.string "worries"
+    t.string "employment"
+    t.string "business"
     t.string "importance"
+    t.string "recruitment"
+    t.string "people"
     t.string "period"
     t.string "remarks"
     t.integer "company_id"
-    t.integer "postcode"
-    t.integer "prefecture_code"
-    t.string "address_city"
-    t.string "address_street"
-    t.string "address_building"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_estimates_on_company_id"

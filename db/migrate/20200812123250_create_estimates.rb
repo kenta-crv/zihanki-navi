@@ -6,16 +6,15 @@ class CreateEstimates < ActiveRecord::Migration[5.2]
       t.string :tel #電話番号
       t.string :email #メールアドレス
       t.string :address #住所
-      t.string :recruitment #募集
+      t.string :prefecture
+      t.string :employment #従業員数
+      t.string :business #募集職種
+      t.string :importance #重要な点
+      t.string :recruitment
+      t.string :people
       t.string :period #時期
       t.string :remarks #相談内容
       t.references :company
-
-      t.integer :postcode
-      t.integer :prefecture_code
-      t.string :address_city
-      t.string :address_street
-      t.string :address_building
       t.timestamps
     end
   end

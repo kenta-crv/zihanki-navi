@@ -51,24 +51,19 @@ class EstimatesController < ApplicationController
   private
   def estimate_params
     params.require(:estimate).permit(
-      :first_name,
-      :last_name,
-      :first_kana,
-      :last_kana,
-      :tel,
-      :email,
-      :prefecture,
-      :city,
-      :town,
-      :worries,
-      :importance,
-      :period,
-      :remarks,
-      :postcode,
-      :prefecture_name, 
-      :address_city,
-      :address_street,
-      :address_building
+      :company,  #会社名
+      :name,  #名前
+      :tel, #電話番号
+      :email, #メールアドレス
+      :address, #住所
+      :prefecture, #募集エリア
+      :employment, #従業員数
+      :business,
+      :people, #必要人数
+      :recruitment, #必要人材
+      :importance, #重要な点
+      :period, #時期
+      :remarks #その他希望
     )
   end
 end

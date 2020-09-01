@@ -5,14 +5,18 @@
 人材紹介会社に紹介の後、担当者よりご連絡させて頂きますので、よろしくお願い致します。
 
 --------------------------
-お名前: <%= @estimate.first_name %><%= @estimate.last_name %>（<%= @estimate.first_kana %><%= @estimate.last_kana %>）
+会社名: <%= @estimate.company %>
+担当者名: <%= @estimate.name %>
 電話番号: <%= @estimate.tel %>
 メールアドレス: <%= @estimate.email %>
-住所: <%= @estimate.prefecture %><%= @estimate.city %><%= @estimate.town %>
-相談内容: <%= @estimate.worries %>
+住所: <%= @estimate.address %>
+募集地域: <%= @estimate.prefecture %>
+募集人数: <%= @estimate.people %>
+募集職種: <%= @estimate.business %>
+必要人材: <%= @estimate.recruitment %>
 重要な点: <%= @estimate.importance %>
 必要時期: <%= @estimate.period %>ヶ月以内
-相談本文:<%= @estimate.remarks %>
+相談本文: <%= @estimate.remarks %>
 --------------------------
 
 人材紹介一括比較見積り『Comicomi』

@@ -5,11 +5,16 @@ https://comicomi.cc/estimates/<%=@estimate.id %>
 相談を受託する場合、上記URLをクリックしてください。
 
 --------------------------
-お名前（フリガナ）: ********（********）
+会社名: ********
+担当者名: ********
 電話番号: ********
 メールアドレス: ********
-住所: <%= @estimate.prefecture %>****************
-相談内容: <%= @estimate.worries %>
+住所: ****************
+従業員数: <%= @estimate.employment%>
+募集地域： <%= @estimate.prefecture %>
+募集人数: <%= @estimate.people %>
+募集職種: <%= @estimate.business %>
+必要人材: <%= @estimate.recruitment %>
 重要な点: <%= @estimate.importance %>
 必要時期: <%= @estimate.period %>ヶ月以内
 相談本文:<%= @estimate.remarks %>
