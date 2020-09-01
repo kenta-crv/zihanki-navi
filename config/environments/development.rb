@@ -9,7 +9,7 @@ Rails.application.configure do
   domain: 'comicomi.cc',
   port: 587,
   user_name: 'info@comicomi.cc',
-  password: "St5cQ3q#E",
+  password: "St5cQ3q#",
   authentication: 'plain',
   enable_starttls_auto: true
   }
