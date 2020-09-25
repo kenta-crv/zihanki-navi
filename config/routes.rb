@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
+
   #管理者アカウント
   devise_for :admins, controllers: {
     registrations: 'admins/registrations',
