@@ -54,7 +54,7 @@ Rails.application.routes.draw do
   get 'special' => 'top#special'
   get 'faq' => 'top#faq'
   get 'co' => 'top#co'
-
+  get 'question' => 'top#question'
   #企業側アカウント
   resources :companies do
     collection do
