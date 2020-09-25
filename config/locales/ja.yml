@@ -1,23 +1,43 @@
 ja:
   activerecord:
     models:
-      company: 事務所
+      estimate: 企業
     attributes:
-      company:
-        company: 弁護士事務所名
-        first_name: 代表者名（苗字）
-        last_name: 代表者名（名前）
-        tel_front: 電話番号
-        tel_middle: 電話番号
-        tel_back: 電話番号
-        fax_front: FAX番号
-        fax_middle: FAX番号
-        fax_back: FAX番号
-        postnumber: 郵便番号
-        prefecture: 都道府県
-        city: 市区町村
-        town: 町名
-        town_number: 丁目以降
-        building: ビル名
-        mail: メールアドレス
-        url: URL
+      estimate:
+        company: 会社名
+        name: 担当者様名
+        tel: 電話番号
+        email: メールアドレス
+        prefecture: 募集エリア
+        address: 住所
+        employment: 従業員数
+        business: 募集職種
+        people: 必要人数
+        recruitment: 必要人材
+        importance: 重要な点
+        period: 時期
+        remarks: その他希望
+        choice: 人材紹介・人材派遣会社を選択して下さい
+        user_name: ユーザー名を入力して下さい
+        user_password: パスワードを入力してください。
+  activerecord:
+    models:
+      company: 会社名
+    attributes:
+      estimate:
+        company: 会社名
+        name: 担当者様名
+        tel: 電話番号
+        email: メールアドレス
+        prefecture: 募集エリア
+        address: 住所
+        employment: 従業員数
+        business: 募集職種
+        people: 必要人数
+        recruitment: 必要人材
+        importance: 重要な点
+        period: 時期
+        remarks: その他希望
+        choice: 人材紹介・人材派遣会社を選択して下さい
+        user_name: ユーザー名を入力して下さい
+        user_password: パスワードを入力してください。

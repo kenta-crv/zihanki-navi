@@ -18,7 +18,6 @@
           | 会社名
         td
           = f.text_field :company
-          br
       tr
         td
           strong.label 必須
@@ -26,7 +25,6 @@
           | 担当者名
         td
           = f.text_field :name
-          br
       tr
         td
           strong.label 必須
@@ -55,6 +53,18 @@
           | 従業員数
         td
           = f.number_field :employment
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | 募集している人材
+        td
+         = f.select(:choice,[\
+           ["選択してください","選択してください"],\
+           ["派遣会社","派遣会社"],\
+           ["人材紹介会社","人材紹介会社"],\
+           ["どちらでも可","どちらでも可"],
+          ])
       tr
         td
           strong.label 必須
@@ -129,6 +139,21 @@
           | その他条件等
         td
           = f.text_area :remarks
+      - if current_user.blank?
+        tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | ユーザー名
+          td
+            = f.text_field :user_name
+        tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | パスワード(6文字以上)
+          td
+            = f.password_field :user_password, autocomplete: "off", onchange: "if ($('#estimate_user_password').val().length < 6) { alert('パスワードは6文字以上入力して下さい'); }"
       tr
         td colspan="3"
           = f.submit "確認画面"

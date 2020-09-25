@@ -2,5 +2,168 @@
 
 .tops-wrapper
 br
-  h2.headline  記事編集
-  == render 'form'
+  h2.headline  会社情報編集
+  = form_for @company do |f|
+    - if @company.errors.any?
+     .alert.alert-warning.center
+       ul
+         - @company.errors.full_messages.each do |message|
+          li
+            = message
+
+    table.company
+     colgroup
+       col width="10%"
+       col width="20%"
+       col width="70%"
+       tbody
+        tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | 会社名
+          td = text_field :company, :company
+        tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | 代表者名
+          td
+            = text_field :company, :president_first_name, class:"name"
+            = text_field :company, :president_last_name, class:"name"
+        tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | 担当者名
+          td
+            = text_field :company, :first_name, class:"name"
+            = text_field :company, :last_name, class:"name"
+        tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | 電話番号
+          td
+            = number_field :company, :tel_front, class:"tel"
+            |-
+            = number_field :company, :tel_middle, class:"tel"
+            |-
+            = number_field :company, :tel_back, class:"tel"
+        tr
+          td
+            strong.label.label-blue 任意
+          td.arrow_box
+            | FAX番号
+          td
+            = number_field :company, :fax_front, class:"tel"
+            |-
+            = number_field :company, :fax_middle, class:"tel"
+            |-
+            = number_field :company, :fax_back, class:"tel"
+        tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | 郵便番号
+          td = text_field :company, :postnumber
+        tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | 住所
+          td
+            |（県）
+            = text_field :company, :prefecture, class: "address"
+            |（市）
+            = text_field :company, :city, class: "address"
+            br
+            |（町）
+            = text_field :company, :town, class: "address"
+            |（番地）
+            = text_field :company, :town_number, class: "address"
+            br
+            |（ビル名）
+            = text_field :company, :building, class: "address"
+        tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | メールアドレス
+          td = email_field :company, :mail
+        tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | URL
+          td = url_field :company, :url
+        tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | 職種セレクト
+          td = f.select(:choice, [ \
+              ["選択する","選択する"],      \
+              ["人材紹介業","人材紹介業"],      \
+              ["人材派遣業","人材派遣業"],      \
+              ["人材業　人材紹介業","サイトに関して"],      \
+              ["その他","その他"]      \
+              ])
+        tr
+          td
+            strong.label.label-blue 任意
+          td.arrow_box
+            | 従業員数
+          td = number_field :company, :people
+        tr
+          td
+            strong.label.label-blue 任意
+          td.arrow_box
+            | 営業時間
+          td = text_field :company, :business_hour
+        tr
+          td
+            strong.label.label-blue 任意
+          td.arrow_box
+            | 休日
+          td = text_field :company, :holiday
+        tr
+          td
+            strong.label.label-blue 任意
+          td.arrow_box
+            | アクセス
+          td = text_field :company, :access
+        tr
+          td
+            strong.label.label-blue 任意
+          td.arrow_box
+            | 設立日
+          td = text_field :company, :foundation
+        tr
+          td
+            strong.label.label-blue 任意
+          td.arrow_box
+            | プロフィール
+          td = text_area :company, :profile
+        tr
+          td
+            strong.label.label-blue 任意
+          td.arrow_box
+            | 強み
+          td = text_area :company, :usp
+        tr
+          td
+            strong.label.label-blue 任意
+          td.arrow_box
+            | 実績
+          td = text_area :company, :performance
+        tr
+          td
+            strong.label.label-blue 任意
+          td.arrow_box
+            | 得意な業界
+          td = text_area :company, :performance
+
+
+        tr.center
+          td[colspan="3"] = f.submit '確認画面へ'

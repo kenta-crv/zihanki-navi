@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
   #管理者アカウント
   devise_for :admins, controllers: {
     registrations: 'admins/registrations',
@@ -53,10 +56,10 @@ Rails.application.routes.draw do
   get 'co' => 'top#co'
 
   #企業側アカウント
-  get 'companies/pay' => 'companies#pay'
-
   resources :companies do
     collection do
+      get :pay
+      post :get_point
       post :confirm
       post :thanks
     end
@@ -64,8 +67,6 @@ Rails.application.routes.draw do
 
   #記事一覧
   resources :posts
-  #LPページ
-  resources :lps
   #企業HP一覧
   resources :lists do
     collection do
@@ -77,9 +78,19 @@ Rails.application.routes.draw do
       post :confirm
       post :thanks
     end
+    member do
+      get :apply
+    end
   end
-  #メッセージ
-  get 'messages/sample' => 'messages#sample'
+
+  # メッセージ
+  resources :messages, only: [:create] do
+    collection do
+      # メッセージルーム
+      get :room, path: '/room/:uri_token'
+    end
+  end
+
   #問い合わせフォーム
   get '/contact' => 'contact#index'
   post '/confirm' => 'contact#confirm'

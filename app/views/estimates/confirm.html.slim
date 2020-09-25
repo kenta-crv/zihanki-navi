@@ -61,6 +61,14 @@
         td
           strong.label 必須
         td.arrow_box
+          | 探している対象
+        td
+          = f.hidden_field :choice
+          = @estimate.choice
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
           | 募集職種
         td
           = f.hidden_field :business
@@ -114,6 +122,23 @@
         td
           = f.hidden_field :remarks
           = @estimate.remarks
+      - if current_user.blank?
+        tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | ユーザー名
+          td
+            = f.hidden_field :user_name
+            = @estimate.user_name
+        tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | パスワード
+          td
+            | ******
+            = f.hidden_field :user_password
       tr
         td colspan="3"
           = f.submit "送信"

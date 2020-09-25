@@ -13,10 +13,12 @@ before_action :authenticate_admin!, only: :index
   end
 
   def new
+    return redirect_to :root, alert: "企業情報は作成されています" if current_member.company.present?
     @company = Company.new(member_id: current_member.id)
   end
 
   def create
+    return redirect_to :root, alert: "企業情報は作成されています" if current_member.company.present?
     @company = Company.new(company_params)
     @company.member_id = current_member.id
     if params[:back]
@@ -29,11 +31,11 @@ before_action :authenticate_admin!, only: :index
   end
 
   def edit
-    @company = Company.find(params[:id])
+    @company = Company.find_by(member_id: current_member.id)
     #@company.member_id = current_member.id
   end
 
- def update
+  def update
     @company = Company.find(params[:id])
     @company.member_id = current_member.id
     if @company.update(company_params)
@@ -41,24 +43,24 @@ before_action :authenticate_admin!, only: :index
     else
         render 'edit'
     end
- end
+  end
 
   def confirm
-    @company = Company.new(company_params)
-    @company.member_id = current_member.id
-    render :new if @company.invalid?
+   @company = Company.new(company_params)
+   @company.member_id = current_member.id
+   render :new if @company.invalid?
   end
 
   def thanks
-    @company = Company.new(company_params)
-    CompanyMailer.received_email(@company).deliver
-    CompanyMailer.send_email(@company).deliver
+   @company = Company.new(company_params)
+   CompanyMailer.received_email(@company).deliver
+   CompanyMailer.send_email(@company).deliver
   end
 
  def destroy
-    @company = Company.find(params[:id])
-    @company.destroy
-    redirect_to companies_path
+   @company = Company.find(params[:id])
+   @company.destroy
+   redirect_to companies_path
  end
 
  def import
@@ -67,7 +69,32 @@ before_action :authenticate_admin!, only: :index
  end
 
  def pay
+ # ポイントの料金を変更するときはここを書き換える
+  @pay_arr = [
+   {
+     payment: 85000,
+     point: 110
+   },
+   {
+     payment: 45000,
+     point: 50
+   },
+   {
+     payment: 28500,
+     point: 30
+   },
+   {
+     payment: 10000,
+     point: 10
+   }
+  ]
  end
+
+  def get_point
+   get_point = current_member.point + params[:point].to_i
+   current_member.update(point: get_point)
+   return
+  end
 
 private
  def company_params
@@ -87,19 +114,27 @@ private
     :town,
     :town_number,
     :building,
-    :mail, #URL
+    :mail, #メールアドレス
     :url, #URL
     :usp, #強み
     :people, #従業員数
-    :image,
+    :image, #担当者名
     :foundation, #設立日
 
-    :explanation, #解説
+    #:explanation, #解説
+
+    :rogo, #アイコン
+    :president_first_name, #代表者名
+    :president_last_name, #代表者名
+    :choice, #派遣・紹介・両方
+    :profile, #プロフィール
+    #:bisiness, #事業内容
+    :performance, #実績
+    :specialty, #得意業界
 
     :access, #アクセス
     :holiday, #休日
-    :business_hour, #営業時間
-    :price #価格
-  )#.merge(member_id: @member_id)
+    :business_hour #営業時間
+  )
   end
 end
