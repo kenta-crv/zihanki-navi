@@ -1,67 +1,122 @@
 - set_meta_tags noindex: true
-
-
-
-= link_to "https://comicomi.cc"+estimate_path(@estimate), estimate_path(@estimate)
-br
-br
 .center
 .tops-wrapper
 br
  h2.headline  基本情報
- table.company.copy-control
-  colgroup
-    col width="20%"
-    col width="30%"
-    col width="20%"
-    col width="30%"
-    tbody
-      tr
-        th.arrow_box
-          | 相談者
-        td
-           = @estimate.first_name
-           = @estimate.last_name
-      tr
-        th.arrow_box
-          | ソウダンシャ
-        td
-           = @estimate.first_kana
-           = @estimate.last_kana
-      tr
-        th.arrow_box
-          | 電話番号
-        td
+ table.company
+       colgroup
+         col width="10%"
+         col width="20%"
+         col width="70%"
+       tr
+         td
+           strong.label 必須
+         td.arrow_box
+           | 会社名
+         td
+           = @estimate.company
+       tr
+         td
+           strong.label 必須
+         td.arrow_box
+           | 担当者名
+         td
+           = @estimate.name
+       tr
+         td
+           strong.label 必須
+         td.arrow_box
+           | 電話番号
+         td
            = @estimate.tel
-      tr
-        th.arrow_box
-          | メールアドレス
-        td
+       tr
+         td
+           strong.label 必須
+         td.arrow_box
+           | メールアドレス
+         td
            = @estimate.email
-      tr
-        th.arrow_box
-          | 住所
-        td
-           = @estimate.prefecture.name
-           = @estimate.city
-           = @estimate.town
-      tr
-        th.arrow_box
-          | 悩み
-        td
-           = @estimate.worries
-      tr
-        th.arrow_box
-          | 重要な点
-        td
+       tr
+         td
+           strong.label 必須
+         td.arrow_box
+           | 住所
+         td
+           = @estimate.address
+       tr
+         td
+           strong.label 必須
+         td.arrow_box
+           | 従業員数
+         td
+           = @estimate.employment
+       tr
+         td
+           strong.label 必須
+         td.arrow_box
+           | 募集している人材
+         td
+          = @estimate.choice
+       tr
+         td
+           strong.label 必須
+         td.arrow_box
+           | 募集職種
+         td
+           = @estimate.business
+       tr
+         td
+           strong.label 必須
+         td.arrow_box
+           | 募集エリア
+         td
+           = @estimate.prefecture
+       tr
+         td
+           strong.label 必須
+         td.arrow_box
+           | 募集人数
+         td
+           = @estimate.people
+           | 人
+       tr
+         td
+           strong.label 必須
+         td.arrow_box
+           | 募集している人材
+         td
+          = @estimate.recruitment
+       tr
+         td
+           strong.label 必須
+         td.arrow_box
+           | 重視する点
+         td
            = @estimate.importance
-      tr
-        th.arrow_box
-          | 期日
-        td
+       tr
+         td
+           strong.label 必須
+         td.arrow_box
+           | 導入時期
+         td
            = @estimate.period
-      tr
-        th.arrow_box
-          | 相談本文
-        td
+       tr
+         td
+           strong.label.label-blue 任意
+         td.arrow_box
+           | その他条件等
+         td
            = @estimate.remarks
+.actions_container style="text-align: center; margin-bottom: 30px;"
+  = link_to "編集する", edit_estimate_path(@estimate), class: "btn btn-danger"
+  - if @estimate.rooms.blank?
+    = link_to "削除する", estimate_path(@estimate), class: "btn btn-secondary", method: :delete, data: { confirm: '本当に削除しますか？' }, style: "margin-left: 10px;"
+  - else
+    = link_to "削除する", "javascript:void(0)", class: "btn btn-secondary", data: { confirm: 'やりとりが始まっているので削除できません' }, style: "margin-left: 10px;"
+  - if !@estimate.send_mail_flag
+    = link_to "送信する", send_mail_estimate_path(@estimate), class: "btn btn-primary", method: :post, data: { confirm: '登録中の全企業に送信します。よろしいですか？' }, style: "margin-left: 10px;"
+  - else
+    = link_to "送信済", "javascript:void(0)", class: "btn btn-primary", style: "margin-left: 10px;"
+.back_link_container style='margin: 0 0 50px 40px;'
+  hr
+  = link_to "一覧に戻る", estimates_path

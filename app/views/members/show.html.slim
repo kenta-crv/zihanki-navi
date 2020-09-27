@@ -42,6 +42,8 @@ br
           | お問い合わせ
         td
           = link_to "お問い合わせはこちら", "/contact", class:"btn btn-success", :target=>["_blank"]
-
-    br
-    = link_to "アカウント情報編集", edit_member_registration_path, class:"btn btn-success"
+      tr
+        td
+          = link_to "アカウント情報編集", edit_member_registration_path, class:"btn btn-success"
+        td
+          = link_to "ログアウト", destroy_member_session_path, method: :delete, class:"btn btn-success"

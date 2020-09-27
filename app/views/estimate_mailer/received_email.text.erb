@@ -1,15 +1,15 @@
 人材紹介一括比較見積り『Comicomi』のお問い合わせがありました。
 
-https://comicomi.cc/estimates/<%=@estimate.id %>
+<%= estimate_url(@estimate) %>
 
 相談を受託する場合、上記URLをクリックしてください。
 
 --------------------------
-会社名: ********
-担当者名: ********
-電話番号: ********
-メールアドレス: ********
-住所: ********
+会社名: <%= @estimate.company%>
+担当者名: <%= @estimate.name%>
+電話番号: <%= @estimate.tel %>
+メールアドレス: <%= @estimate.email %>
+住所: <%= @estimate.address%>
 従業員数: <%= @estimate.employment%>
 探している対象: <%= @estimate.choice%>
 募集地域： <%= @estimate.prefecture %>

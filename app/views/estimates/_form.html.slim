@@ -1,12 +1,10 @@
-=  form_for @estimate, url: confirm_estimates_path(@estimate) do |f|
-  - if @estimate.errors.any?
-    strong 入力内容にエラーがあります
-    ul
-      - @estimate.errors.each do |attr, msg|
-        li= msg
-
+- if @estimate.errors.any?
+  strong 入力内容にエラーがあります
+  ul
+    - @estimate.errors.each do |attr, msg|
+      li= msg
     br
-  table.company
+table.company
       colgroup
         col width="10%"
         col width="20%"
@@ -139,7 +137,7 @@
           | その他条件等
         td
           = f.text_area :remarks
-      - if current_user.blank?
+      - if current_user.blank? && current_admin.blank?
         tr
           td
             strong.label 必須

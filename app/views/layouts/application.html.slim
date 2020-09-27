@@ -7,12 +7,9 @@ html
       .row
         .col-xs-3
            = link_to "/"
-            =image_tag "rogo.png", width: "100%", class:"header-image"
-        h1.col-xs-8.center
-          .white
-            br
-            | 人材紹介一括比較見積り『Comicomi』
-        .col-xs-x1
+            =image_tag "rogo.png", class:"header-image"
+        .col-xs-7
+        .col-xs-2
                 .navToggle
                   span
                   span
@@ -101,3 +98,6 @@ html
       .bread
         = render_breadcrumbs separator: ' > '
       = yield
+      h1.col-xs-8.center
+        .white
+          人材紹介一括比較見積り『Comicomi』

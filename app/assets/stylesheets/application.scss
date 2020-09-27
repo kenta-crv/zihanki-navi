@@ -47,10 +47,20 @@ background-color:white;
 position: sticky;
 top: 0;
 z-index:150;
-  .header-image {
-    max-width:250px;
-    height: 100%;
+@media only screen and (max-width: 767px){
+  img{
+    width: 150px;
+    z-index:100;
+    height: auto;
   }
+}
+/* pc　768px以上 */
+@media only screen and (min-width: 768px), print {
+  img{
+    width: 250px;
+    height: auto;
+  }
+}
   .navi {
     background-color:$main_color;
     line-height:middle;
@@ -66,11 +76,6 @@ z-index:150;
       }
     }
 
-  }
-  .white {
-    color: white;
-    font-size:15px;
-    font-weight:bold;
   }
     #dropmenu{
      list-style-type: none;
@@ -225,7 +230,7 @@ main {
  .back-image-index {
    text-align:center;
    .index-3 {
-       font-size:4.0vw;
+       font-size:3.8vw;
        font-weight:bold;
        line-height:7vw;
        color:$asort_color;
@@ -234,7 +239,7 @@ main {
    /*イエローライン*/
    .push {
        text-align:center;
-       font-size:4.5vw;
+       font-size:4.3vw;
        color:#F27200;
        font-weight:bold;
        width:100%;
@@ -1278,4 +1283,39 @@ nav.globalMenuSp.active {
     text-decoration: none;
     color:black;
   }
+}
+
+.white {
+  color: white;
+  font-size:15px;
+  font-weight:bold;
+}
+
+/*約款*/
+.infobox {
+  margin-left: auto;
+  margin-right: auto;
+  height: 10em;
+  /* 高さを制限(※) */
+  width: 800px;
+  overflow: scroll;
+  /* スクロールバーを表示(※) */
+  border: #2CA676 3px border;
+  color:black;
+  font-weight:normal;
+  /* 枠線を追加 */
+  background-color: #fff;
+  padding: 10px;
+  border: medium solid #888;
+}
+
+
+.user_show_container {
+  margin: 20px 60px;
+}
+
+.confirm_point_container {
+  max-width: 1024px;
+  margin: 0 auto;
+  margin-top: 30px;
 }

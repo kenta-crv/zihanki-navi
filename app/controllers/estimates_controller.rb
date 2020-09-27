@@ -1,6 +1,6 @@
 class EstimatesController < ApplicationController
-  before_action :authenticate_member!, only: :apply
-  before_action :authenticate_admin!, only: [:index, :show]
+  before_action :authenticate_member!, only: [:apply, :confirm_point]
+  before_action :authenticate_admin!, only: [:index, :show, :edit, :update, :destroy, :send_mail]
   # before_action :authenticate_user!, only: [:new, :confirm, :thanks]
 
   def index
@@ -13,7 +13,7 @@ class EstimatesController < ApplicationController
 
   def confirm
     @estimate = Estimate.new(estimate_params)
-    render :new if @estimate.invalid? || invalid_user 
+    render :new if @estimate.invalid? || invalid_user || double_email
   end
 
   def thanks
@@ -21,9 +21,11 @@ class EstimatesController < ApplicationController
     create_user if current_user.blank?
     @estimate.user_id = current_user.id
     @estimate.save
-    EstimateMailer.received_email(@estimate).deliver
-    EstimateMailer.client_email(@estimate).deliver
-    EstimateMailer.send_email(@estimate).deliver
+    #EstimateMailer.received_email(@estimate).deliver
+    #EstimateMailer.client_email(@estimate).deliver
+    #EstimateMailer.send_email(@estimate).deliver
+    EstimateMailer.received_email(@estimate).deliver # 管理者に通知
+    EstimateMailer.send_email(@estimate).deliver # 送信者に通知
   end
 
   def create
@@ -43,15 +45,32 @@ class EstimatesController < ApplicationController
   def destroy
     @estimate = Estimate.find(params[:id])
     @estimate.destroy
-     redirect_to estimates_path
+    redirect_to estimates_path, alert:"削除しました"
   end
 
   def update
     @estimate = Estimate.find(params[:id])
     if @estimate.update(estimate_params)
-      redirect_to estimates_path
+      redirect_to estimates_path(@estimate), alert: "更新しました"
     else
       render 'edit'
+    end
+  end
+
+  def send_mail
+    @estimate = Estimate.find(params[:id])
+    @estimate.update(send_mail_flag: true)
+    EstimateMailer.client_email(@estimate).deliver # 全企業に送信
+    redirect_to estimate_path(@estimate), alert: "送信しました"
+  end
+
+  def confirm_point
+    @estimate = Estimate.find(params[:id])
+    room = @estimate.rooms.find_by(member_id: current_member.id)
+
+    if room.present?
+      # 既に応募済の場合
+      return redirect_to room_messages_path(uri_token: room.uri_token)
     end
   end
 
@@ -117,6 +136,10 @@ class EstimatesController < ApplicationController
   end
 
   def double_email
+    # userがいるか
+    if current_user
+      return false
+    end
     # 同じメールアドレスの人がいるか
     user = User.find_by(email: estimate_params[:email])
     if user.present?

@@ -17,6 +17,11 @@ br
           | ログインアドレス
         td
           = @worker.email
+      tr
+        td
+          = link_to "アカウント情報編集", edit_worker_registration_path, class:"btn btn-success"
+        td
+          = link_to "ログアウト", destroy_worker_session_path, method: :delete, class:"btn btn-success"
     h2.headline
        | 実施件数
     table.company
@@ -39,6 +44,3 @@ br
            = @count_week
          td
            = @count_month
-
-    br
-    = link_to "アカウント情報編集", edit_worker_registration_path, class:"btn btn-danger"

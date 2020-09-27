@@ -21,7 +21,7 @@ class MessageMailer < ActionMailer::Base
     @room = message.room
     if message.is_user
       @send_user_name = @room.user_name
-      @received_user_email = @room.member.company.mail
+      @received_user_email = @room.member.company.email
     else
       @send_user_name = @room.member.company.name
       @received_user_email = @room.user.email
