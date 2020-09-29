@@ -38,7 +38,7 @@ br
                       | (未読)
           - else
             .post-title style="margin: 0;"
-              = @member.company.first_name + "弁護士"
+              = @member.company.name + "弁護士"
               .message_info
                 span.message_time
                   = show_time(message)

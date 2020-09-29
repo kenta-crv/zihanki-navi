@@ -5,9 +5,9 @@ class MessageMailer < ActionMailer::Base
     @room = message.room
     if message.is_user
       @send_user_name = @room.user.user_name
-      @received_user_name = @room.member.company.name
+      @received_user_name = @room.member.company
     else
-      @send_user_name = @room.member.company.name
+      @send_user_name = @room.member.company
       @received_user_name = @room.user_name
     end
     mail to: "info@comicomi.cc"
@@ -20,10 +20,10 @@ class MessageMailer < ActionMailer::Base
     @message = message
     @room = message.room
     if message.is_user
-      @send_user_name = @room.user_name
-      @received_user_email = @room.member.company.email
+      @send_user_name = @room.user.email
+      @received_user_email = @room.member.company
     else
-      @send_user_name = @room.member.company.name
+      @send_user_name = @room.member.company
       @received_user_email = @room.user.email
     end
     mail to: @received_user_email
