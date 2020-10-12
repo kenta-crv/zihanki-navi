@@ -92,6 +92,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/recruit' => 'estimates#recruit'
   #問い合わせフォーム
   get '/contact' => 'contact#index'
   post '/confirm' => 'contact#confirm'

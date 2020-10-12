@@ -84,7 +84,7 @@ class EstimatesController < ApplicationController
         # ポイントを減らす
         current_member.update(point: current_member.point - 10)
         room = Room.get_room_in(estimate.user, current_member)
-        content = "会社名: #{estimate.company}"
+        content = "会社名: #{estimate.company} \n担当者名: #{estimate.name} \n電話番号: #{estimate.tel} \nメールアドレス: #{estimate.email} \n住所: #{estimate.address} \n従業員数: #{estimate.employment} \n募集職種: #{estimate.business} \n重要な点: #{estimate.importance} \n募集人材: #{estimate.recruitment} \n必要人数: #{estimate.people} \n必要時期: #{estimate.period} \n相談内容: #{estimate.remarks}"
         Message.create(is_user: true, room_id: room.id, content: content, estimate_id: estimate.id)
         redirect_to room_messages_path(uri_token: room.uri_token), alert: "10ポイント消費しました"
       else
@@ -94,6 +94,10 @@ class EstimatesController < ApplicationController
       # 既に応募済の場合
       redirect_to room_messages_path(uri_token: room.uri_token)
     end
+  end
+
+  def recruit
+    @estimates = Estimate.order(created_at: "DESC").where(send_mail_flag: "送信済").page(params[:page])
   end
 
   private

@@ -107,6 +107,13 @@ br
            | その他条件等
          td
            = @estimate.remarks
+       tr
+        td
+         strong.label.label-blue 任意
+        td.arrow_box
+          | Comicomi一言コメント
+        td
+         = @estimate.word
 .actions_container style="text-align: center; margin-bottom: 30px;"
   = link_to "編集する", edit_estimate_path(@estimate), class: "btn btn-danger"
   - if @estimate.rooms.blank?
