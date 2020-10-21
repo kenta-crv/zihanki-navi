@@ -6,7 +6,7 @@ class Estimate < ApplicationRecord
   has_many :messages, dependent: :nullify
   has_many :rooms, through: :messages
 
-  #belongs_to :company
+  belongs_to :company, optional: true
   validates :company, {presence: true}
   validates :name, {presence: true}  #名前
   validates :tel, {presence: true} #電話番号
