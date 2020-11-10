@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_084729) do
+ActiveRecord::Schema.define(version: 2020_11_10_032643) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -61,8 +61,6 @@ ActiveRecord::Schema.define(version: 2020_09_29_084729) do
     t.integer "member_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "strong"
-    t.string "president_name"
     t.string "rogo"
     t.string "president_first_name"
     t.string "president_last_name"
@@ -89,7 +87,7 @@ ActiveRecord::Schema.define(version: 2020_09_29_084729) do
   end
 
   create_table "estimates", force: :cascade do |t|
-    t.string "company"
+    t.string "co"
     t.string "name"
     t.string "tel"
     t.string "email"
@@ -202,11 +200,6 @@ ActiveRecord::Schema.define(version: 2020_09_29_084729) do
     t.index ["member_id"], name: "index_questions_on_member_id"
   end
 
-  create_table "refer_user_to_estimates", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "rooms", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "member_id", null: false
@@ -263,7 +256,6 @@ ActiveRecord::Schema.define(version: 2020_09_29_084729) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

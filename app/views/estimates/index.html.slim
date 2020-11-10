@@ -10,7 +10,7 @@
      th メール送信
    - @estimates.each do |estimate|
     tr
-     td = estimate.company
+     td = estimate.co
      td = link_to "詳細", estimate_path(estimate), class:"store"
      - if estimate.send_mail_flag == true
       td style="color: green" 送信済
