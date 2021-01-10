@@ -1,5 +1,5 @@
 class List < ApplicationRecord
-  belongs_to :worker
+  belongs_to :worker, optional: true
   mount_uploader :image, ImagesUploader
 
   def self.import(file)
