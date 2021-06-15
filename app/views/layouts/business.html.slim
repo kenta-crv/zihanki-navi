@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+      = render template: 'layouts/_head.html.slim'
+
+  header
+      .row
+        .col-xs-3
+           = link_to "/"
+            =image_tag "rogo.png", class:"header-image"
+        .col-xs-7
+        .col-xs-2
+
+      .row.navi
+        .col-xs-12.center.hidden-xs
+          ul#dropmenu
+             ul
+
+
+
+  body
+    p.notice
+      = notice
+    p.alert
+      = alert
+    main
+      .bread
+        = render_breadcrumbs separator: ' > '
+      = yield
+      h1.col-xs-8.center
+        .white

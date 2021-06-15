@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   resources :members, only: [:show]
 
   root to: 'top#index' #トップページ
+  get 'business' => 'top#business'
   #各種LPページ
   get 'guide' => 'top#guide' #企業側LP
   #特集

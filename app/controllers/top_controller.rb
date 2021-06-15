@@ -2,6 +2,10 @@ class TopController < ApplicationController
   def index
   end
 
+  def business
+    render :layout => 'business'
+  end
+
   def guide
   end
 
