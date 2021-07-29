@@ -6,7 +6,7 @@ class ContactController < ApplicationController
 
   def confirm
     @contact = Contact.new(contact_params)
-    if @contact.save
+    if @contact.valid?
       render :action =>  'confirm'
     else
       render :action => 'index'
