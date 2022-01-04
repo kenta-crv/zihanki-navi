@@ -20,36 +20,11 @@ class ApplicationController < ActionController::Base
     render template: 'errors/error_500', status: 500, layout: 'application', content_type: 'text/html'
    end
 
-  def has_company?
-    if current_member.companies.count < 1
-      redirect_to new_company_path, notice: '会社情報を登録して下さい。'
-      return false
-    end
-  end
-
-  def set_company
-    @current_company = current_member.companies.find(params[:company_id])
-  end
-
-  def current_company
-    @current_company
-  end
-
 private
   def after_sign_in_path_for(resource)
     case resource
-    when User
-      "/" #ユーザー登録と相談を兼ねる
     when Admin
       "/" #先々一覧を見れるアナリティクスへ
-    when Member
-      if resource.company.present?
-        "/"
-      else
-        "/companies/new"
-      end
-    when Worker
-      "/lists/new"
     else
       "/"
     end
@@ -58,13 +33,7 @@ private
   #UserとStaffがありログアウト画面に推移
   def after_sign_out_path_for(resource)
     case resource
-    when User, :user, :users
-      "/"
     when Admin, :admin, :admins
-      "/"
-    when Member, :member, :members
-      "/"
-    when Worker, :worker, :workers
       "/"
     else
        super

@@ -34,125 +34,82 @@ table.company
         td
           strong.label 必須
         td.arrow_box
-          | メールアドレス
+          | 郵便番号
         td
-          = f.email_field :email
+          = f.text_field :postnumber
       tr
         td
           strong.label 必須
         td.arrow_box
-          | 住所
+          | 設置先住所
         td
           = f.text_field :address
       tr
         td
           strong.label 必須
         td.arrow_box
-          | 従業員数
+          | メールアドレス
         td
-          = f.number_field :employment
-      tr
-        td
-          strong.label 必須
-        td.arrow_box
-          | 募集している人材
-        td
-         = f.select(:choice,[\
-           ["選択してください","選択してください"],\
-           ["派遣会社","派遣会社"],\
-           ["人材紹介会社","人材紹介会社"],\
-           ["人材派遣・人材紹介会社いずれでも可能","人材派遣・人材紹介会社いずれでも可能"],
-          ])
-      tr
-        td
-          strong.label 必須
-        td.arrow_box
-          | 募集職種
-        td
-          = f.text_field :business
-      tr
-        td
-          strong.label 必須
-        td.arrow_box
-          | 募集エリア
-        td
-          = f.text_field :prefecture
-      tr
-        td
-          strong.label 必須
-        td.arrow_box
-          | 募集人数
-        td
-          = f.text_field :people
-      tr
-        td
-          strong.label 必須
-        td.arrow_box
-          | 募集している人材
-        td
-         = f.select(:recruitment,[\
-           ["選択してください","選択してください"],\
-           ["未経験可","未経験可"],\
-           ["経験者のみ","経験者のみ"],\
-           ["管理職クラス","管理職クラス"],
-           ["専門職","専門職"],
-           ["外国人","外国人"],
-           ["時脳実習生","技能実習生"],
-           ["良い人材が居れば問わない","良い人材が居れば問わない"],\
-           ["その他","その他"],
-          ])
-      tr
-        td
-          strong.label 必須
-        td.arrow_box
-          | 重視する点
-        td
-          = f.select(:importance,[\
-            ["選択してください","選択してください"],\
-            ["若手人材","若手人材"],\
-            ["費用面","費用面"],\
-            ["紹介実績がある","紹介実績がある"],
-            ["即戦力","即戦力"],
-            ["給与が安い","給与が安い"],
-            ["特に無し","特に無し"],\
-            ["その他","その他"],
-           ])
-      tr
-        td
-          strong.label 必須
-        td.arrow_box
-          | 導入時期
-        td
-          = f.select(:period,[\
-             ["選択する","選択する"],\
-             ["すぐにでも","すぐにでも"],\
-             ["1ヶ月以内","1ヶ月以内"],\
-             ["3ヶ月以内","3ヶ月以内"],\
-             ["6ヶ月以内","6ヶ月以内"],
-             ["未定","未定"],
-          ])
+          = f.email_field :email
       tr
         td
           strong.label.label-blue 任意
         td.arrow_box
-          | その他条件等
+          | 設置箇所
+          br
+          |（※ex.屋内・駐車場等）
+        td
+          = f.text_field :installation
+      tr
+        td
+          strong.label.label-blue 任意
+        td.arrow_box
+          | 想定される利用人数
+          br
+          |(※屋内の場合)
+        td
+         = f.text_field :people
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | 自販機について
+        td
+          = f.select(:chenge,[\
+            ["選択してください","選択してください"],\
+            ["新規設置","新規設置"],\
+            ["交換","交換"],\
+            ["追加","追加"],\
+           ])
+      tr
+        td
+          strong.label.label-blue 必須
+        td.arrow_box
+          | 交換前自販機会社
+          br
+          |（※交換・追加の場合）
+        td
+          = f.text_field :change_before
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | 設置希望時期
+        td
+          = f.select(:period,[\
+            ["選択してください","選択してください"],\
+            ["すぐにでも","すぐにでも"],\
+            ["１ヶ月以内","３ヶ月以内"],\
+            ["３ヶ月以内","３ヶ月以内"],\
+            ["その他","その他"],\
+           ])
+      tr
+        td
+          strong.label.label-blue 任意
+        td.arrow_box
+          | 要望
         td
           = f.text_area :remarks
-      - if current_user.blank? && current_admin.blank?
-        tr
-          td
-            strong.label 必須
-          td.arrow_box
-            | ユーザー名
-          td
-            = f.text_field :user_name
-        tr
-          td
-            strong.label 必須
-          td.arrow_box
-            | パスワード(6文字以上)
-          td
-            = f.password_field :user_password, autocomplete: "off", onchange: "if ($('#estimate_user_password').val().length < 6) { alert('パスワードは6文字以上入力して下さい'); }"
       tr
         td colspan="3"
           = f.submit "確認画面"

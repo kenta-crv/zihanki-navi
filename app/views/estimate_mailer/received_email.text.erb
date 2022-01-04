@@ -1,27 +1,16 @@
-人材紹介一括比較見積り『Comicomi』のお問い合わせがありました。
-
-<%= estimate_url(@estimate) %>
-
-相談を受託する場合、上記URLをクリックしてください。
-
-提案出来る案件一覧
-<%=  recruit_url(@estimate) %>
+自販機ねっとにお問い合わせがありました。
 
 --------------------------
-会社名: ********
-担当者: ********
-電話番号: ********
-メールアドレス: ********
-住所: ********
-従業員数: <%= @estimate.employment%>
-探している対象: <%= @estimate.choice%>
-募集地域： <%= @estimate.prefecture %>
-募集人数: <%= @estimate.people %>
-募集職種: <%= @estimate.business %>
-必要人材: <%= @estimate.recruitment %>
-重要な点: <%= @estimate.importance %>
-必要時期: <%= @estimate.period %>ヶ月以内
-相談本文:<%= @estimate.remarks %>
-【Comicomi一言コメント】
-<%= @estimate.word %>
+会社名: <%= @estimate.co%>
+担当者: <%= @estimate.name%>
+電話番号: <%= @estimate.tel%>
+メールアドレス: <%= @estimate.email%>
+郵便番号: <%= @estimate.postnumber%>
+住所: <%= @estimate.address%>
+設置箇所: <%= @estimate.installation%>
+人数: <%= @estimate.people %>
+自販機の用途: <%= @estimate.chenge %>
+交換前自販機: <%= @estimate.change_before %>
+設置時期: <%= @estimate.period %>
+要望:<%= @estimate.remarks %>
 --------------------------

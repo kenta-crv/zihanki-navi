@@ -34,18 +34,6 @@ br
            | 今月の実施件数
          th
            | 総合件数
-       - @workers.each do |worker|
-        tr
-          th
-            = worker.user_name
-          td
-            = worker.lists.where('updated_at > ?', Time.current.beginning_of_day).where('updated_at < ?', Time.current.end_of_day).count
-          td
-            = worker.lists.where('updated_at > ?', Time.current.beginning_of_week).where('updated_at < ?', Time.current.end_of_week).count
-          td
-            = worker.lists.where('updated_at > ?', Time.current.beginning_of_month).where('updated_at < ?', Time.current.end_of_month).count
-          td
-            = worker.lists.all.count
     h2.headline
       | メッセージルーム一覧
     .message_room_index

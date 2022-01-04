@@ -3,7 +3,7 @@
   br
   .tops-wrapper
     h2.headline
-      | お問い合わせ内容確認フォーム
+      | お見積もり確認フォーム
     table.company
       colgroup
         col width="10%"
@@ -37,15 +37,15 @@
         td
           strong.label 必須
         td.arrow_box
-          | メールアドレス
+          | 郵便番号
         td
-          = f.hidden_field :email
-          = @estimate.email
+          = f.hidden_field :postnumber
+          = @estimate.postnumber
       tr
         td
           strong.label 必須
         td.arrow_box
-          | 住所
+          | 設置先住所
         td
           = f.hidden_field :address
           = @estimate.address
@@ -53,64 +53,47 @@
         td
           strong.label 必須
         td.arrow_box
-          | 従業員数
+          | メールアドレス
         td
-          = f.hidden_field :employment
-          = @estimate.employment
+          = f.hidden_field :email
+          = @estimate.email
       tr
         td
-          strong.label 必須
+          strong.label.label-blue 任意
         td.arrow_box
-          | 探している対象
+          | 設置箇所
         td
-          = f.hidden_field :choice
-          = @estimate.choice
+          = f.hidden_field :installation
+          = @estimate.installation
       tr
         td
-          strong.label 必須
+          strong.label.label-blue 任意
         td.arrow_box
-          | 募集職種
-        td
-          = f.hidden_field :business
-          = @estimate.business
-      tr
-        td
-          strong.label 必須
-        td.arrow_box
-          | 募集エリア
-        td
-          = f.hidden_field :prefecture
-          = @estimate.prefecture
-      tr
-        td
-          strong.label 必須
-        td.arrow_box
-          | 募集人数
+          | 想定される利用人数
         td
           = f.hidden_field :people
           = @estimate.people
-          | 人
       tr
         td
           strong.label 必須
         td.arrow_box
-          | 募集している人材
+          | 自販機について
         td
-          = f.hidden_field :recruitment
-          = @estimate.recruitment
+          = f.hidden_field :chenge
+          = @estimate.chenge
+      tr
+        td
+          strong.label.label-blue 任意
+        td.arrow_box
+          | 交換前自販機会社
+        td
+          = f.hidden_field :change_before
+          = @estimate.change_before
       tr
         td
           strong.label 必須
         td.arrow_box
-          | 重視する点
-        td
-          = f.hidden_field :importance
-          = @estimate.importance
-      tr
-        td
-          strong.label 必須
-        td.arrow_box
-          | 導入時期
+          | 設置希望時期
         td
           = f.hidden_field :period
           = @estimate.period
@@ -118,27 +101,10 @@
         td
           strong.label.label-blue 任意
         td.arrow_box
-          | その他条件等
+          | 要望
         td
           = f.hidden_field :remarks
           = @estimate.remarks
-      - if current_user.blank?
-        tr
-          td
-            strong.label 必須
-          td.arrow_box
-            | ユーザー名
-          td
-            = f.hidden_field :user_name
-            = @estimate.user_name
-        tr
-          td
-            strong.label 必須
-          td.arrow_box
-            | パスワード
-          td
-            | ******
-            = f.hidden_field :user_password
       tr
         td colspan="3"
           = f.submit "送信"

@@ -10,11 +10,6 @@ class Admins::RegistrationsController < Devise::RegistrationsController
     "/admins/#{current_admin.id}"
   end
   # POST /resource
-  def create
-    super do
-      resource.update(confirmed_at: Time .now.utc)
-    end
-  end
 
   private
   def configure_permitted_parameters

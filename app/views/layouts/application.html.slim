@@ -17,7 +17,7 @@ html
                   span menu
       .row.navi
         .col-xs-12.center.hidden-xs
-          ul#dropmenu
+          /ul#dropmenu
            li
              = link_to  'トップページ', '/' , class: "col-md"
            li
@@ -52,7 +52,7 @@ html
                    - if admin_signed_in?
                     = link_to 'マイページ', admin_path(current_admin)
 
-        nav.globalMenuSp
+        /nav.globalMenuSp
            ul
             li
               = link_to  'トップページ', '/' , class: "col-md"
@@ -87,8 +87,6 @@ html
                = link_to 'マイページ', admin_path(current_admin)
 
 
-
-
   body
     p.notice
       = notice
@@ -98,6 +96,3 @@ html
       .bread
         = render_breadcrumbs separator: ' > '
       = yield
-      h1.col-xs-8.center
-        .white
-          人材紹介一括比較見積り『Comicomi』

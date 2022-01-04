@@ -5,25 +5,15 @@
      th 会社名
      th 電話番号
      th メールアドレス
-     th 住所
      th
    - @companies.each do |company|
     tr
      td
       = link_to company.company, company_path(company)
      td
-      = company.tel_front
-      = company.tel_middle
-      = company.tel_back
+      = company.tel
      td
       = company.mail
-     td
-      -if company.prefecture.present?
-       = company.prefecture,
-       = company.city
-       = company.town
-       = company.town_number
-       = company.building
      td
       - if admin_signed_in?
        = link_to "編集", edit_company_path(company) , class:"btn btn-success"
