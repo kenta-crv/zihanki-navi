@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get 'co' => 'top#co'
   get 'question' => 'top#question'
 
+  resources :columns
+
   resources :estimates do
     collection do
       post :confirm

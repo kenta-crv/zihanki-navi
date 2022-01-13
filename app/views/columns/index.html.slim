@@ -1,0 +1,27 @@
+- set_meta_tags  title: '工場の転職をお考えなら『ファクトル』。工場の転職をサポートします！'
+- set_meta_tags  description: 'ファクトルでは、工場の転職を徹底サポート。あらゆる記事を通して、工場の転職に関するお悩みを解決します。'
+
+.tops-wrapper
+  .row
+    .col-sm-12
+      h1.headline
+        | 新着記事
+      - @columns.each do |column|
+        .row
+          .col-sm-5
+            = image_tag column.file_1.to_s, width:"100%", class:"column-space"
+          .col-sm-7.column-base
+            .column-title
+              = link_to column.title, column_path(column)
+            .column-description
+              = column.description.html_safe
+              - if admin_signed_in?
+                = link_to '編集  ', edit_column_path(column), class: 'command'
+                = link_to '  削除',
+                 			            	column_path(column),
+                 			            	method: :delete,
+                 			            	class: 'command',
+                 			            	data: { confirm: '本当に削除しますか？'}
+        br
+        hr
+      = paginate @columns
