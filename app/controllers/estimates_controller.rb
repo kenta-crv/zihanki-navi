@@ -91,6 +91,7 @@ class EstimatesController < ApplicationController
       :postnumber, #郵便番号
       :address, #住所
       :email,
+      :vender,
       :installation, #設置箇所
       :people, #屋内の場合、使用が想定される人数
       :chenge, #自販機交換か

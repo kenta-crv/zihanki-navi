@@ -14,6 +14,14 @@ Rails.application.routes.draw do
   get 'co' => 'top#co'
   get 'question' => 'top#question'
 
+  get 'cocacola' => 'top#cocacola'
+  get 'asahi' => 'top#asahi'
+  get 'otsuka' => 'top#otsuka'
+  get 'itoen' => 'top#itoen'
+  get 'dydo' => 'top#dydo'
+  get 'pocca' => 'top#pocca'
+  get 'kirin' => 'top#kirin'
+
   resources :columns
 
   resources :estimates do

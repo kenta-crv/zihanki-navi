@@ -11,4 +11,26 @@ class TopController < ApplicationController
   def question
   end
 
+  def cocacola
+    render :layout => "vender"
+  end
+
+  def asahi
+  end
+
+  def otsuka
+  end
+
+  def itoen
+  end
+
+  def dydo
+  end
+
+  def pocca
+  end
+
+  def kirin
+  end
+
 end

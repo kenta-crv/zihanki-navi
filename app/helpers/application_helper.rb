@@ -1,10 +1,10 @@
 module ApplicationHelper
   def default_meta_tags
     {
-      site: "人材紹介会社の一括比較見積もりなら『Comicomi』",
-      title:"<%= yield(:title) | Comicomi' %>",
-      description: "人材紹介会社の一括比較見積もりなら『Comicomi』。高度人材、未経験人材、外国人人材と企業様のお悩みを人材紹介会社が最安値でサポートします",
-      keywords: "人材紹介,一括見積,最安値",
+      site: "自動販売機の一括比較見積りなら『自販機ねっと』",
+      title:"<%= yield(:title) | 自販機ねっと' %>",
+      description: "自動販売機の一括比較見積もりなら『自販機ねっと』。条件の良い自販機会社を手軽に見積りできます。",
+      keywords: "自販機　設置,自動販売機　設置",
       canonical: request.original_url,  # 優先されるurl
       charset: "UTF-8",
       reverse: true,

@@ -51,6 +51,16 @@ table.company
           | メールアドレス
         td
           = f.email_field :email
+      - if request.referer&.include?("/cocacola")
+       tr
+         td
+           strong.label.label-blue
+         td.arrow_box
+           | 希望自販機
+           br
+           |（※入力不要）
+         td
+           = f.text_field :vender, value:"コカコーラ"
       tr
         td
           strong.label.label-blue 任意

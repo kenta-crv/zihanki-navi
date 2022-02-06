@@ -61,6 +61,14 @@
         td
           strong.label.label-blue 任意
         td.arrow_box
+          | 希望自販機
+        td
+          = f.hidden_field :vender
+          = @estimate.vender
+      tr
+        td
+          strong.label.label-blue 任意
+        td.arrow_box
           | 設置箇所
         td
           = f.hidden_field :installation
