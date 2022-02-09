@@ -67,6 +67,16 @@
           = @estimate.vender
       tr
         td
+          strong.label 必須
+        td.arrow_box
+          | その他の自販機見積もりを希望しますか？
+          br
+          |
+        td
+         = f.hidden_field :other
+         = @estimate.other
+      tr
+        td
           strong.label.label-blue 任意
         td.arrow_box
           | 設置箇所

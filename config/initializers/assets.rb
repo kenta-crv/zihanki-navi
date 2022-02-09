@@ -9,6 +9,12 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Rails.application.config.assets.precompile += %w( cocacola.scss )
+Rails.application.config.assets.precompile += %w( asahi.scss )
+Rails.application.config.assets.precompile += %w( otsuka.scss )
+Rails.application.config.assets.precompile += %w( itoen.scss )
+Rails.application.config.assets.precompile += %w( dydo.scss )
+Rails.application.config.assets.precompile += %w( kirin.scss )
+Rails.application.config.assets.precompile += %w( top.scss )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.

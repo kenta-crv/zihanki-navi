@@ -5,9 +5,9 @@
 
 @import "bootstrap";
 
-$main_color: #327BEE;
-$sub_color: #327BEE;
-$asort_color: #327BEE;
+$main_color: #009E42;
+$sub_color: #009E42;
+$asort_color: #009E42;
 
 body {
   width:100%;
@@ -134,15 +134,14 @@ main {
 
 
                                   /*  メイン画像  */
- .cocacola-image-top {
-   background-image: url('cocacola.webp');
+ .itoen-image-top {
+   background-image: url('itoen.webp');
    background-size: 75%;
    background-repeat: no-repeat;
    vertical-align: middle;
    padding-bottom:50px;
    margin-top:-22px;
  }
-
  .back-image-index {
    text-align:center;
    .index-3 {

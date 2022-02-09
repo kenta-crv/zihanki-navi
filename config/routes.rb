@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   get 'otsuka' => 'top#otsuka'
   get 'itoen' => 'top#itoen'
   get 'dydo' => 'top#dydo'
-  get 'pocca' => 'top#pocca'
   get 'kirin' => 'top#kirin'
 
   resources :columns

@@ -5,9 +5,9 @@
 
 @import "bootstrap";
 
-$main_color: red;
-$sub_color: red;
-$asort_color: red;
+$main_color: #F40002;
+$sub_color: #F40002;
+$asort_color: #F40002;
 
 body {
   width:100%;
@@ -872,7 +872,7 @@ ul.cp_list li:after {
       text-align:center;
       color: #666;
     }
-    h2.head {
+    h3.head {
       position: relative;
       background:$main_color;
       line-height: 1.4;
@@ -884,7 +884,7 @@ ul.cp_list li:after {
       font-size:18px;
     }
 
-    h2.head:after {
+    h3.head:after {
       /*タブ*/
       position: absolute;
       font-family: "Font Awesome 5 Free",'Quicksand','Avenir','Arial',sans-serif;

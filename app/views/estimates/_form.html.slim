@@ -61,6 +61,70 @@ table.company
            |（※入力不要）
          td
            = f.text_field :vender, value:"コカコーラ"
+       tr
+         td
+           strong.label 必須
+         td.arrow_box
+           | その他の自販機見積もりを希望しますか？
+           br
+           |
+         td
+           = f.select(:other,[\
+             ["はい","はい"],\
+             ["いいえ","いいえ"],\
+            ])
+           .small
+            |（※相見積もり比較出来る点や、希望自販機が設置できない場合があるため『はい』がおすすめ）
+      - elsif request.referer&.include?("/asahi")
+       tr
+         td
+           strong.label.label-blue
+         td.arrow_box
+           | 希望自販機
+           br
+           |（※入力不要）
+         td
+           = f.text_field :vender, value:"アサヒ"
+      - elsif request.referer&.include?("/dydo")
+       tr
+         td
+           strong.label.label-blue
+         td.arrow_box
+           | 希望自販機
+           br
+           |（※入力不要）
+         td
+           = f.text_field :vender, value:"ダイドー"
+      - elsif request.referer&.include?("/itoen")
+       tr
+         td
+           strong.label.label-blue
+         td.arrow_box
+           | 希望自販機
+           br
+           |（※入力不要）
+         td
+           = f.text_field :vender, value:"伊藤園"
+      - elsif request.referer&.include?("/kirin")
+       tr
+         td
+           strong.label.label-blue
+         td.arrow_box
+           | 希望自販機
+           br
+           |（※入力不要）
+         td
+           = f.text_field :vender, value:"キリン"
+      - elsif request.referer&.include?("/otsuka")
+       tr
+         td
+           strong.label.label-blue
+         td.arrow_box
+           | 希望自販機
+           br
+           |（※入力不要）
+         td
+           = f.text_field :vender, value:"大塚製薬"
       tr
         td
           strong.label.label-blue 任意

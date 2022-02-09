@@ -12,25 +12,27 @@ class TopController < ApplicationController
   end
 
   def cocacola
-    render :layout => "vender"
+    render :layout => "cocacola"
   end
 
   def asahi
+    render :layout => "asahi"
   end
 
   def otsuka
+    render :layout => "otsuka"
   end
 
   def itoen
+    render :layout => "itoen"
   end
 
   def dydo
-  end
-
-  def pocca
+    render :layout => "dydo"
   end
 
   def kirin
+    render :layout => "kirin"
   end
 
 end
