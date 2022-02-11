@@ -1,0 +1,39 @@
+= form_for[@estimate, @comment] do |f|
+ table.company[width="100%"]
+    col[width="16%"]
+    col[width="16%"]
+    col[width="16%"]
+    col[width="16%"]
+    col[width="16%"]
+    col[width="16%"]
+    tbody
+      tr
+          th
+            | アサヒ
+          th
+            | コカコーラ
+          th
+            | ダイドー
+          th
+            | 伊藤園
+          th
+            | キリン
+          th
+            | 大塚
+      tr
+          td
+            = f.text_area :asahi
+          td
+            = f.text_area :cocacola
+          td
+            = f.text_area :dydo
+          td
+            = f.text_area :itoen
+          td
+            = f.text_area :kirin
+          td
+            = f.text_area :otsuka
+      tr
+        th[colspan="6"]
+         .center
+          = f.submit
