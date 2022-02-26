@@ -18,4 +18,14 @@ module Eatery
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
   end
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address: 'smtp3.gmoserver.jp',
+  domain: 'comicomi.cc',
+  port: 587,
+  user_name: 'info@comicomi.cc',
+  password: 'NV2BW#x23',
+  authentication: 'plain',
+  enable_starttls_auto: true
+  }
 end

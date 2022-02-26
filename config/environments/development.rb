@@ -4,16 +4,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
 
   # ActionMailer::Base.delivery_method = :letter_opener_web
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings = {
-  address: 'smtp3.gmoserver.jp',
-  domain: 'comicomi.cc',
-  port: 587,
-  user_name: 'info@comicomi.cc',
-  password: 'NV2BW#x23',
-  authentication: 'plain',
-  enable_starttls_auto: true
-  }
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
