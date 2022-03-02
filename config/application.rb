@@ -17,7 +17,7 @@ module Eatery
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
-  end
+
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
   address: 'smtp3.gmoserver.jp',
@@ -28,4 +28,5 @@ module Eatery
   authentication: 'plain',
   enable_starttls_auto: true
   }
+  end
 end
