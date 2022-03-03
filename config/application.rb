@@ -24,7 +24,7 @@ module Eatery
   domain: 'comicomi.cc',
   port: 587,
   user_name: 'info@comicomi.cc',
-  password: 'NV2BW#x23',
+  password: 'Gm4SAdyQ#4',
   authentication: 'plain',
   enable_starttls_auto: true
   }
