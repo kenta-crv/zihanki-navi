@@ -114,12 +114,11 @@ br
 
 = form_for([@estimate, @estimate.comments.build]) do |f|
  table.company[width="100%"]
-    col[width="16%"]
-    col[width="16%"]
-    col[width="16%"]
-    col[width="16%"]
-    col[width="16%"]
-    col[width="16%"]
+    col[width="20%"]
+    col[width="20%"]
+    col[width="20%"]
+    col[width="20%"]
+    col[width="20%"]
     tbody
       tr
           th
@@ -132,8 +131,6 @@ br
             | 伊藤園
           th
             | キリン
-          th
-            | 大塚
       tr
           td
             = f.text_area :asahi
@@ -145,20 +142,12 @@ br
             = f.text_area :itoen
           td
             = f.text_area :kirin
-          td
-            = f.text_area :otsuka
       tr
-        th[colspan="6"]
+        th[colspan="5"]
          .center
           = f.submit
  table.company[width="100%"]
   - if @estimate.comments.any?
-    col[width="16%"]
-    col[width="16%"]
-    col[width="16%"]
-    col[width="16%"]
-    col[width="16%"]
-    col[width="16%"]
     tbody
      tr
         th
@@ -172,9 +161,9 @@ br
         th
           | キリン
         th
-          | 大塚
-     tr
+          | 編集/削除
      - @estimate.comments.each do |comment|
+       tr
         td
           = comment.asahi
         td
@@ -186,7 +175,4 @@ br
         td
           = comment.kirin
         td
-          = comment.otsuka
-     tr.center
-        td[colspan="6"]
-          = link_to '編集', edit_estimate_comment_path(@estimate, comment), class: 'command'
+          = link_to "編集", edit_estimate_comment_path(@estimate, @estimate.comments), _blank: "target"

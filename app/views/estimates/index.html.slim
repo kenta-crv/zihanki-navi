@@ -6,12 +6,24 @@
   table.company
    tr
      th 会社名
-     th 詳細
+     th 担当者
+     th 電話番号
+     th cocacola
+     th asahi
+     th 伊藤園
+     th ダイドー
+     th Kirin
      th メール送信
    - @estimates.each do |estimate|
     tr
-     td = estimate.co
-     td = link_to "詳細", estimate_path(estimate), class:"store"
+     td = link_to estimate.co, estimate_path(estimate), clsss:"store"
+     td = estimate.name
+     td = estimate.tel
+     td
+     td
+     td
+     td
+     td
      - if estimate.send_mail_flag == true
       td style="color: green" 送信済
      - else

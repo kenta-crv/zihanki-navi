@@ -1,30 +1,31 @@
 class CommentsController < ApplicationController
-  before_action :load_estimate
-  before_action :load_comment, only: [:edit,:update,:show,:destroy]
-  #before_action :authenticate_admin!
 
-  def load_estimate
-    @estimate = Estimate.find(params[:estimate_id])
-    @comment = Comment.new
-  end
-
-  def load_comment
-    @comment = Comment.find(params[:id])
-  end
+	def create
+		@estimate = Estimate.find(params[:estimate_id])
+		@estimate.comments.create(comment_params)
+		redirect_to estimate_path(@estimate)
+	end
 
   def edit
+    @estimate = Estimate.find(params[:estimate_id])
+    @comment = Comment.find(params[:id])
+    #@comment = @estimate.comments.build
   end
 
-  def create
-    @comment = @estimate.comments.new(comment_params)
-    @comment.save
-  end
+	def destroy
+		@estimate = Estimate.find(params[:estimate_id])
+		@comment = @estimate.comments.find(params[:id])
+		@comment.destroy
+		redirect_to estimate_path(@estimate)
+	end
 
-  def update
+	 def update
+    @comment = Comment.find(params[:estimate_id])
+    @comment = @estimate.comments.find(params[:id])
     if @comment.update(comment_params)
-      redirect_to estimate_path(@estimate.id)
+       redirect_to estimate_path(@estimate)
     else
-      render 'edit'
+        render 'edit'
     end
   end
 

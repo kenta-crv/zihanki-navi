@@ -1,11 +1,12 @@
-= form_for[@estimate, @comment] do |f|
+br
+br
+= form_for ([@estimate, @comment]) do |f|
  table.company[width="100%"]
-    col[width="16%"]
-    col[width="16%"]
-    col[width="16%"]
-    col[width="16%"]
-    col[width="16%"]
-    col[width="16%"]
+    col[width="20%"]
+    col[width="20%"]
+    col[width="20%"]
+    col[width="20%"]
+    col[width="20%"]
     tbody
       tr
           th
@@ -18,8 +19,6 @@
             | 伊藤園
           th
             | キリン
-          th
-            | 大塚
       tr
           td
             = f.text_area :asahi
@@ -31,9 +30,7 @@
             = f.text_area :itoen
           td
             = f.text_area :kirin
-          td
-            = f.text_area :otsuka
       tr
-        th[colspan="6"]
+        th[colspan="5"]
          .center
           = f.submit
