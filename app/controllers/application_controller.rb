@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include SessionHelper
   before_action :set_host
+  before_action :set_footer
 
   # 例外処理
 
@@ -18,6 +19,10 @@ class ApplicationController < ActionController::Base
 
    def render_500
     render template: 'errors/error_500', status: 500, layout: 'application', content_type: 'text/html'
+   end
+
+   def set_footer
+     @columns = Column.all
    end
 
 private

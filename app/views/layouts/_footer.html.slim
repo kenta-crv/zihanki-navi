@@ -1,0 +1,8 @@
+footer
+  h3 【自動販売機記事一覧】
+
+  .row.left
+    - @columns.each do |column|
+      h4.col-xs-6.height
+       = link_to column.title, column_path(column.id)
+       br

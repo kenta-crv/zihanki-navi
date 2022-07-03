@@ -27,7 +27,8 @@ class EstimatesController < ApplicationController
   end
 
   def show
-    @estimate = Estimate.find(params[:id])
+    @estimate = Estimate.find_by(params[:id])
+
     @comment = Comment.new
   end
 

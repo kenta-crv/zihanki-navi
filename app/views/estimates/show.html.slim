@@ -112,7 +112,7 @@ br
   hr
   = link_to "一覧に戻る", estimates_path
 
-= form_for([@estimate, @estimate.comments.build]) do |f|
+= form_for([@estimate, @estimate.comment]) do |f|
  table.company[width="100%"]
     col[width="20%"]
     col[width="20%"]
@@ -147,7 +147,7 @@ br
          .center
           = f.submit
  table.company[width="100%"]
-  - if @estimate.comments.any?
+  /- if @estimate.comment.any?
     tbody
      tr
         th
@@ -175,4 +175,4 @@ br
         td
           = comment.kirin
         td
-          = link_to "編集", edit_estimate_comment_path(@estimate, @estimate.comments), _blank: "target"
+          = link_to "編集", edit_estimate_comment_path(@estimate, comment), _blank: "target"

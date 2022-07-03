@@ -1,6 +1,6 @@
 class Estimate < ApplicationRecord
   belongs_to :company, optional: true
-  has_many :comments  
+  has_one :comment, dependent: :destroy
 
   validates :co, {presence: true}
   validates :name, {presence: true}  #名前

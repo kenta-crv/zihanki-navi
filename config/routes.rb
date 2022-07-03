@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   resources :columns
 
   resources :estimates do
-    resources :comments
+    resource :comments
     collection do
       post :confirm
       post :thanks

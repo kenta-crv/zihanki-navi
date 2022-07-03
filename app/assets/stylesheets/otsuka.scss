@@ -1314,3 +1314,43 @@ p.comment {
  margin-top:120px;
  padding-right:30px;
 }
+
+h1.header {
+  font-size:14px;
+  text-align:center;
+  color:white;
+  border-radius: 10px;
+}
+
+footer {
+    width:100%;
+    height:auto;
+    background-color:#E3E5E8;
+    padding:30px;
+    margin:0 auto;
+
+   .left {
+     text-align:left;
+   }
+
+   .underline{
+     border-bottom: 1px solid #999; /* 下側の1本線 */
+     width:100%;
+     padding-left:30px;
+     padding-bottom:10px;
+     margin-bottom:20px;
+   }
+
+   ul {
+    display:inline-block;
+   }
+
+   li {
+      text-align:left;
+      padding:3px 25px ;
+   }
+
+   .height {
+     margin-top:10px;
+   }
+}

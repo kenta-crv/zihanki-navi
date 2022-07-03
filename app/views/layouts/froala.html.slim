@@ -7,8 +7,9 @@ html
       .row
         .col-xs-3
            = link_to "/"
-            =image_tag "rogo.webp", class:"header-image", alt:"自動販売機の設置なら自販機ねっと"
+            =image_tag "rogo.webp", class:"header-image", alt:"自動販売機の設置なら一括見積もりの自販機ねっと"
         .col-xs-7
+         h1.header 自動販売機の設置なら一括見積もりの自販機ねっと
         .col-xs-2
                 .navToggle
                   span
@@ -96,3 +97,8 @@ html
       .bread
         = render_breadcrumbs separator: ' > '
       = yield
+
+  br
+  br
+  footer
+   = render template: 'layouts/_footer.html.slim'
