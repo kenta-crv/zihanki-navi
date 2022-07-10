@@ -21,10 +21,10 @@ module Eatery
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
     address: 'smtp3.gmoserver.jp',
-    domain: 'comicomi.cc',
+    domain: 'ri-plus.jp',
     port: 587,
-    user_name: 'info@comicomi.cc',
-    password: 'Y9v6#acFg',
+    user_name: 'zihanki@ri-plus.jp',
+    password: 'GQhv5WP&',
     authentication: 'plain',
     enable_starttls_auto: true
     }

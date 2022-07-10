@@ -1,7 +1,7 @@
 module ApplicationHelper
   def default_meta_tags
     {
-      site: "自動販売機の一括比較見積りなら一括見積もりの『自販機ねっと』",
+      site: "",
       title:"<%= yield(:title) | 自販機ねっと' %>",
       description: "自動販売機の一括比較見積もりなら『自販機ねっと』。条件の良い自販機会社を手軽に見積りできます。",
       keywords: "自販機　設置,自動販売機　設置",
