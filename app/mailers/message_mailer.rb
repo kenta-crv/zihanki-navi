@@ -1,5 +1,5 @@
 class MessageMailer < ActionMailer::Base
-  default from: "zihanki@ri-plus.jp"
+  default from: "zihanki@factoru.jp"
   def received_email(message)
     @message = message
     @room = message.room
