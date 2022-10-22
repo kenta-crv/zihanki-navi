@@ -10,7 +10,7 @@ class MessageMailer < ActionMailer::Base
       @send_user_name = @room.member.company
       @received_user_name = @room.user_name
     end
-    mail to: "zihanki@ri-plus.jp"
+    mail to: "zihanki@factoru.jp"
     mail(subject: 'メッセージが送信されました') do |format|
       format.text
     end
