@@ -3,6 +3,8 @@ class EstimatesController < ApplicationController
 
   def index
     @estimates = Estimate.order(created_at: "DESC").page(params[:page])
+    #@progresses = Progress.find_by(params[:progress_id])
+    #@@progresses = Estimate.progress
   end
 
   def new
