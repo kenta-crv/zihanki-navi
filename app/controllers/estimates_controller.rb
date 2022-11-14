@@ -29,6 +29,7 @@ class EstimatesController < ApplicationController
   def show
     @estimate = Estimate.find(params[:id])
     @comment = Comment.new
+    @progress = Progress.new
   end
 
   def edit

@@ -112,13 +112,14 @@ br
   hr
   = link_to "一覧に戻る", estimates_path
 
-= form_for([@estimate, @comment]) do |f|
- table.company[width="100%"]
-    col[width="20%"]
-    col[width="20%"]
-    col[width="20%"]
-    col[width="20%"]
-    col[width="20%"]
+table.company[width="100%"]
+  = form_for([@estimate, @comment], url: estimate_comments_path(estimate_id: @estimate)) do |f|
+    col[width="15%"]
+    col[width="15%"]
+    col[width="15%"]
+    col[width="15%"]
+    col[width="15%"]
+    col[width="25%"]
     tbody
       tr
           th
@@ -131,39 +132,29 @@ br
             | 伊藤園
           th
             | キリン
+          th
       tr
           td
-            = f.text_area :asahi
+            = f.text_field :asahi
           td
-            = f.text_area :cocacola
+            = f.text_field :cocacola
           td
-            = f.text_area :dydo
+            = f.text_field :dydo
           td
-            = f.text_area :itoen
+            = f.text_field :itoen
           td
-            = f.text_area :kirin
-      tr
-        th[colspan="5"]
-         .center
-          = f.submit
- table.company[width="100%"]
-  /- if @estimate.comment.any?
-    tbody
-     tr
-        th
-          | アサヒ
-        th
-          | コカコーラ
-        th
-          | ダイドー
-        th
-          | 伊藤園
-        th
-          | キリン
-        th
-          | 編集/削除
+            = f.text_field :kirin
+          td
+            = f.submit "登録"
+table.company[width="100%"]
+    col[width="15%"]
+    col[width="15%"]
+    col[width="15%"]
+    col[width="15%"]
+    col[width="15%"]
+    col[width="25%"]
      - @estimate.comments.each do |comment|
-       tr
+       tr.center
         td
           = comment.asahi
         td
@@ -176,3 +167,42 @@ br
           = comment.kirin
         td
           = link_to "編集", edit_estimate_comment_path(@estimate, comment), _blank: "target"
+          = link_to "削除", estimate_comment_path(@estimate, comment), method: :delete, data: {confirm:"本当に削除しますか？"}
+
+
+table.company[width="100%"]
+  = form_for([@estimate, @progress], url: estimate_progresses_path(estimate_id: @estimate)) do |f|
+    tbody
+    col[width="30%"]
+    col[width="50%"]
+    col[width="20%"]
+      tr.ceter
+          td
+            = f.select(:status,[\
+              ["未コンタクト","未コンタクト"],\
+              ["見積依頼前","見積依頼前"],\
+              ["見積依頼中","見積依頼中"],\
+              ["見積提示中","見積提示中"],\
+              ["契約済","契約済"],\
+              ["status","契約済"],\
+             ])
+          td
+            = f.text_area :body
+          td
+            = f.submit "登録"
+table.company[width="100%"]
+    col[width="25%"]
+    col[width="20%"]
+    col[width="35%"]
+    col[width="20%"]
+     - @estimate.progresses.each do |progress|
+       tr.center
+        th
+          = progress.created_at
+        td
+          = progress.status
+        td
+          = progress.body
+        td
+          = link_to "編集", edit_estimate_progress_path(@estimate, progress), _blank: "target"
+          = link_to "削除", estimate_progress_path(@estimate, progress), method: :delete, data: {confirm:"本当に削除しますか？"}

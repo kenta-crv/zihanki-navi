@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_10_055408) do
+ActiveRecord::Schema.define(version: 2022_11_10_132054) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -146,6 +146,15 @@ ActiveRecord::Schema.define(version: 2022_02_10_055408) do
     t.boolean "is_read", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "progresses", force: :cascade do |t|
+    t.integer "estimate_id"
+    t.string "status"
+    t.string "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["estimate_id"], name: "index_progresses_on_estimate_id"
   end
 
   create_table "rooms", force: :cascade do |t|
