@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_10_132054) do
+ActiveRecord::Schema.define(version: 2022_11_17_071957) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(version: 2022_11_10_132054) do
     t.string "otsuka"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "suntory"
     t.index ["estimate_id"], name: "index_comments_on_estimate_id"
   end
 

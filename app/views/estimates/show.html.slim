@@ -52,6 +52,13 @@ br
            = @estimate.email
        tr
          td
+           strong.label 任意
+         td.arrow_box
+           | 希望ベンダー
+         td
+           = @estimate.vender
+       tr
+         td
            strong.label.label-blue 任意
          td.arrow_box
            | 設置箇所
@@ -114,12 +121,14 @@ br
 
 table.company[width="100%"]
   = form_for([@estimate, @comment], url: estimate_comments_path(estimate_id: @estimate)) do |f|
-    col[width="15%"]
-    col[width="15%"]
-    col[width="15%"]
-    col[width="15%"]
-    col[width="15%"]
-    col[width="25%"]
+    col[width="12.5%"]
+    col[width="12.5%"]
+    col[width="12.5%"]
+    col[width="12.5%"]
+    col[width="12.5%"]
+    col[width="12.5%"]
+    col[width="12.5%"]
+    col[width="12.5%"]
     tbody
       tr
           th
@@ -132,6 +141,10 @@ table.company[width="100%"]
             | 伊藤園
           th
             | キリン
+          th
+            | サントリー
+          th
+            | 大塚
           th
       tr
           td
@@ -175,14 +188,32 @@ table.company[width="100%"]
               ["設置NG","設置NG"],\
              ])
           td
+            = f.select(:suntory,[\
+              ["未依頼","未依頼"],\
+              ["現地調査中","現地調査中"],\
+              ["見積提示中","見積提示中"],\
+              ["契約","契約"],\
+              ["設置NG","設置NG"],\
+             ])
+          td
+            = f.select(:otsuka,[\
+              ["未依頼","未依頼"],\
+              ["現地調査中","現地調査中"],\
+              ["見積提示中","見積提示中"],\
+              ["契約","契約"],\
+              ["設置NG","設置NG"],\
+             ])
+          td
             = f.submit "登録"
 table.company[width="100%"]
-    col[width="15%"]
-    col[width="15%"]
-    col[width="15%"]
-    col[width="15%"]
-    col[width="15%"]
-    col[width="25%"]
+    col[width="12.5%"]
+    col[width="12.5%"]
+    col[width="12.5%"]
+    col[width="12.5%"]
+    col[width="12.5%"]
+    col[width="12.5%"]
+    col[width="12.5%"]
+    col[width="12.5%"]
      - @estimate.comments.each do |comment|
        tr.center
         td
@@ -195,6 +226,10 @@ table.company[width="100%"]
           = comment.itoen
         td
           = comment.kirin
+        td
+          = comment.suntory
+        td
+          = comment.otsuka
         td
           = link_to "編集", edit_estimate_comment_path(@estimate, comment), _blank: "target"
           = link_to "削除", estimate_comment_path(@estimate, comment), method: :delete, data: {confirm:"本当に削除しますか？"}

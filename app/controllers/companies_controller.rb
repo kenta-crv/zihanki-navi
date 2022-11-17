@@ -9,7 +9,6 @@ before_action :authenticate_admin!, only: :index
 
   def show
     @company = Company.find(params[:id])
-    @comment = @company.build_comment
   end
 
   def new
