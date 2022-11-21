@@ -41,4 +41,9 @@ class TopController < ApplicationController
     @vender = "キリン"
   end
 
+  def suntory
+    render :layout => "suntory"
+    @vender = "サントリー"
+  end
+
 end

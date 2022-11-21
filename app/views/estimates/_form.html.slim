@@ -147,6 +147,30 @@ table.company
             ])
            .small
             |（※相見積もり比較出来る点や、希望自販機が設置できない場合があるため『はい』がおすすめ）
+      - elsif request.referer&.include?("/suntory")
+       tr
+         td
+           strong.label.label-blue
+         td.arrow_box
+           | 希望自販機
+           br
+           |（※入力不要）
+         td
+           = f.text_field :vender, value:"サントリー"
+       tr
+         td
+           strong.label 必須
+         td.arrow_box
+           | その他の自販機見積もりを希望しますか？
+           br
+           |
+         td
+           = f.select(:other,[\
+             ["はい","はい"],\
+             ["いいえ","いいえ"],\
+            ])
+           .small
+            |（※相見積もり比較出来る点や、希望自販機が設置できない場合があるため『はい』がおすすめ）
       - elsif request.referer&.include?("/kirin")
        tr
          td

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'question' => 'top#question'
 
   get 'cocacola' => 'top#cocacola'
+  get 'suntory' => 'top#suntory'
   get 'asahi' => 'top#asahi'
   get 'otsuka' => 'top#otsuka'
   get 'itoen' => 'top#itoen'
