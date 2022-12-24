@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_17_071957) do
+ActiveRecord::Schema.define(version: 2022_12_22_081936) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 2022_11_17_071957) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "suntory"
-    t.index ["estimate_id"], name: "index_comments_on_estimate_id"
+    t.index ["estimate_id"], name: "index_comments_on_estimate_id", unique: true
   end
 
   create_table "companies", force: :cascade do |t|

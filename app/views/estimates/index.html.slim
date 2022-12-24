@@ -15,7 +15,7 @@
      td = link_to estimate.co, estimate_path(estimate), clsss:"store"
      td = estimate.name
      td = estimate.tel
-     td 
+     td = estimate.comment ? estimate.comment.cocacola : nil
      - if estimate.send_mail_flag == true
       td style="color: green" class="btn btn-success" 送信済
      - else
