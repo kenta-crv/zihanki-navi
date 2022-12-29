@@ -2,7 +2,7 @@ class EstimatesController < ApplicationController
   before_action :authenticate_admin!, only: [:index, :show, :edit, :update, :destroy, :send_mail]
 
   def index
-    @estimates = Estimate.order(created_at: "DESC").page(params[:page])
+    @estimates = Estimate.order(created_at: "DESC").page(params[:page]).per(50)
     #@progresses = Progress.find_by(params[:progress_id])
     #@@progresses = Estimate.progress
   end
