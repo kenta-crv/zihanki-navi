@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = @estimate.comments.new(comment_params)
+    @comment = @estimate.build_comment(comment_params)
     if @comment.save
 			redirect_to estimate_path(@estimate)
 		end
@@ -24,14 +24,13 @@ class CommentsController < ApplicationController
 
 	def destroy
 		@estimate = Estimate.find(params[:estimate_id])
-		@comment = @estimate.comments.find(params[:id])
+		@comment = @estimate.comment
 		@comment.destroy
 		redirect_to estimate_path(@estimate)
 	end
 
 	 def update
-    @comment = Comment.find(params[:estimate_id])
-    @comment = @estimate.comments.find(params[:id])
+    @comment = @estimate.comment
     if @comment.update(comment_params)
        redirect_to estimate_path(@estimate)
     else

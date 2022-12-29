@@ -214,25 +214,25 @@ table.company[width="100%"]
     col[width="12.5%"]
     col[width="12.5%"]
     col[width="12.5%"]
-     - @estimate.comments.each do |comment|
-       tr.center
+    - if @estimate.comment
+     tr.center
         td
-          = comment.asahi
+          = @estimate.comment.asahi
         td
-          = comment.cocacola
+          = @estimate.comment.cocacola
         td
-          = comment.dydo
+          = @estimate.comment.dydo
         td
-          = comment.itoen
+          = @estimate.comment.itoen
         td
-          = comment.kirin
+          = @estimate.comment.kirin
         td
-          = comment.suntory
+          = @estimate.comment.suntory
         td
-          = comment.otsuka
+          = @estimate.comment.otsuka
         td
-          = link_to "編集", edit_estimate_comment_path(@estimate, comment), _blank: "target"
-          = link_to "削除", estimate_comment_path(@estimate, comment), method: :delete, data: {confirm:"本当に削除しますか？"}
+          = link_to "編集", edit_estimate_comment_path(@estimate, @estimate.comment), _blank: "target"
+          = link_to "削除", estimate_comment_path(@estimate, @estimate.comment), method: :delete, data: {confirm:"本当に削除しますか？"}
 
 
 table.company[width="100%"]
