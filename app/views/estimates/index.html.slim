@@ -8,14 +8,24 @@
      th 会社名
      th 担当者
      th 電話番号
-     th 進捗
+     th アサヒ
+     th コカコーラ
+     th 伊藤園
+     th ダイドー
+     th 山久
+     th ネオス
      th メール送信
    - @estimates.each do |estimate|
     tr
      td = link_to estimate.co, estimate_path(estimate), clsss:"store"
      td = estimate.name
      td = estimate.tel
+     td = estimate.comment ? estimate.comment.asahi : nil
      td = estimate.comment ? estimate.comment.cocacola : nil
+     td = estimate.comment ? estimate.comment.itoen : nil
+     td = estimate.comment ? estimate.comment.dydo : nil
+     td = estimate.comment ? estimate.comment.yamakyu : nil
+     td = estimate.comment ? estimate.comment.neos : nil
      - if estimate.send_mail_flag == true
       td style="color: green" class="btn btn-success" 送信済
      - else
@@ -24,3 +34,13 @@
     hr.line
     br
     = paginate(@estimates)
+
+
+table.company
+    tbody
+      tr
+        th
+          | CUSTOMER_CSVファイルエクスポート
+
+        td.center
+          = link_to 'エクスポート', estimates_path(format: :csv), class: 'btn btn-primary'

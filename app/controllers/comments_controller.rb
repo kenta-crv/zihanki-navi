@@ -47,7 +47,9 @@ class CommentsController < ApplicationController
     :itoen,
     :kirin,
     :otsuka,
-    :suntory
+    :suntory,
+    :yamakyu,
+    :neos
     )
  	end
 end

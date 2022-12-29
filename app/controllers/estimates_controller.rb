@@ -3,8 +3,12 @@ class EstimatesController < ApplicationController
 
   def index
     @estimates = Estimate.order(created_at: "DESC").page(params[:page]).per(50)
-    #@progresses = Progress.find_by(params[:progress_id])
-    #@@progresses = Estimate.progress
+    respond_to do |format|
+      format.html
+      format.csv do
+        send_data @estimates.generate_csv, filename: "estimates-#{Time.zone.now.strftime('%Y%m%d%S')}.csv"
+      end
+    end
   end
 
   def new

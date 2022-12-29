@@ -121,14 +121,15 @@ br
 
 table.company[width="100%"]
   = form_for([@estimate, @comment], url: estimate_comments_path(estimate_id: @estimate)) do |f|
-    col[width="12.5%"]
-    col[width="12.5%"]
-    col[width="12.5%"]
-    col[width="12.5%"]
-    col[width="12.5%"]
-    col[width="12.5%"]
-    col[width="12.5%"]
-    col[width="12.5%"]
+    col[width="11%"]
+    col[width="11%"]
+    col[width="11%"]
+    col[width="11%"]
+    col[width="11%"]
+    col[width="11%"]
+    col[width="11%"]
+    col[width="11%"]
+    col[width="11%"]
     tbody
       tr
           th
@@ -144,12 +145,14 @@ table.company[width="100%"]
           th
             | サントリー
           th
-            | 大塚
+            | 山久
+          th
+            | ネオス
           th
       tr
           td
             = f.select(:asahi,[\
-              ["未依頼","未依頼"],\
+              ["",""],\
               ["現地調査中","現地調査中"],\
               ["見積提示中","見積提示中"],\
               ["契約","契約"],\
@@ -157,7 +160,7 @@ table.company[width="100%"]
              ])
           td
             = f.select(:cocacola,[\
-              ["未依頼","未依頼"],\
+              ["",""],\
               ["現地調査中","現地調査中"],\
               ["見積提示中","見積提示中"],\
               ["契約","契約"],\
@@ -165,7 +168,7 @@ table.company[width="100%"]
              ])
           td
             = f.select(:dydo,[\
-              ["未依頼","未依頼"],\
+              ["",""],\
               ["現地調査中","現地調査中"],\
               ["見積提示中","見積提示中"],\
               ["契約","契約"],\
@@ -173,7 +176,7 @@ table.company[width="100%"]
              ])
           td
             = f.select(:itoen,[\
-              ["未依頼","未依頼"],\
+              ["",""],\
               ["現地調査中","現地調査中"],\
               ["見積提示中","見積提示中"],\
               ["契約","契約"],\
@@ -181,7 +184,7 @@ table.company[width="100%"]
              ])
           td
             = f.select(:kirin,[\
-              ["未依頼","未依頼"],\
+              ["",""],\
               ["現地調査中","現地調査中"],\
               ["見積提示中","見積提示中"],\
               ["契約","契約"],\
@@ -189,15 +192,23 @@ table.company[width="100%"]
              ])
           td
             = f.select(:suntory,[\
-              ["未依頼","未依頼"],\
+              ["",""],\
               ["現地調査中","現地調査中"],\
               ["見積提示中","見積提示中"],\
               ["契約","契約"],\
               ["設置NG","設置NG"],\
              ])
           td
-            = f.select(:otsuka,[\
-              ["未依頼","未依頼"],\
+            = f.select(:yamakyu,[\
+              ["",""],\
+              ["現地調査中","現地調査中"],\
+              ["見積提示中","見積提示中"],\
+              ["契約","契約"],\
+              ["設置NG","設置NG"],\
+             ])
+          td
+            = f.select(:neos,[\
+              ["",""],\
               ["現地調査中","現地調査中"],\
               ["見積提示中","見積提示中"],\
               ["契約","契約"],\
@@ -206,14 +217,15 @@ table.company[width="100%"]
           td
             = f.submit "登録"
 table.company[width="100%"]
-    col[width="12.5%"]
-    col[width="12.5%"]
-    col[width="12.5%"]
-    col[width="12.5%"]
-    col[width="12.5%"]
-    col[width="12.5%"]
-    col[width="12.5%"]
-    col[width="12.5%"]
+    col[width="11%"]
+    col[width="11%"]
+    col[width="11%"]
+    col[width="11%"]
+    col[width="11%"]
+    col[width="11%"]
+    col[width="11%"]
+    col[width="11%"]
+    col[width="11%"]
     - if @estimate.comment
      tr.center
         td
@@ -229,7 +241,9 @@ table.company[width="100%"]
         td
           = @estimate.comment.suntory
         td
-          = @estimate.comment.otsuka
+          = @estimate.comment.yamakyu
+        td
+          = @estimate.comment.neos
         td
           = link_to "編集", edit_estimate_comment_path(@estimate, @estimate.comment), _blank: "target"
           = link_to "削除", estimate_comment_path(@estimate, @estimate.comment), method: :delete, data: {confirm:"本当に削除しますか？"}
