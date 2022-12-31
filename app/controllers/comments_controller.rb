@@ -49,7 +49,8 @@ class CommentsController < ApplicationController
     :otsuka,
     :suntory,
     :yamakyu,
-    :neos
+    :neos,
+    :body
     )
  	end
 end

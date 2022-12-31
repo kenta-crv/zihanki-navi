@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_31_053920) do
+ActiveRecord::Schema.define(version: 2022_12_31_084531) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 2022_12_31_053920) do
     t.string "suntory"
     t.string "yamakyu"
     t.string "neos"
+    t.string "body"
     t.index ["estimate_id"], name: "index_comments_on_estimate_id", unique: true
   end
 

@@ -9,6 +9,8 @@ br
     col[width="11%"]
     col[width="11%"]
     col[width="11%"]
+    col[width="11%"]
+    col[width="11%"]
     tbody
       tr
           th
@@ -27,6 +29,7 @@ br
             | 山久
           th
             | ネオス
+          th
       tr
           td
             = f.select(:asahi,[\
@@ -100,7 +103,13 @@ br
               ["契約","契約"],\
               ["設置NG","設置NG"],\
              ])
+          td
+            = f.select(:body,[\
+              ["",""],\
+              ["明細待","明細待"],\
+              ["NG","NG"],\
+             ])
       tr
-        th[colspan="8"]
+        th[colspan="9"]
          .center
           = f.submit

@@ -121,15 +121,16 @@ br
 
 table.company[width="100%"]
   = form_for([@estimate, @comment], url: estimate_comments_path(estimate_id: @estimate)) do |f|
-    col[width="11%"]
-    col[width="11%"]
-    col[width="11%"]
-    col[width="11%"]
-    col[width="11%"]
-    col[width="11%"]
-    col[width="11%"]
-    col[width="11%"]
-    col[width="11%"]
+    col[width="10%"]
+    col[width="10%"]
+    col[width="10%"]
+    col[width="10%"]
+    col[width="10%"]
+    col[width="10%"]
+    col[width="10%"]
+    col[width="10%"]
+    col[width="10%"]
+    col[width="10%"]
     tbody
       tr
           th
@@ -148,6 +149,8 @@ table.company[width="100%"]
             | 山久
           th
             | ネオス
+          th
+
           th
       tr
           td
@@ -215,17 +218,24 @@ table.company[width="100%"]
               ["設置NG","設置NG"],\
              ])
           td
+            = f.select(:body,[\
+              ["",""],\
+              ["明細待","明細待"],\
+              ["NG","NG"],\
+             ])
+          td
             = f.submit "登録"
 table.company[width="100%"]
-    col[width="11%"]
-    col[width="11%"]
-    col[width="11%"]
-    col[width="11%"]
-    col[width="11%"]
-    col[width="11%"]
-    col[width="11%"]
-    col[width="11%"]
-    col[width="11%"]
+    col[width="10%"]
+    col[width="10%"]
+    col[width="10%"]
+    col[width="10%"]
+    col[width="10%"]
+    col[width="10%"]
+    col[width="10%"]
+    col[width="10%"]
+    col[width="10%"]
+    col[width="10%"]
     - if @estimate.comment
      tr.center
         td
@@ -244,6 +254,8 @@ table.company[width="100%"]
           = @estimate.comment.yamakyu
         td
           = @estimate.comment.neos
+        td
+          = @estimate.comment.body
         td
           = link_to "編集", edit_estimate_comment_path(@estimate, @estimate.comment), _blank: "target"
           = link_to "削除", estimate_comment_path(@estimate, @estimate.comment), method: :delete, data: {confirm:"本当に削除しますか？"}
