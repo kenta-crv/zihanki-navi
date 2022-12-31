@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_29_150407) do
+ActiveRecord::Schema.define(version: 2022_12_31_053920) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -139,6 +139,7 @@ ActiveRecord::Schema.define(version: 2022_12_29_150407) do
     t.boolean "send_mail_flag"
     t.string "vender"
     t.string "other"
+    t.string "word"
   end
 
   create_table "messages", force: :cascade do |t|

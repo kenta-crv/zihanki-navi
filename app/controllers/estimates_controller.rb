@@ -3,12 +3,13 @@ class EstimatesController < ApplicationController
 
   def index
     @estimates = Estimate.order(created_at: "DESC").page(params[:page]).per(50)
-    respond_to do |format|
-      format.html
-      format.csv do
-        send_data @estimates.generate_csv, filename: "estimates-#{Time.zone.now.strftime('%Y%m%d%S')}.csv"
-      end
-    end
+
+    #respond_to do |format|
+    #  format.html
+    #  format.csv do
+    #    send_data @estimates.generate_csv, filename: "estimates-#{Time.zone.now.strftime('%Y%m%d%S')}.csv"
+    #  end
+    #end
   end
 
   def new
@@ -106,7 +107,8 @@ class EstimatesController < ApplicationController
       :chenge, #自販機交換か
       :change_before, #交換前自販機
       :period, #設置希望時期
-      :remarks #要望
+      :remarks, #要望
+      :word
     )
   end
 end
