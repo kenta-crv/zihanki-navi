@@ -22,6 +22,10 @@ Rails.application.routes.draw do
   get 'dydo' => 'top#dydo'
   get 'kirin' => 'top#kirin'
 
+  get 'question' => 'top#question'
+  get 'company' => 'top#company'  #会社概要
+  get 'privacy' => 'top#privacy' #プライバシーポリシー
+
   resources :columns
 
   resources :estimates do
