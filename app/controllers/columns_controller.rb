@@ -1,7 +1,8 @@
 class ColumnsController < ApplicationController
 before_action :authenticate_admin!, except: [:index, :show]
   def index
-    @columns = Column.order(created_at: "DESC").page(params[:page])
+    @type = params[:type]
+    @columns = @q.result.page(params[:page]).per(50)
   end
 
   def show

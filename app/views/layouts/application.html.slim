@@ -1,41 +1,39 @@
 doctype html
 html
   head
-      = render template: 'layouts/_head.html.slim'
-.colacola
+    = render template: 'layouts/_header.html.slim'
   header
-      .row
-        .col-xs-3
-           = link_to "/"
-            =image_tag "rogo.webp", class:"header-image", alt:"自動販売機の設置なら一括見積もりの自販機ねっと"
-        .col-xs-7
-         h1.header 自動販売機の設置なら一括見積もりの自販機ねっと
-        .col-xs-2
-                .navToggle
-                  span
-                  span
-                  span
-                  span menu
-      .row.navi
-        .col-xs-12.center.hidden-xs
+   .row
+     .col-xs-3
+       = link_to "https://eatery-japan.com/" do
+        = image_tag 'rogo.webp',  class:"menu", alt:"eatery japanロゴ"
+     .col-xs-6
+       .search2.center.height
+        = search_form_for @q do |f|
+         = f.search_field :title_cont, type: "text", class:"window"
+         = f.submit "検索", class:"submit-button"
+     .col-xs-3
+         = link_to "https://xn--new351c2sh.net/estimates/new", target:"_blank" do
+           = image_tag "estimate.webp", width:"220px"
+   .row.navi
+    .col-xs-.border-line
 
-
-
+  br
+  br
+  br
   body
-    /! Google Tag Manager (noscript)
-    noscript
-    iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-TVV7GHQ" style="display:none;visibility:hidden" width="0"
-    /! End Google Tag Manager (noscript)
+   .row
+    .col-sm-8
+     = yield
+    .col-sm-4
+     = render template: 'layouts/_sidenavi.html.slim'
+   br
+   /footer
+    / = render template: 'layouts/_footer.html.slim'
 
-    p.notice
-      = notice
-    p.alert
-      = alert
-    main
-      .bread
-        = render_breadcrumbs separator: ' > '
-      = yield
-  br
-  br
-  footer
-   = render template: 'layouts/_footer.html.slim'
+
+
+   script[async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]
+   ins.adsbygoogle[style="display:block" data-ad-client="ca-pub-1521725371318355" data-ad-slot="9032977796" data-ad-format="auto" data-full-width-responsive="true"]
+   script
+    |  (adsbygoogle = window.adsbygoogle || []).push({});

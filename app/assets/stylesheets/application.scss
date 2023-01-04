@@ -14,3 +14,849 @@
  *= require_tree .
  *= require_self
  */
+
+
+ // Place all the styles related to the messages controller here.
+ // They will automatically be included in application.css.
+ // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+ $main_color: #327BEE;
+ $sub_color: #327BEE;
+ $asort_color: #327BEE;
+
+ body {
+   font-family: "ヒラギノ角ゴ Pro W3";
+   width:100%;
+ }
+
+ /*フォントの指定はなし*/
+ a {
+   text-decoration: none;
+ }
+ * {
+   box-sizing: border-box;
+ }
+
+.back-image-app {
+  background-image: url('base.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  padding-bottom:50px;
+  margin-top:-22px;
+}
+
+.main-wrapper {/*親div*/
+  position: relative;/*相対配置*/
+  }
+
+.main-wrapper .search2 {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  width:80%;
+  line-height:5vw;
+  margin:30px;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  padding:10px;
+  /*文字の装飾は省略*/
+  }
+
+  .form-height {margin:10px;}
+  .main-wrapper img {width: 100%;}
+
+  .submit{
+  	display:block;
+  	width:100px;
+  	height:42px;
+  	color:#fff;
+  	line-height:40px;
+  	text-align:center;
+  	background-color:$main_color;
+  	border:1px solid #c66;
+  }
+
+
+.store_index {
+  padding-top:10px;
+  padding-left:20px;
+  a {
+    text-decoration: none;
+    color:black;
+  }
+  .store {
+    padding-left:25px;
+    font-weight:bold;
+    font-size:35px;
+  }
+  .genre {margin-left:25px;}
+  .index-text {
+    padding-left:25px;
+    font-size:28px;
+    color:#555;
+    margin-top:30px;
+    margin-bottom:30px;
+  }
+  .eatery-store {
+    padding-left:25px;
+    font-weight:bold;
+    font-size:25px;
+  }
+  .store-address {
+    padding-left:25px;
+    font-size:18px;
+    color:#555;
+  }
+}
+
+
+
+
+.store_review {
+  margin:10px 25px 5px;
+  @media screen and ( max-width:479px ){text-align: center;}
+  a {
+    text-decoration: none;
+    color:black;
+  }
+  .store {
+    font-weight:bold;
+    font-size:1.6rem;
+    @media screen and ( max-width:479px ){font-size:1.8rem;}
+  }
+  .genre {margin-left:25px;}
+  .index-text {
+    padding-left:25px;
+    font-size:28px;
+    color:#555;
+    margin-top:30px;
+    margin-bottom:30px;
+  }
+  .description{
+    font-size:1.1rem;
+    @media screen and ( max-width:479px ){font-size:1.2rem;}
+  }
+}
+
+
+/*検索窓*/
+.window {
+  width:50%;
+  padding:5px;
+  margin:3px;}
+
+.index-wrapper{
+  margin-top:-50px;
+  .all-width {
+    margin-right:40px;
+  }
+  .each-width {
+    padding-left:20px;
+    width:"80%";
+  }
+  .column-title {
+    font-size:18px;
+    margin-top:8px;
+    margin-left:5px;
+
+    * {box-sizing: border-box;}
+    a {text-decoration: none;}
+    .none {display: none;}
+    a:link, a:visited, a:hover, a:active {
+      color: #444;
+      font-weight:bold;
+    }
+  }
+  .description{
+    margin-top:-5px;
+    margin-left:5px;
+    @media screen and ( max-width:479px ){font-size:1.2rem;}
+  }
+}
+
+
+                                          /*ヘッダーの始まり*/
+
+
+ /*ヘッダーのベース設定*/
+ header {
+   width:100%;
+   background-color:white;
+   position: sticky;
+   top: 0;
+   z-index:150;
+   .menu {
+     width:100%;
+     max-width: 200px;
+     height: auto;
+     @media screen and ( max-width:479px ){font-size:2.0rem;}
+   }
+   .border-line {
+     height:30px;
+     background-color:$main_color;
+   }
+   .height {
+     margin: auto 0;
+     padding-top:5px;
+     padding-left:5px;
+   }
+
+
+ /*ハンバーガーナビ*/
+ nav.globalMenuSp {
+     position: fixed;
+     z-index: 2;
+     top: 0;
+     left: 0;
+     background: $main_color;
+     color: #fff;
+     text-align: center;
+     transform: translateY(-100%);
+     transition: all 0.3s;
+     width: 100%;
+ }
+
+ nav.globalMenuSp ul {
+     background: $main_color;
+     margin: 0 auto;
+     padding: 0;
+     width: 100%;
+ }
+
+ nav.globalMenuSp ul li {
+     font-size: 1.1em;
+     list-style-type: none;
+     padding: 0;
+     width: 100%;
+     border-bottom: 1px dotted #333;
+ }
+
+ /* 最後はラインを描かない */
+ nav.globalMenuSp ul li:last-child {
+     padding-bottom: 0;
+     border-bottom: none;
+ }
+
+ nav.globalMenuSp ul li a {
+     display: block;
+     color: #444;
+     padding: 1em 0;
+ }
+
+ /* このクラスを、jQueryで付与・削除する */
+ nav.globalMenuSp.active {
+     transform: translateY(0%);
+ }
+
+
+ .navToggle {
+     display: block;
+     position: fixed;    /* bodyに対しての絶対位置指定 */
+     right: 30px;
+     top: 12px;
+     width: 42px;
+     height: 51px;
+     cursor: pointer;
+     z-index: 3;
+     background: $main_color;
+     text-align: center;
+ }
+
+ .navToggle span {
+     display: block;
+     position: absolute;    /* .navToggleに対して */
+     width: 30px;
+     border-bottom: solid 3px #eee;
+     -webkit-transition: .35s ease-in-out;
+     -moz-transition: .35s ease-in-out;
+     transition: .35s ease-in-out;
+     left: 6px;
+ }
+
+ .navToggle span:nth-child(1) {
+     top: 9px;
+ }
+
+ .navToggle span:nth-child(2) {
+     top: 18px;
+ }
+
+ .navToggle span:nth-child(3) {
+     top: 27px;
+ }
+
+ .navToggle span:nth-child(4) {
+     border: none;
+     color: #000;
+     font-size: 9px;
+     font-weight: bold;
+     top: 34px;
+ }
+
+ /* 最初のspanをマイナス45度に */
+ .navToggle.active span:nth-child(1) {
+     top: 18px;
+     left: 6px;
+     -webkit-transform: rotate(-45deg);
+     -moz-transform: rotate(-45deg);
+     transform: rotate(-45deg);
+ }
+
+ /* 2番目と3番目のspanを45度に */
+ .navToggle.active span:nth-child(2),
+ .navToggle.active span:nth-child(3) {
+     top: 18px;
+     -webkit-transform: rotate(45deg);
+     -moz-transform: rotate(45deg);
+     transform: rotate(45deg);
+ }
+
+
+ }
+
+
+
+ /*ディテール*/
+ .error {
+     font-size:12px;
+     font-weight: bold;
+     color: tomato;
+ }
+ .command {
+    font-size:10px;
+ }
+
+
+
+
+ /*見出し*/
+ 	.headline {
+ 		padding: 0.6em 0.6em;/*文字の上下 左右の余白*/
+ 		color: $main_color;/*文字色*/
+ 		background: #fff;/*背景色*/
+ 		border-left: solid 5px $main_color;/*左線*/
+ 		border-bottom: solid 3px #d7d7d7;/*下線*/
+ 		text-align:left;
+ 		padding-left:30px;
+ 		margin:30px auto;
+ 		width:95%;
+ 		font-size:21px;
+ 		font-weight:bold;
+ 	    }
+ 	.center {
+ 	    text-align:center;
+      margin:0 autos;
+ 	}
+
+
+
+
+ .cp_ipselect {
+ 	overflow: hidden;
+ 	width: 80%;
+ 	margin:1.7rem auto;
+  margin-top:20px;
+  padding:7px;
+  color:white;
+  font-weight:bold;
+ 	text-align: center;
+ }
+ .cp_ipselect select {
+ 	width: 100%;
+ 	padding-right: 1em;
+ 	cursor: pointer;
+ 	text-indent: 0.01px;
+ 	text-overflow: ellipsis;
+ 	border: none;
+ 	outline: none;
+ 	background: transparent;
+ 	background-image: none;
+ 	box-shadow: none;
+ 	-webkit-appearance: none;
+ 	appearance: none;
+ }
+ .cp_ipselect select::-ms-expand {
+     display: none;
+ }
+ .cp_ipselect.cp_sl05 {
+ 	position: relative;
+ 	border-radius: 2px;
+  border-radius: 50px;
+ 	background: $main_color;
+ }
+ .cp_ipselect.cp_sl05::before {
+ 	position: absolute;
+ 	top: 0.8em;
+ 	right: 0.8em;
+ 	width: 0;
+ 	height: 0;
+ 	padding: 0;
+ 	content: '';
+ 	border-left: 6px solid transparent;
+ 	border-right: 6px solid transparent;
+ 	border-top: 6px solid #ffffff;
+ 	pointer-events: none;
+ }
+ .cp_ipselect.cp_sl05 select {
+ 	padding: 8px 38px 8px 8px;
+ 	color: #ffffff;
+ }
+
+.submit-button {
+ outline : none;width: 3.5em;
+ border-radius : 3%;          /* 角丸       */
+ font-size     : 14pt;        /* 文字サイズ */
+ text-align    : center;      /* 文字位置   */
+ cursor        : pointer;     /* カーソル   */
+ padding       : 5px 5px;   /* 余白       */
+ background    : blue;     /* 背景色     */
+ color         : #ffffff;     /* 文字色     */
+ line-height   : 1em;         /* 1行の高さ  */
+ transition    : .3s;         /* なめらか変化 */
+ box-shadow    : 4px 4px 3px #0000B5;  /* 影の設定 */
+ border        : 2px solid #0000B5;    /* 枠の指定 */
+ margin        : 7px ;
+}
+.submit-button:hover {
+ box-shadow    : none;        /* カーソル時の影消去 */
+ color         : white;     /* 背景色     */
+ background    : #0A0899;     /* 文字色     */
+}
+
+
+                                             /*テーブルに関する情報*/
+/*テーブル共通*/
+table.company {
+   width: 90%;
+   margin: 0 auto;
+   border-collapse: separate;
+   border-spacing: 0px 15px;
+   font-size: 1.5vw;
+   img{ width:100px;
+   @media screen and ( max-width:479px ){width:40px;}}
+   th, td { padding: 10px; }
+
+   th {
+      background: $main_color;
+      vertical-align: middle;
+      text-align: left;
+      overflow: visible;
+      position: relative;
+      color: #fff;
+      font-weight: normal;
+      font-size: 2.0vw;
+      @media screen and ( max-width:479px ){
+          font-size:15px;
+          text-align: center; }
+
+
+      :after {
+         left: 100%;
+         top: 50%;
+         border: solid transparent;
+         content: " ";
+         height: 0;
+         width: 0;
+         position: absolute;
+         pointer-events: none;
+         border-color: rgba(136, 183, 213, 0);
+         border-left-color: $main_color;
+         border-width: 10px;
+         margin-top: -10px;
+         }
+      }
+   td {
+      background: #f4f4f4;
+      }
+   th.review-index-text{
+     font-size:14px;
+   }
+   .index-red{
+     font-size:13px;
+     color:red;
+     font-weight:bold;
+   }
+}
+
+
+ /*hr*/
+ .line {
+     height:5px;
+     background: $main_color;
+     background-image: -webkit-linear-gradient(left, #eee, $main_color, #eee);
+     background-image: -moz-linear-gradient(left, #eee, $main_color, #eee);
+     background-image: -ms-linear-gradient(left, #eee, $main_color, #eee);
+     background-image: -o-linear-gradient(left, #eee, $main_color, #eee);
+     width:90%;
+ }
+
+
+
+
+ /*posts index*/
+    .post-index-image {
+ 	   width:200px;
+         }
+ 		.post-space {
+ 			margin-bottom:10px;
+ 				}
+     .post-base {
+       	a, a:visited {color : #000;}
+ 	    padding-left:20px;
+ 	    .post-title {
+ 	        font-size:2rem;
+ 	        color:black;
+ 	        width:95%;
+ 	        font-weight:bold;
+ 	        }
+ 	    .post-description {
+ 	      	margin-top:10px;
+ 	        font-size:1rem;
+ 	    	  color:gray;
+ 	    	  font-weight:bold;
+ 	      	width:95%;
+ 	        }
+      }
+
+
+  .label {
+    background: red;
+
+  }
+
+  .label-blue {
+    background: blue;
+  }
+
+  input {
+    width:90%;
+  }
+  textarea {
+    width:90%;
+    line-height: 1.5em;
+  }
+
+
+  .swiper-container {
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0;
+    height: 40vw;
+    max-height:400px; //最大の高さ
+    min-height: 300px; //最小の高さ
+
+    .swiper-slide {
+      text-align: center;
+      line-height: 1;
+      display: flex;
+      align-items: flex-start; //画像の高さを統一させない
+      justify-content: center; //左右の中央揃え
+
+      img {
+        display: inline; //念のため
+        width: auto; //念のため
+        max-width:100%;
+        max-height:100%;
+        align-self: center; //上下の中央揃え
+
+      }
+    }
+    .swiper-button-white {
+      &:focus {
+        outline: none;
+      }
+    }
+    .swiper-button-prev {
+      left: 25px;
+    }
+    .swiper-button-next {
+      right: 25px;
+    }
+  }
+
+
+.red {
+  font-size:1.5em;
+  font-weight:bold;
+  color:red;
+  @media screen and ( max-width:479px ){font-size:2.0rem;}
+}
+
+.index-image {
+  padding-top:15px;
+  width:110%;
+  @media screen and ( max-width:479px ){width:85%;}
+}
+
+.harf {width:45%;}
+.address {width:14%;}
+
+
+/*btn*/
+
+.btn-border {
+  display: inline-block;
+  width: 80%;
+  text-align: center;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  transition: 1.0s;
+  background-color: $main_color;
+  color: #FFF;
+}
+
+.btn-border:hover {
+  border: 2px solid $main_color;
+  color: $main_color;
+  background-color: white;
+}
+
+/*btn*/
+
+.btn-border-tel {
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  transition: 1.0s;
+  background-color: $main_color;
+  color: #FFF;
+}
+
+.btn-border-tel:hover {
+  border: 2px solid $main_color;
+  color: $main_color;
+  background-color: white;
+}
+
+/*画像を乗せる　reviews側*/
+
+.put {/*親div*/
+  position: relative;/*相対配置*/
+  }
+
+.put p.prefecture {
+  position: absolute;/*絶対配置*/
+  color: white;/*文字は白に*/
+  font-weight: bold;
+  top: 0;
+  left: 0;
+  background-color:$main_color;
+  padding:2px 10px;
+  @media screen and ( max-width:479px ){
+        margin-top: 15px;
+        margin-left: 44px;}
+  }
+
+.put p.genre {
+  position: absolute;/*絶対配置*/
+  color: white;/*文字は白に*/
+  font-weight: bold;
+  top: 0;
+  right: 0;
+  max-width:50%;
+  background-color:rgba(238, 120, 0, 0.7);
+  padding:2px 10px;
+  @media screen and ( max-width:479px ){
+        margin-top: 15px;
+        margin-right: 44px;}
+  }
+
+.put img {
+  width: 100%;
+  @media screen and ( max-width:600px ){width:85%;}
+  }
+
+
+/*eatery側*/
+.put2 {/*親div*/
+  position: relative;/*相対配置*/
+  }
+
+.put2 p.prefecture {
+  position: absolute;/*絶対配置*/
+  color: white;/*文字は白に*/
+  font-weight: bold;
+  top: 0;
+  left: 0;
+  background-color:rgba(238, 120, 0, 0.7);
+  padding:2px 10px;
+  }
+
+.put2 p.genre {
+  position: absolute;/*絶対配置*/
+  color: white;/*文字は白に*/
+  font-weight: bold;
+  top: 0;
+  right: 0;
+  max-width:50%;
+  background-color:rgba(238, 120, 0, 0.7);
+  padding:2px 10px;
+  }
+
+.put2 img {
+  width: 100%;
+  @media screen and ( max-width:600px ){width:85%;}
+  }
+.put3 img {
+  width: 80%;
+  @media screen and ( max-width:600px ){width:80%;}
+  }
+
+.eateries-image-width{width:70%;}
+
+
+
+/*posts show*/
+#review-detail{
+	margin:-10px 20px;
+	 .headline-first {
+       color:black;
+       font-weight:bold;
+			 font-size:3.0rem;
+			 @media screen and ( max-width:479px ){font-size:2.0rem;}
+	    }
+	 .headline-first:first-letter {
+       color:$main_color;
+       font-size:3.5rem;
+			 @media screen and (max-width:479px ){fint-size:1.8rem;}
+       }
+
+    h2 {
+		padding: 0.6em 0.6em;/*文字の上下 左右の余白*/
+		color: #494949;/*文字色*/
+		background: #f4f4f4;/*背景色*/
+		border-left: solid 5px $main_color;/*左線*/
+		border-bottom: solid 3px #d7d7d7;/*下線*/
+		text-align:left;
+		padding-left:30px;
+		margin:0px auto;
+		width:95%;
+		font-size:21px;
+		font-weight:bold;
+    }
+
+    h3 {
+		padding: 0.6em 0.6em;/*文字の上下 左右の余白*/
+		color: #494949;/*文字色*/
+		background: #f4f4f4;/*背景色*/
+		border-left: solid 5px $main_color;/*左線*/
+		border-bottom: solid 3px #d7d7d7;/*下線*/
+		text-align:left;
+		padding-left:30px;
+		margin:0px auto;
+		width:95%;
+		font-size:21px;
+		font-weight:bold;
+    }
+     h4 {
+        position: relative;
+        display: inline-block;
+        padding: 0 55px;
+        font-size:20px;
+        font-weight:bold;
+        text-align:left;
+        padding-left:70px;
+       }
+     h4:before, h4:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        display: inline-block;
+        width: 45px;
+        height: 2px;
+        border-top: solid 2px $main_color;
+        border-bottom: solid 2px $main_color;
+        }
+     h4:before {
+       left:0;
+        }
+     h4:after {
+        right: 0;
+        }
+    h5 {
+       color: $main_color;
+       margin-left:60px;
+       border: dotted $main_color 2px;/*ドット 色 太さ*/
+       padding: 0.5em 0.5em 0.5em 2em;
+       line-height: 1.5;
+       width:60%;
+       text-align:left;
+         }
+    .body-base {
+      padding:20px 30px 0;
+      line-height:1.7vem;
+      text-align:left;
+      font-size:16px;
+    }
+
+ }
+
+ .c{
+   width :250px;
+ }
+
+ footer {
+     width:100%;
+
+     background-color:#FFF0CF;
+     padding:30px;
+     text-align:center;
+     margin:0 auto 0;
+
+    .underline{
+      border-bottom: 1px solid #999; /* 下側の1本線 */
+      width:100%;
+      padding-left:30px;
+      padding-bottom:10px;
+      margin-bottom:20px;
+    }
+
+    ul {
+     display:inline-block;
+    }
+
+    li {
+       text-align:left;
+       padding:3px 25px ;
+    }
+
+ }
+
+
+.situation{
+  font-size:14px;
+}
+
+
+.main-left {
+  margin-left: 30px;
+}
+ul {
+  width:90%;
+  color: #668ad8;/*文字色*/
+  background: #f1f8ff; /*背景色*/
+  padding: 0.5em 0.5em 0.5em 2em;
+  margin-left:20px;
+
+  ul li {
+    line-height: 2.5;
+    padding: 0.5em 0;
+  }
+
+  h2 {font-size:16px; padding-left:0px;}
+  h3 {font-size:14px; padding-left:10px;}
+  h3 {font-size:12px; padding-left:20px;}
+}

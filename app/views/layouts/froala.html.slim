@@ -1,104 +1,42 @@
 doctype html
 html
   head
-      = render template: 'layouts/_froala.html.slim'
-
+    = render template: 'layouts/_header.html.slim'
   header
-      .row
-        .col-xs-3
-           = link_to "/"
-            =image_tag "rogo.webp", class:"header-image", alt:"自動販売機の設置なら一括見積もりの自販機ねっと"
-        .col-xs-7
-         h1.header 自動販売機の設置なら一括見積もりの自販機ねっと
-        .col-xs-2
-                .navToggle
-                  span
-                  span
-                  span
-                  span menu
-      .row.navi
-        .col-xs-12.center.hidden-xs
-          /ul#dropmenu
-           li
-             = link_to  'トップページ', '/' , class: "col-md"
-           li
-             = link_to  '人材企業サーチ', '/lists' , :class=>"col-md"
-           li
-             = link_to  '記事一覧', '/posts' , :class=>"col-md"
-           li
-             = link_to  'よくある質問', '/faq' , :class=>"col-md"
-           li
-             = link_to  '会社概要', '/co' , :class=>"col-md"
-           li
-             = link_to  '問い合わせ', '/contact' , :class=>"col-md"
-           li
-             = link_to  '会員案内', '/contact', :class=>"col-md"
-             ul
-                 li
-                   - if user_signed_in?
-                    = link_to "マイページ", user_path(current_user)
-                   - else
-                    = link_to '相談者ログイン', new_user_session_path , :class=>"col-md"
-                 li
-                   - if member_signed_in?
-                    = link_to 'マイページ', member_path(current_member)
-                   - else
-                    = link_to '参画企業ログイン', new_member_session_path , :class=>"col-md"
-                 li
-                   - if worker_signed_in?
-                    = link_to 'マイページ', worker_path(current_worker)
-                   - else
-                    = link_to '作業者ログイン', new_worker_session_path , :class=>"col-md"
-                 li
-                   - if admin_signed_in?
-                    = link_to 'マイページ', admin_path(current_admin)
+   .row
+     .col-xs-3
+       = link_to "https://eatery-japan.com/" do
+        = image_tag 'rogo.webp',  class:"menu", alt:"eatery japanロゴ"
+     .col-xs-6
+       .search2.center.height
+        = search_form_for @q do |f|
+         = f.search_field :title_cont, type: "text", class:"window"
+         = f.submit "検索", class:"submit-button"
+     .col-xs-3
+         = link_to "https://xn--new351c2sh.net/estimates/new", target:"_blank" do
+           = image_tag "estimate.webp", width:"220px"
+   .row.navi
+    .col-xs-.border-line
 
-        /nav.globalMenuSp
-           ul
-            li
-              = link_to  'トップページ', '/' , class: "col-md"
-            li
-              = link_to  '人材企業サーチ', '/lists' , :class=>"col-md"
-            li
-              = link_to  '記事一覧', '/posts' , :class=>"col-md"
-            li
-              = link_to  'よくある質問', '/faq' , :class=>"col-md"
-            li
-              = link_to  '会社概要', '/co' , :class=>"col-md"
-            li
-              = link_to  '問い合わせ', '/contact' , :class=>"col-md"
-            li
-              - if user_signed_in?
-               = link_to "マイページ", user_path(current_user)
-              - else
-               = link_to '相談者ログイン', new_user_session_path , :class=>"col-md"
-            li
-              - if member_signed_in?
-               = link_to 'マイページ', member_path(current_member)
-              - else
-               = link_to '参画企業ログイン', new_member_session_path , :class=>"col-md"
-              - if worker_signed_in?
-            li
-              - if worker_signed_in?
-               = link_to 'マイページ', worker_path(current_worker)
-              - else
-               = link_to '作業者ログイン', new_worker_session_path , :class=>"col-md"
-            li
-              - if admin_signed_in?
-               = link_to 'マイページ', admin_path(current_admin)
-
-
+  br
+  br
+  br
   body
-    p.notice
-      = notice
-    p.alert
-      = alert
-    main
-      .bread
-        = render_breadcrumbs separator: ' > '
-      = yield
+   .row
+    .col-sm-12
 
-  br
-  br
-  footer
-   = render template: 'layouts/_footer.html.slim'
+   .row
+    .col-sm-8
+     = yield
+    .col-sm-4
+     = render template: 'layouts/_sidenavi.html.slim'
+   br
+   /footer
+    / = render template: 'layouts/_footer.html.slim'
+
+
+
+   script[async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]
+   ins.adsbygoogle[style="display:block" data-ad-client="ca-pub-1521725371318355" data-ad-slot="9032977796" data-ad-format="auto" data-full-width-responsive="true"]
+   script
+    |  (adsbygoogle = window.adsbygoogle || []).push({});

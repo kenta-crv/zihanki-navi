@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   include SessionHelper
   before_action :set_host
   before_action :set_footer
+  before_action :set_search
 
   # 例外処理
 
@@ -19,6 +20,12 @@ class ApplicationController < ActionController::Base
 
    def render_500
     render template: 'errors/error_500', status: 500, layout: 'application', content_type: 'text/html'
+   end
+
+   def set_search
+     @q = Column.ransack(params[:q])
+     @columns = @q.result
+     @columns = @columns.all.order(created_at: 'desc')
    end
 
    def set_footer
